@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#eaf6ff">
-<meta name="description" content="Lời cảm ơn và thiệp chúc mừng Ngày Quốc tế Nam giới 19/11.">
+<meta name="description" content="Thiệp chúc mừng Ngày Quốc tế Nam giới 19/11.">
 <title>Có các anh, hành trình thêm đáng nhớ</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,664 +13,479 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --navy: #1c4e73;
-  --blue: #237cb0;
-  --ink: #31556e;
-  --soft: #f2f9ff;
-  --muted: #688297;
-  --gold: #d7a650;
+:root{
+  --navy:#1c4e73;
+  --blue:#237cb0;
+  --ink:#31556e;
+  --muted:#688297;
+  --gold:#d7a650;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Montserrat, Arial, sans-serif;
-  color: var(--ink);
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Montserrat,Arial,sans-serif;
+  color:var(--ink);
   background:
-    radial-gradient(circle at 0 0, #dcefff, transparent 40%),
-    radial-gradient(circle at 100% 100%, #fff1d7, transparent 40%),
+    radial-gradient(circle at 0 0,#dcefff,transparent 40%),
+    radial-gradient(circle at 100% 100%,#fff1d7,transparent 40%),
     #f7fbff;
 }
-
-button, input {
-  font: inherit;
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible{
+  outline:3px solid #d9ab55;
+  outline-offset:3px;
+}
+[hidden]{display:none!important}
+.screen{
+  display:none;
+  min-height:100svh;
+  padding:66px 16px 45px;
+  align-items:center;
+  justify-content:center;
+}
+.screen.active{
+  display:flex;
+  animation:rise .55s ease both;
+}
+@keyframes rise{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.panel{
+  width:min(100%,1000px);
+  padding:clamp(19px,4vw,40px);
+  border-radius:27px;
+  background:#ffffffee;
+  border:1px solid #d9e9f3;
+  box-shadow:0 18px 55px #28577b20;
+  text-align:center;
+}
+.eyebrow{
+  font-size:11px;
+  line-height:1.8;
+  letter-spacing:.12em;
+  font-weight:800;
+  color:#4089b5;
+}
+h1,h2,h3,p{margin-top:0}
+h2{
+  font-size:clamp(23px,4vw,36px);
+  line-height:1.35;
+  color:var(--navy);
+  margin:8px 0 13px;
+}
+.desc{
+  max-width:720px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.85;
+  margin:0 auto 22px;
+}
+.actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+.btn{
+  border:0;
+  border-radius:999px;
+  min-height:46px;
+  padding:13px 21px;
+  background:#287eae;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  transition:transform .2s,background .2s;
+  box-shadow:0 8px 22px #195f8830;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  background:#1d638c;
+}
+.btn.alt{
+  background:#eaf3fa;
+  color:#295875;
+  box-shadow:none;
+}
+.btn:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+}
+.music{
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:90;
+  border:1px solid #d4e7f3;
+  border-radius:999px;
+  background:#ffffffed;
+  color:#275b7b;
+  padding:11px 15px;
+  font-weight:800;
+  font-size:12px;
+  box-shadow:0 8px 20px #1d527522;
 }
 
-button {
-  cursor: pointer;
+/* TRANG ĐẦU */
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#204b68;
+  color:#fff;
 }
-
-button:focus-visible,
-input:focus-visible {
-  outline: 3px solid #d9ab55;
-  outline-offset: 3px;
+.hero-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+  z-index:-3;
 }
-
-[hidden] {
-  display: none !important;
-}
-
-.screen {
-  display: none;
-  min-height: 100svh;
-  padding: 66px 16px 45px;
-  align-items: center;
-  justify-content: center;
-}
-
-.screen.active {
-  display: flex;
-  animation: rise .55s ease both;
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.panel {
-  width: min(100%, 1000px);
-  padding: clamp(19px, 4vw, 40px);
-  border-radius: 27px;
-  background: #ffffffee;
-  border: 1px solid #d9e9f3;
-  box-shadow: 0 18px 55px #28577b20;
-  text-align: center;
-}
-
-.eyebrow {
-  font-size: 11px;
-  line-height: 1.8;
-  letter-spacing: .12em;
-  font-weight: 800;
-  color: #4089b5;
-}
-
-h1, h2, h3, p {
-  margin-top: 0;
-}
-
-h2 {
-  font-size: clamp(23px, 4vw, 36px);
-  line-height: 1.35;
-  color: var(--navy);
-  margin: 8px 0 13px;
-}
-
-.desc {
-  max-width: 720px;
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.85;
-  margin: 0 auto 22px;
-}
-
-.actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 22px;
-}
-
-.btn {
-  border: 0;
-  border-radius: 999px;
-  min-height: 46px;
-  padding: 13px 21px;
-  background: #287eae;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 800;
-  transition: transform .2s, background .2s;
-  box-shadow: 0 8px 22px #195f8830;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  background: #1d638c;
-}
-
-.btn.alt {
-  background: #eaf3fa;
-  color: #295875;
-  box-shadow: none;
-}
-
-.btn:disabled {
-  opacity: .4;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.music {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  z-index: 90;
-  border: 1px solid #d4e7f3;
-  border-radius: 999px;
-  background: #ffffffed;
-  color: #275b7b;
-  padding: 11px 15px;
-  font-weight: 800;
-  font-size: 12px;
-  box-shadow: 0 8px 20px #1d527522;
-}
-
-/* ================================
-   1. TRANG MỞ ĐẦU
-================================ */
-
-.hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: #204b68;
-  color: #fff;
-}
-
-.hero-photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
-  z-index: -3;
-}
-
-.hero:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: linear-gradient(
-    180deg,
-    #06243825 0%,
-    #12384e72 40%,
-    #092b43ee 100%
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:linear-gradient(
+    180deg,#06243825 0%,#12384e72 40%,#092b43ee 100%
   );
 }
-
-.hero:after {
-  content: "";
-  position: absolute;
-  inset: -20%;
-  z-index: -1;
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  z-index:-1;
   background:
-    radial-gradient(
-      circle at 15% 25%,
-      #ffdf9d20,
-      transparent 26%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      #c0ebff25,
-      transparent 30%
-    );
-  animation: glow 8s ease-in-out infinite alternate;
-  pointer-events: none;
+    radial-gradient(circle at 15% 25%,#ffdf9d20,transparent 26%),
+    radial-gradient(circle at 85% 80%,#c0ebff25,transparent 30%);
+  animation:glow 8s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes glow{
+  from{opacity:.45;transform:scale(1)}
+  to{opacity:1;transform:scale(1.06)}
+}
+.hero-content{
+  width:min(100%,850px);
+  margin:auto;
+  text-align:center;
+  padding-top:min(28vh,260px);
+}
+.hero .eyebrow{color:#ffe1a7}
+.hero h1{
+  font-size:clamp(30px,6vw,62px);
+  line-height:1.22;
+  letter-spacing:-.03em;
+  margin:15px auto 20px;
+  text-shadow:0 4px 20px #072339a0;
+}
+.hero h1 span{color:#ffe3a7}
+.hero p{
+  max-width:660px;
+  margin:auto;
+  color:#eef6fc;
+  font-size:clamp(13px,1.8vw,16px);
+  line-height:1.95;
+}
+.hero .btn{
+  background:#fff;
+  color:#215879;
+}
+.hero-foot{
+  margin-top:21px;
+  font-size:11px;
+  color:#e7f1f9;
 }
 
-@keyframes glow {
-  from {
-    opacity: .45;
-    transform: scale(1);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1.06);
-  }
+/* 19 ẢNH KHÔNG CẮT */
+.photo-stage{
+  position:relative;
+  width:100%;
+  height:clamp(360px,62vw,680px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  border:1px solid #d7e7f1;
+  border-radius:20px;
+  background:linear-gradient(140deg,#eff7fc,#e4eff8);
+}
+.photo-stage img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.photo-stage img.reveal{
+  animation:photoAppear .7s ease both;
+}
+@keyframes photoAppear{
+  from{opacity:0;transform:scale(.985)}
+  to{opacity:1;transform:scale(1)}
+}
+.photo-counter{
+  position:absolute;
+  z-index:2;
+  right:12px;
+  top:12px;
+  background:#1b4967ce;
+  color:white;
+  font-weight:800;
+  font-size:11px;
+  border-radius:999px;
+  padding:8px 12px;
+}
+.photo-error{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background:#eaf4fa;
+  color:#6b879b;
+  padding:25px;
+  font-size:13px;
+  text-align:center;
+}
+.track{
+  height:5px;
+  margin:16px 0;
+  background:#e3eef4;
+  border-radius:999px;
+  overflow:hidden;
+}
+.fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#4badd2,#e6bb70);
+  transition:width .35s;
+}
+.story{
+  min-height:158px;
+  border-radius:18px;
+  padding:23px;
+  background:linear-gradient(125deg,#edf7ff,#fffbf3);
+  border:1px solid #deebf4;
+}
+.story h3{
+  font-size:clamp(18px,2.7vw,24px);
+  line-height:1.4;
+  color:#256084;
+  margin:0 0 11px;
+}
+.story p{
+  max-width:750px;
+  margin:0 auto;
+  font-size:clamp(13px,1.6vw,15px);
+  color:#526f82;
+  line-height:1.85;
+}
+.slide-status{
+  color:#70869a;
+  font-size:11px;
+  margin-top:14px;
 }
 
-.hero-content {
-  width: min(100%, 850px);
-  margin: auto;
-  text-align: center;
-  padding-top: min(28vh, 260px);
+/* POSTER NHẬP TÊN */
+.name-panel{max-width:800px}
+.poster-frame{
+  width:min(100%,420px);
+  margin:0 auto 25px;
+  padding:8px;
+  background:white;
+  border:1px solid #deecf5;
+  border-radius:20px;
+  box-shadow:0 11px 30px #2457771e;
+}
+.poster-frame img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  border-radius:14px;
+}
+.name-input{
+  width:min(100%,460px);
+  display:block;
+  margin:22px auto 9px;
+  padding:16px 20px;
+  border-radius:14px;
+  border:1.5px solid #c5dfed;
+  text-align:center;
+  background:#fff;
+  color:#245675;
+  font-size:15px;
+}
+.name-error{
+  min-height:19px;
+  font-size:12px;
+  color:#aa4255;
 }
 
-.hero .eyebrow {
-  color: #ffe1a7;
-}
-
-.hero h1 {
-  font-size: clamp(30px, 6vw, 62px);
-  line-height: 1.22;
-  letter-spacing: -.03em;
-  margin: 15px auto 20px;
-  text-shadow: 0 4px 20px #072339a0;
-}
-
-.hero h1 span {
-  color: #ffe3a7;
-}
-
-.hero p {
-  max-width: 660px;
-  margin: auto;
-  color: #eef6fc;
-  font-size: clamp(13px, 1.8vw, 16px);
-  line-height: 1.95;
-}
-
-.hero .btn {
-  background: #fff;
-  color: #215879;
-}
-
-.hero-foot {
-  margin-top: 21px;
-  font-size: 11px;
-  color: #e7f1f9;
-}
-
-/* ================================
-   2. TRÌNH CHIẾU 19 ẢNH
-   GIỮ NGUYÊN TỶ LỆ ẢNH NGANG/DỌC
-================================ */
-
-.photo-stage {
-  position: relative;
-  width: 100%;
-  height: clamp(360px, 62vw, 680px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border: 1px solid #d7e7f1;
-  border-radius: 20px;
-  background: linear-gradient(140deg, #eff7fc, #e4eff8);
-}
-
-.photo-stage img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-.photo-stage img.reveal {
-  animation: photoAppear .7s ease both;
-}
-
-@keyframes photoAppear {
-  from {
-    opacity: 0;
-    transform: scale(.985);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.photo-counter {
-  position: absolute;
-  z-index: 2;
-  right: 12px;
-  top: 12px;
-  background: #1b4967ce;
-  color: white;
-  font-weight: 800;
-  font-size: 11px;
-  border-radius: 999px;
-  padding: 8px 12px;
-}
-
-.photo-error {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  background: #eaf4fa;
-  color: #6b879b;
-  padding: 25px;
-  font-size: 13px;
-  text-align: center;
-}
-
-.track {
-  height: 5px;
-  margin: 16px 0;
-  background: #e3eef4;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.fill {
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, #4badd2, #e6bb70);
-  transition: width .35s;
-}
-
-.story {
-  min-height: 158px;
-  border-radius: 18px;
-  padding: 23px;
-  background: linear-gradient(125deg, #edf7ff, #fffbf3);
-  border: 1px solid #deebf4;
-}
-
-.story h3 {
-  font-size: clamp(18px, 2.7vw, 24px);
-  line-height: 1.4;
-  color: #256084;
-  margin: 0 0 11px;
-}
-
-.story p {
-  max-width: 750px;
-  margin: 0 auto;
-  font-size: clamp(13px, 1.6vw, 15px);
-  color: #526f82;
-  line-height: 1.85;
-}
-
-.slide-status {
-  color: #70869a;
-  font-size: 11px;
-  margin-top: 14px;
-}
-
-/* ================================
-   3. POSTER VÀ NHẬP TÊN
-================================ */
-
-.name-panel {
-  max-width: 800px;
-}
-
-.poster-frame {
-  width: min(100%, 420px);
-  margin: 0 auto 25px;
-  padding: 8px;
-  background: white;
-  border: 1px solid #deecf5;
-  border-radius: 20px;
-  box-shadow: 0 11px 30px #2457771e;
-}
-
-.poster-frame img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 14px;
-}
-
-.name-input {
-  width: min(100%, 460px);
-  display: block;
-  margin: 22px auto 9px;
-  padding: 16px 20px;
-  border-radius: 14px;
-  border: 1.5px solid #c5dfed;
-  text-align: center;
-  background: #fff;
-  color: #245675;
-  font-size: 15px;
-}
-
-.name-error {
-  min-height: 19px;
-  font-size: 12px;
-  color: #aa4255;
-}
-
-/* ================================
-   4. TRÁI TIM XANH NGỌC - VÀNG
-================================ */
-
-.heart-panel {
-  width: min(100%, 1080px);
+/* TRÁI TIM */
+.heart-panel{
+  width:min(100%,1080px);
   background:
-    radial-gradient(circle at 8% 0, #e9f6ff, transparent 37%),
-    radial-gradient(circle at 100% 95%, #fff5e3, transparent 38%),
+    radial-gradient(circle at 8% 0,#e9f6ff,transparent 37%),
+    radial-gradient(circle at 100% 95%,#fff5e3,transparent 38%),
     #fff;
 }
-
-.heart-hint {
-  font-size: 14px;
-  color: #6e8294;
-  line-height: 1.8;
-  margin: 0 auto 13px;
+.heart-hint{
+  font-size:14px;
+  color:#6e8294;
+  line-height:1.8;
+  margin:0 auto 13px;
+}
+.heart-button{
+  display:block;
+  width:min(100%,950px);
+  margin:0 auto;
+  border:0;
+  padding:0;
+  background:transparent;
+  filter:drop-shadow(0 14px 22px #3778a923);
+  transition:transform .2s;
+}
+.heart-button:hover{transform:scale(1.013)}
+.heart-button svg{
+  display:block;
+  width:100%;
+  height:auto;
+  overflow:visible;
+}
+.heart-name{
+  font-family:Montserrat,Arial,sans-serif;
+  font-weight:700;
+  fill:#226992;
+}
+.heart-name.leader{
+  font-weight:800;
+  fill:#155376;
+}
+.leader-plate{
+  fill:#fff8e9;
+  stroke:#e5ba72;
+  stroke-width:1.6;
+}
+.leader-underline{
+  stroke:#d5a457;
+  stroke-width:2.7;
+  stroke-linecap:round;
+}
+.sparkle{
+  fill:#e1b253;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:twinkle 3.5s ease-in-out infinite alternate;
+}
+.sparkle:nth-child(2n){animation-delay:1.4s}
+@keyframes twinkle{
+  from{opacity:.3;transform:scale(.7)}
+  to{opacity:1;transform:scale(1.1)}
+}
+.heart-recipient{
+  max-width:95%;
+  margin:10px auto 0;
+  display:inline-flex;
+  justify-content:center;
+  padding:12px 24px;
+  background:#f3f9ff;
+  border:1px solid #bfd9eb;
+  border-radius:999px;
+  color:#255e83;
+  font-size:clamp(13px,2vw,17px);
+  font-weight:800;
+  overflow-wrap:anywhere;
+}
+.heart-sub{
+  font-size:12px;
+  color:#8294a2;
+  margin:13px 0 0;
 }
 
-.heart-button {
-  display: block;
-  width: min(100%, 950px);
-  margin: 0 auto;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  filter: drop-shadow(0 14px 22px #3778a923);
-  transition: transform .2s;
-}
-
-.heart-button:hover {
-  transform: scale(1.013);
-}
-
-.heart-button svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.heart-name {
-  font-family: Montserrat, Arial, sans-serif;
-  font-weight: 700;
-  fill: #226992;
-}
-
-.heart-name.leader {
-  font-weight: 800;
-  fill: #155376;
-}
-
-.leader-plate {
-  fill: #fff8e9;
-  stroke: #e5ba72;
-  stroke-width: 1.6;
-}
-
-.leader-underline {
-  stroke: #d5a457;
-  stroke-width: 2.7;
-  stroke-linecap: round;
-}
-
-.sparkle {
-  fill: #e1b253;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: twinkle 3.5s ease-in-out infinite alternate;
-}
-
-.sparkle:nth-child(2n) {
-  animation-delay: 1.4s;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: .3;
-    transform: scale(.7);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-.heart-recipient {
-  max-width: 95%;
-  margin: 10px auto 0;
-  display: inline-flex;
-  justify-content: center;
-  padding: 12px 24px;
-  background: #f3f9ff;
-  border: 1px solid #bfd9eb;
-  border-radius: 999px;
-  color: #255e83;
-  font-size: clamp(13px, 2vw, 17px);
-  font-weight: 800;
-  overflow-wrap: anywhere;
-}
-
-.heart-sub {
-  font-size: 12px;
-  color: #8294a2;
-  margin: 13px 0 0;
-}
-
-/* ================================
-   5. THIỆP CHÚC MỪNG CÁ NHÂN
-================================ */
-
-.wish-card {
-  border-radius: 22px;
-  border: 1px solid #dce9f2;
-  padding:
-    clamp(28px, 5vw, 62px)
-    clamp(18px, 5vw, 52px);
+/* THIỆP CÁ NHÂN */
+.wish-card{
+  border-radius:22px;
+  border:1px solid #dce9f2;
+  padding:clamp(28px,5vw,62px) clamp(18px,5vw,52px);
   background:
-    radial-gradient(circle at 100% 0, #fff0d5, transparent 38%),
-    radial-gradient(circle at 0 100%, #e1f2fc, transparent 38%),
+    radial-gradient(circle at 100% 0,#fff0d5,transparent 38%),
+    radial-gradient(circle at 0 100%,#e1f2fc,transparent 38%),
     #fff;
 }
-
-.recipient {
-  color: #287aa7;
-  font-size: clamp(18px, 3vw, 27px);
-  font-weight: 800;
-  overflow-wrap: anywhere;
-  margin: 25px auto 20px;
+.recipient{
+  color:#287aa7;
+  font-size:clamp(18px,3vw,27px);
+  font-weight:800;
+  overflow-wrap:anywhere;
+  margin:25px auto 20px;
 }
-
-.wish-card h2 {
-  font-size: clamp(23px, 3.5vw, 34px);
+.wish-card h2{font-size:clamp(23px,3.5vw,34px)}
+.wish-message{
+  max-width:630px;
+  margin:auto;
+  color:#536e81;
+  font-size:clamp(13px,2vw,16px);
+  line-height:1.95;
+  white-space:pre-line;
 }
-
-.wish-message {
-  max-width: 630px;
-  margin: auto;
-  color: #536e81;
-  font-size: clamp(13px, 2vw, 16px);
-  line-height: 1.95;
-  white-space: pre-line;
+.sign{
+  font-size:11px;
+  color:#73899a;
+  line-height:1.9;
+  font-weight:700;
+  margin-top:34px;
 }
-
-.sign {
-  font-size: 11px;
-  color: #73899a;
-  line-height: 1.9;
-  font-weight: 700;
-  margin-top: 34px;
+.confetti{
+  position:fixed;
+  z-index:80;
+  top:-20px;
+  width:8px;
+  height:11px;
+  pointer-events:none;
+  border-radius:2px;
+  animation:fall var(--duration,2s) ease-out forwards;
 }
-
-/* ================================
-   HIỆU ỨNG
-================================ */
-
-.confetti {
-  position: fixed;
-  z-index: 80;
-  top: -20px;
-  width: 8px;
-  height: 11px;
-  pointer-events: none;
-  border-radius: 2px;
-  animation: fall var(--duration, 2s) ease-out forwards;
+@keyframes fall{
+  to{transform:translateY(105vh) rotate(650deg);opacity:0}
 }
-
-@keyframes fall {
-  to {
-    transform: translateY(105vh) rotate(650deg);
-    opacity: 0;
-  }
+.toast{
+  position:fixed;
+  z-index:120;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  background:#235473;
+  color:white;
+  padding:12px 17px;
+  border-radius:11px;
+  font-size:12px;
+  text-align:center;
+  max-width:90%;
 }
-
-.toast {
-  position: fixed;
-  z-index: 120;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
-  background: #235473;
-  color: #fff;
-  padding: 12px 17px;
-  border-radius: 11px;
-  font-size: 12px;
-  text-align: center;
-  max-width: 90%;
+@media(max-width:650px){
+  .screen{padding:66px 12px 35px}
+  .panel{padding:18px 13px}
+  .hero-content{padding-top:36vh}
+  .hero h1{font-size:clamp(30px,8vw,43px)}
+  .photo-stage{height:min(70svh,610px);min-height:340px}
+  .story{min-height:190px;padding:20px 14px}
+  .heart-panel{padding:20px 8px}
+  .heart-hint{font-size:12px}
 }
-
-/* ================================
-   GIAO DIỆN ĐIỆN THOẠI
-================================ */
-
-@media (max-width: 650px) {
-  .screen {
-    padding: 66px 12px 35px;
-  }
-
-  .panel {
-    padding: 18px 13px;
-  }
-
-  .hero-content {
-    padding-top: 36vh;
-  }
-
-  .hero h1 {
-    font-size: clamp(30px, 8vw, 43px);
-  }
-
-  .photo-stage {
-    height: min(70svh, 610px);
-    min-height: 340px;
-  }
-
-  .story {
-    min-height: 190px;
-    padding: 20px 14px;
-  }
-
-  .heart-panel {
-    padding: 20px 8px;
-  }
-
-  .heart-hint {
-    font-size: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *:before, *:after {
-    animation: none !important;
-    transition: none !important;
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
   }
 }
 </style>
@@ -678,37 +493,15 @@ h2 {
 
 <body>
 
-<!-- NHẠC -->
-<audio
-  id="audio"
-  src="./music.mp3"
-  loop
-  preload="none">
-</audio>
+<audio id="audio" src="./music.mp3" loop preload="none"></audio>
+<button id="musicBtn" class="music" type="button">Bật nhạc</button>
 
-<button
-  id="musicBtn"
-  class="music"
-  type="button">
-  Bật nhạc
-</button>
-
-<!-- ================================
-     TRANG 1. MỞ ĐẦU ẢNH TẬP THỂ
-================================ -->
-
+<!-- TRANG MỞ ĐẦU -->
 <section id="intro" class="screen hero active">
-
-  <img
-    class="hero-photo"
-    src="./anh-chung-tap-the.jpg"
-    alt="Ảnh tập thể đồng nghiệp">
+  <img class="hero-photo" src="./anh-chung-tap-the.jpg" alt="Ảnh tập thể công ty">
 
   <div class="hero-content">
-
-    <div class="eyebrow">
-      19.11.2026 · HAPPY INTERNATIONAL MEN'S DAY
-    </div>
+    <div class="eyebrow">19.11.2026 · HAPPY INTERNATIONAL MEN'S DAY</div>
 
     <h1>
       Có các anh,
@@ -717,18 +510,13 @@ h2 {
     </h1>
 
     <p>
-      Nhân ngày Quốc tế Nam giới, chúng mình muốn gửi
-      đến các anh một món quà nhỏ.
-      Những khoảnh khắc thân quen, vài lời cảm ơn
-      chân thành và một bất ngờ dành riêng
-      cho mỗi người.
+      Nhân ngày Quốc tế Nam giới, chúng mình muốn gửi đến các anh một món quà nhỏ.
+      Những khoảnh khắc thân quen, vài lời cảm ơn chân thành và một bất ngờ
+      dành riêng cho mỗi người.
     </p>
 
     <div class="actions">
-      <button
-        id="startBtn"
-        class="btn"
-        type="button">
+      <button id="startBtn" class="btn" type="button">
         Cùng xem lại những khoảnh khắc
       </button>
     </div>
@@ -736,49 +524,24 @@ h2 {
     <div class="hero-foot">
       Phúc Thiện · Phúc Thịnh · 3D Tech Vision
     </div>
-
   </div>
 </section>
 
-<!-- ================================
-     TRANG 2. TRÌNH CHIẾU 19 ẢNH
-================================ -->
-
+<!-- 19 ẢNH -->
 <section id="slides" class="screen">
   <div class="panel">
-
-    <div class="eyebrow">
-      NHỮNG KHOẢNH KHẮC ĐÁNG NHỚ
-    </div>
-
-    <h2>
-      Mỗi bức ảnh, một lời cảm ơn.
-    </h2>
+    <div class="eyebrow">NHỮNG KHOẢNH KHẮC ĐÁNG NHỚ</div>
+    <h2>Mỗi bức ảnh, một lời cảm ơn.</h2>
 
     <p class="desc">
       Có những điều thường ngày ít khi nói thành lời.
-      Hôm nay, chúng mình gửi đến các anh
-      qua từng bức ảnh.
+      Hôm nay, chúng mình gửi đến các anh qua từng bức ảnh.
     </p>
 
     <div id="photoStage" class="photo-stage">
-
-      <img
-        id="slideImg"
-        alt="Khoảnh khắc kỷ niệm của tập thể">
-
-      <div
-        id="photoError"
-        class="photo-error"
-        hidden>
-      </div>
-
-      <span
-        id="photoCount"
-        class="photo-counter">
-        01 / 19
-      </span>
-
+      <img id="slideImg" alt="Khoảnh khắc kỷ niệm của tập thể">
+      <div id="photoError" class="photo-error" hidden></div>
+      <span id="photoCount" class="photo-counter">01 / 19</span>
     </div>
 
     <div class="track">
@@ -795,38 +558,15 @@ h2 {
     </p>
 
     <div class="actions">
-
-      <button
-        id="prevBtn"
-        class="btn alt"
-        type="button">
-        Ảnh trước
-      </button>
-
-      <button
-        id="pauseBtn"
-        class="btn alt"
-        type="button">
-        Tạm dừng
-      </button>
-
-      <button
-        id="nextBtn"
-        class="btn"
-        type="button">
-        Ảnh tiếp theo
-      </button>
-
+      <button id="prevBtn" class="btn alt" type="button">Ảnh trước</button>
+      <button id="pauseBtn" class="btn alt" type="button">Tạm dừng</button>
+      <button id="nextBtn" class="btn" type="button">Ảnh tiếp theo</button>
     </div>
   </div>
 </section>
 
-<!-- ================================
-     TRANG 3. POSTER VÀ NHẬP TÊN
-================================ -->
-
+<!-- POSTER VÀ NHẬP TÊN -->
 <section id="name" class="screen">
-
   <div class="panel name-panel">
 
     <div class="poster-frame">
@@ -836,13 +576,8 @@ h2 {
         alt="Poster chào mừng Quốc tế Nam giới">
     </div>
 
-    <div class="eyebrow">
-      MỘT MÓN QUÀ RIÊNG DÀNH CHO ANH
-    </div>
-
-    <h2>
-      Đến lượt anh nhận thông điệp của mình.
-    </h2>
+    <div class="eyebrow">MỘT MÓN QUÀ RIÊNG DÀNH CHO ANH</div>
+    <h2>Đến lượt anh nhận thông điệp của mình.</h2>
 
     <p class="desc">
       Những lời cảm ơn là dành cho tất cả các anh.
@@ -858,39 +593,22 @@ h2 {
       autocomplete="name"
       placeholder="Nhập tên của anh tại đây">
 
-    <p
-      id="nameError"
-      class="name-error"
-      aria-live="polite">
-    </p>
+    <p id="nameError" class="name-error" aria-live="polite"></p>
 
     <div class="actions">
-      <button
-        id="createHeartBtn"
-        class="btn"
-        type="button">
+      <button id="createHeartBtn" class="btn" type="button">
         Nhận trái tim của anh
       </button>
     </div>
-
   </div>
 </section>
 
-<!-- ================================
-     TRANG 4. TRÁI TIM 33 HỌ TÊN
-================================ -->
-
+<!-- TRÁI TIM -->
 <section id="heart" class="screen">
-
   <div class="panel heart-panel">
 
-    <div class="eyebrow">
-      THÔNG ĐIỆP DÀNH RIÊNG CHO ANH
-    </div>
-
-    <h2>
-      Một trái tim, một lời gửi gắm.
-    </h2>
+    <div class="eyebrow">THÔNG ĐIỆP DÀNH RIÊNG CHO ANH</div>
+    <h2>Một trái tim, một lời gửi gắm.</h2>
 
     <p class="heart-hint">
       Chạm vào trái tim để nhận thông điệp.
@@ -906,29 +624,13 @@ h2 {
         id="heartSvg"
         viewBox="0 0 1200 1000"
         role="img"
-        aria-label="Trái tim kỷ niệm với tên các thành viên">
+        aria-label="Trái tim với 33 họ tên nhân sự nam">
 
         <defs>
-
-          <linearGradient
-            id="heartGradient"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1">
-
-            <stop
-              offset="0%"
-              stop-color="#eefaff"/>
-
-            <stop
-              offset="55%"
-              stop-color="#dff3fc"/>
-
-            <stop
-              offset="100%"
-              stop-color="#cce5f5"/>
-
+          <linearGradient id="heartGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#eefaff"/>
+            <stop offset="55%" stop-color="#dff3fc"/>
+            <stop offset="100%" stop-color="#cce5f5"/>
           </linearGradient>
 
           <clipPath id="heartClip">
@@ -937,51 +639,26 @@ h2 {
               C467 855 93 592 93 342
               C93 105 387 85 600 289
               C813 85 1107 105 1107 342
-              C1107 592 733 855 600 954 Z
-            "/>
+              C1107 592 733 855 600 954 Z"/>
           </clipPath>
-
         </defs>
 
-        <!-- SAO VÀ ĐIỂM SÁNG -->
-
         <g aria-hidden="true">
-
           <path class="sparkle"
             d="M95 125 L102 147 L124 154 L102 161 L95 183 L88 161 L66 154 L88 147 Z"/>
-
           <path class="sparkle"
             d="M1105 165 L1112 185 L1132 192 L1112 199 L1105 219 L1098 199 L1078 192 L1098 185 Z"/>
-
           <path class="sparkle"
             d="M56 535 L62 552 L79 558 L62 564 L56 581 L50 564 L33 558 L50 552 Z"/>
-
           <path class="sparkle"
             d="M1140 640 L1147 661 L1168 668 L1147 675 L1140 696 L1133 675 L1112 668 L1133 661 Z"/>
-
           <path class="sparkle"
             d="M222 858 L228 874 L244 880 L228 886 L222 902 L216 886 L200 880 L216 874 Z"/>
-
           <path class="sparkle"
             d="M962 878 L968 894 L984 900 L968 906 L962 922 L956 906 L940 900 L956 894 Z"/>
-
-          <circle
-            cx="158"
-            cy="745"
-            r="4"
-            fill="#d9b56d"
-            opacity=".8"/>
-
-          <circle
-            cx="1062"
-            cy="754"
-            r="4"
-            fill="#d9b56d"
-            opacity=".8"/>
-
+          <circle cx="158" cy="745" r="4" fill="#d9b56d" opacity=".8"/>
+          <circle cx="1062" cy="754" r="4" fill="#d9b56d" opacity=".8"/>
         </g>
-
-        <!-- HÌNH TRÁI TIM -->
 
         <path
           id="heartShape"
@@ -990,13 +667,10 @@ h2 {
             C467 855 93 592 93 342
             C93 105 387 85 600 289
             C813 85 1107 105 1107 342
-            C1107 592 733 855 600 954 Z
-          "
+            C1107 592 733 855 600 954 Z"
           fill="url(#heartGradient)"
           stroke="#72b4d9"
           stroke-width="5"/>
-
-        <!-- ĐƯỜNG VIỀN ÁNH SÁNG -->
 
         <path
           d="
@@ -1004,26 +678,17 @@ h2 {
             C471 834 113 579 113 343
             C113 129 397 108 600 307
             C803 108 1087 129 1087 343
-            C1087 579 729 834 600 936 Z
-          "
+            C1087 579 729 834 600 936 Z"
           fill="none"
           stroke="#ffffff"
           stroke-width="3"
           opacity=".5"/>
 
-        <!-- CÁC TÊN ĐƯỢC TẠO BẰNG JAVASCRIPT -->
-
-        <g
-          id="heartNames"
-          clip-path="url(#heartClip)">
-        </g>
-
+        <g id="heartNames" clip-path="url(#heartClip)"></g>
       </svg>
     </button>
 
-    <div
-      id="heartRecipient"
-      class="heart-recipient">
+    <div id="heartRecipient" class="heart-recipient">
       Gửi đến Anh trai
     </div>
 
@@ -1032,98 +697,57 @@ h2 {
     </p>
 
     <div class="actions">
-      <button
-        id="editNameBtn"
-        class="btn alt"
-        type="button">
+      <button id="editNameBtn" class="btn alt" type="button">
         Đổi tên
       </button>
     </div>
-
   </div>
 </section>
 
-<!-- ================================
-     TRANG 5. THIỆP CHÚC CÁ NHÂN
-================================ -->
-
+<!-- THIỆP CÁ NHÂN -->
 <section id="greeting" class="screen">
+  <div class="panel" style="max-width:790px">
 
-  <div
-    class="panel"
-    style="max-width:790px">
-
-    <div
-      id="wishCard"
-      class="wish-card">
-
+    <div id="wishCard" class="wish-card">
       <div class="eyebrow">
         HAPPY INTERNATIONAL MEN'S DAY · 19/11
       </div>
 
-      <div
-        id="recipient"
-        class="recipient">
-      </div>
+      <div id="recipient" class="recipient"></div>
 
-      <h2>
-        Chúc anh một ngày thật vui.
-      </h2>
+      <h2>Chúc anh một ngày thật vui.</h2>
 
-      <p
-        id="wishMessage"
-        class="wish-message">
-      </p>
+      <p id="wishMessage" class="wish-message"></p>
 
       <div class="sign">
         Với tất cả sự quý mến và trân trọng.
         <br>
-        Đại gia đình Phúc Thiện · Phúc Thịnh ·
-        3D Tech Vision
+        Đại gia đình Phúc Thiện · Phúc Thịnh · 3D Tech Vision
       </div>
-
     </div>
 
     <div class="actions">
-
-      <button
-        id="saveBtn"
-        class="btn"
-        type="button">
+      <button id="saveBtn" class="btn" type="button">
         Lưu thiệp PNG
       </button>
-
-      <button
-        id="backHeartBtn"
-        class="btn alt"
-        type="button">
+      <button id="backHeartBtn" class="btn alt" type="button">
         Xem lại trái tim
       </button>
-
-      <button
-        id="restartBtn"
-        class="btn alt"
-        type="button">
+      <button id="restartBtn" class="btn alt" type="button">
         Xem lại từ đầu
       </button>
-
     </div>
-
   </div>
 </section>
 
-<div
-  id="toast"
-  class="toast"
-  hidden>
-</div>
+<div id="toast" class="toast" hidden></div>
 
 <script>
 "use strict";
 
-/* ================================
-   DANH SÁCH 33 NHÂN SỰ NAM
-================================ */
+/* ==========================================
+   1. DANH SÁCH 33 NHÂN SỰ NAM
+========================================== */
 
 const TEAM_NAMES = [
   "Nguyễn Ngọc Tuấn",
@@ -1161,7 +785,7 @@ const TEAM_NAMES = [
   "Võ Minh Tân"
 ];
 
-/* BA TÊN LÃNH ĐẠO ĐƯỢC NHẤN MẠNH */
+/* BA LÃNH ĐẠO Ở TRUNG TÂM */
 
 const LEADERS = [
   "Hoàng Trung Việt",
@@ -1169,1085 +793,899 @@ const LEADERS = [
   "Võ Minh Tân"
 ];
 
-/* ================================
-   19 ẢNH - 19 LỜI CẢM ƠN
-================================ */
+/* SẮP XẾP THEO BẢNG CHỮ CÁI TIẾNG VIỆT */
+
+const VI_SORT = (a,b) => a.localeCompare(b,"vi",{
+  sensitivity:"base"
+});
+
+const NORMAL_NAMES = TEAM_NAMES
+  .filter(name => !LEADERS.includes(name))
+  .sort(VI_SORT);
+
+/* ==========================================
+   2. NỘI DUNG 19 ẢNH
+========================================== */
 
 const STORIES = [
-
   [
     "Cảm ơn vì luôn có mặt.",
     "Có những sự đồng hành không cần quá nhiều lời. Chỉ cần nhìn lại những khoảnh khắc này là đủ thấy các anh luôn là một phần đáng quý của tập thể."
   ],
-
   [
     "Mỗi người một dấu ấn riêng.",
     "Mỗi anh mang đến một màu sắc và một thế mạnh riêng. Chính những điều khác biệt ấy đã làm nên một tập thể gần gũi và đầy năng lượng."
   ],
-
   [
     "Sự tận tâm luôn đáng trân trọng.",
     "Đằng sau mỗi công việc hoàn thành là rất nhiều thời gian, sự tập trung và trách nhiệm. Cảm ơn các anh vì những nỗ lực bền bỉ mỗi ngày."
   ],
-
   [
     "Đồng hành để mọi thứ nhẹ nhàng hơn.",
     "Một lời hỏi thăm, một lần hỗ trợ đúng lúc hay một sự chủ động nhỏ cũng đủ làm cho ngày làm việc trở nên dễ chịu hơn."
   ],
-
   [
     "Tiếng cười cũng là một món quà.",
     "Không phải lúc nào chúng ta cũng nhớ hết những công việc đã làm, nhưng những tiếng cười và khoảnh khắc vui vẻ cùng nhau thường ở lại rất lâu."
   ],
-
   [
     "Cảm ơn những lần sẻ chia.",
     "Có những kinh nghiệm được truyền lại, những góp ý chân thành và những lần cùng nhau tìm cách giải quyết vấn đề. Tất cả đều đáng quý."
   ],
-
   [
     "Chung một hành trình.",
     "Dù ở vị trí nào, các anh vẫn đang cùng góp sức cho một chặng đường chung. Cảm ơn vì sự đồng lòng ấy."
   ],
-
   [
     "Sự vững vàng từ những điều giản dị.",
     "Giữ lời hứa, làm tốt phần việc của mình và luôn sẵn sàng khi đồng đội cần là những điều giản dị nhưng rất đáng trân trọng."
   ],
-
   [
     "Những điều nhỏ nhưng ấm áp.",
     "Một cử chỉ hỗ trợ, một lời động viên hay một nụ cười đúng lúc đều góp phần làm cho tập thể trở nên gắn bó hơn."
   ],
-
   [
     "Cùng nhau trưởng thành.",
     "Qua mỗi dự án và mỗi thử thách, chúng ta đều học thêm được điều gì đó. Thật vui vì hành trình ấy có sự đồng hành của các anh."
   ],
-
   [
     "Không chỉ là đồng nghiệp.",
     "Qua những lần gặp gỡ và những dịp quây quần, chúng ta hiểu nhau hơn một chút. Đó là điều làm cho những ngày đi làm có thêm nhiều ý nghĩa."
   ],
-
   [
     "Biết cổ vũ nhau là điều rất đẹp.",
     "Thành công của một người cũng có thể trở thành niềm vui của cả nhóm. Cảm ơn các anh vì tinh thần ghi nhận và cổ vũ nhau."
   ],
-
   [
     "Luôn sẵn sàng góp sức.",
     "Có những lúc công việc cần thêm một bàn tay, một ý tưởng hay một chút kiên nhẫn. Cảm ơn các anh vì đã luôn sẵn sàng chung tay."
   ],
-
   [
     "Giữ lại những khoảnh khắc đẹp.",
     "Mỗi tấm hình không chỉ lưu lại vài giây. Phía sau đó là những câu chuyện, những kỷ niệm và rất nhiều điều đáng nhớ."
   ],
-
   [
     "Cảm ơn sự kiên trì.",
     "Không phải ngày nào cũng thuận lợi, nhưng việc tiếp tục cố gắng và làm tốt hơn từng ngày là điều rất đáng ghi nhận."
   ],
-
   [
     "Niềm vui đến từ điều giản dị.",
     "Đôi khi chỉ là một buổi gặp mặt, một câu chuyện vui hay một lần cùng chụp ảnh. Những điều giản dị ấy lại tạo nên sự gắn kết."
   ],
-
   [
     "Mỗi đóng góp đều có ý nghĩa.",
     "Dù là một ý tưởng lớn hay một việc nhỏ được hoàn thành chu đáo, mọi đóng góp đều đang tạo nên kết quả chung."
   ],
-
   [
     "Thật vui vì được đồng hành.",
     "Một tập thể đáng nhớ không chỉ được tạo nên bởi công việc, mà còn bởi những con người đã cùng nhau đi qua nhiều dấu mốc."
   ],
-
   [
     "Và lời cảm ơn vẫn còn tiếp tục.",
     "Những bức ảnh không thể kể hết mọi điều đáng quý. Mong các anh luôn mạnh khỏe, vui vẻ và có thật nhiều điều tốt đẹp phía trước."
   ]
 ];
 
-/* ================================
-   LỜI CHÚC CÁ NHÂN
-================================ */
+/* ==========================================
+   3. LỜI CHÚC RIÊNG CHO 33 NHÂN SỰ
 
-const WISHES = [
+   MỖI NGƯỜI CÓ MỘT NỘI DUNG RIÊNG.
+   MỖI LẦN VÀO SẼ THAY ĐỔI PHIÊN BẢN.
+========================================== */
 
-  "Chúc anh luôn dồi dào sức khỏe, giữ được tinh thần lạc quan và sự nhiệt huyết trong những điều mình theo đuổi. Mong công việc thuận lợi, cuộc sống có thêm nhiều niềm vui và mỗi ngày đều mang đến một điều đáng mong chờ. Cảm ơn anh vì đã là một phần đáng quý của tập thể.",
+const PERSONAL_WISHES = {
+  "Nguyễn Ngọc Tuấn":
+    "Chúc anh luôn giữ được sự nhiệt tình và tinh thần tích cực trong công việc. Mong những dự định phía trước diễn ra thuận lợi, cuộc sống có thêm nhiều niềm vui và những khoảnh khắc đáng nhớ.",
 
-  "Nhân ngày 19/11, chúc anh thật nhiều sức khỏe, bình an và may mắn. Mong anh luôn có những người đồng hành tuyệt vời, có thời gian cho những điều mình yêu thích và tiếp tục gặt hái nhiều trải nghiệm đáng nhớ trong công việc lẫn cuộc sống.",
+  "Nguyễn Văn Nghĩa":
+    "Chúc anh thật nhiều sức khỏe, may mắn và luôn vững vàng trên hành trình mình lựa chọn. Mong mỗi ngày làm việc đều có thêm động lực, mỗi ngày nghỉ đều có những phút giây thật thoải mái.",
 
-  "Chúc anh một ngày 19/11 trọn vẹn niềm vui. Mong những dự định sắp tới đều thuận lợi, những nỗ lực được ghi nhận và cuộc sống luôn có đủ những khoảnh khắc thư thái, vui vẻ bên gia đình, bạn bè và đồng nghiệp.",
+  "Nguyễn Quốc Cường":
+    "Chúc anh luôn tràn đầy năng lượng, tự tin trước những cơ hội mới và gặp nhiều điều thuận lợi. Mong những nỗ lực của anh tiếp tục mang đến nhiều kết quả đáng tự hào.",
 
-  "Gửi đến anh lời chúc sức khỏe, niềm vui và thật nhiều năng lượng tích cực. Cảm ơn anh vì sự đồng hành, những đóng góp và cả những khoảnh khắc vui vẻ đã mang đến cho tập thể. Chúc anh luôn vững vàng và hạnh phúc theo cách riêng của mình.",
+  "Trương Như Trường":
+    "Chúc anh thật nhiều sức khỏe và giữ được tinh thần lạc quan trong mọi hoàn cảnh. Mong công việc luôn hanh thông, cuộc sống cân bằng và có thêm nhiều niềm vui giản dị mỗi ngày.",
 
-  "Mong anh luôn giữ được sự tự tin, nhiệt thành và một tinh thần thoải mái trước những thử thách mới. Chúc công việc hanh thông, cuộc sống cân bằng và có thêm nhiều cơ hội để làm những điều anh mong muốn."
+  "Nguyễn Ngọc Nam":
+    "Chúc anh luôn có thật nhiều năng lượng tích cực, sự kiên định và niềm vui trong công việc. Mong anh có thêm nhiều trải nghiệm thú vị, những cơ hội tốt và những ngày thật đáng nhớ.",
 
+  "Nguyễn Hữu Trí":
+    "Chúc anh luôn giữ được sự sáng tạo, tinh thần ham học hỏi và niềm hứng khởi trước những điều mới. Mong mọi dự định của anh đều có những bước tiến tốt đẹp.",
+
+  "Nguyễn Bá Tòng":
+    "Chúc anh luôn mạnh khỏe, bình an và gặp nhiều may mắn. Mong những điều anh dành tâm huyết sẽ ngày càng thuận lợi và cuộc sống luôn có nhiều khoảnh khắc vui vẻ bên những người thân yêu.",
+
+  "Hồ Anh Tuấn":
+    "Chúc anh luôn giữ được phong độ, sự tự tin và tinh thần vui vẻ trong mỗi ngày làm việc. Mong anh có thêm nhiều thành công, nhiều trải nghiệm đáng quý và thật nhiều niềm vui.",
+
+  "Đỗ Lộc Giang":
+    "Chúc anh thật nhiều sức khỏe, tinh thần thoải mái và luôn có những điều thú vị để mong chờ. Mong công việc thuận lợi, cuộc sống có thêm nhiều niềm vui và những kỷ niệm đẹp.",
+
+  "Nguyễn Khắc Duy":
+    "Chúc anh luôn giữ được sự nhiệt huyết, kiên trì và tinh thần tích cực. Mong mọi kế hoạch của anh đều tiến triển tốt đẹp, có thêm nhiều cơ hội phát triển và trải nghiệm mới.",
+
+  "Nguyễn Minh Trường":
+    "Nhân ngày Quốc tế Nam giới, kính chúc anh luôn dồi dào sức khỏe, nhiều niềm vui và mọi điều thuận lợi. Chúc anh tiếp tục vững vàng trong những định hướng tâm huyết và có thêm nhiều thành công đáng quý.",
+
+  "Hoàng Trung Việt":
+    "Nhân ngày Quốc tế Nam giới, kính chúc Chú Việt luôn mạnh khỏe, vui vẻ và bình an. Mong những dự định tâm huyết của Chú luôn thuận buồm xuôi gió, công việc nhiều thuận lợi và cuộc sống có thêm những khoảnh khắc thật ý nghĩa.",
+
+  "Nguyễn Nhật Trung":
+    "Chúc anh luôn tự tin, nhiệt thành và giữ được sự hào hứng trong những điều mình theo đuổi. Mong công việc có thêm nhiều cơ hội tốt và cuộc sống luôn tràn ngập những điều tích cực.",
+
+  "Đỗ Ngọc Dũng":
+    "Chúc anh thật nhiều sức khỏe, may mắn và có thêm những bước tiến mới. Mong mỗi ngày đều mang đến cho anh niềm vui, sự thoải mái và động lực để tiếp tục phát triển.",
+
+  "Phạm Đình Hùng":
+    "Chúc anh luôn mạnh khỏe, giữ được tinh thần vững vàng và sự nhiệt huyết. Mong những dự định sắp tới diễn ra suôn sẻ, công việc thuận lợi và gia đình luôn có nhiều niềm vui.",
+
+  "Trần Thái Dương":
+    "Chúc anh luôn tràn đầy năng lượng tích cực, tự tin và sẵn sàng đón nhận những cơ hội mới. Mong những nỗ lực của anh mang đến nhiều thành quả tốt đẹp.",
+
+  "Ngô Hoàng Sang":
+    "Chúc anh thật nhiều sức khỏe, niềm vui và những trải nghiệm thú vị. Mong công việc luôn có thêm những điều mới mẻ, cuộc sống cân bằng và mỗi ngày đều có một lý do để mỉm cười.",
+
+  "Nguyễn Lam Trường":
+    "Chúc anh luôn giữ được sự nhiệt tình, tinh thần vui vẻ và niềm tin vào những điều mình đang theo đuổi. Mong anh có thêm nhiều cơ hội phát triển và những khoảnh khắc đáng nhớ.",
+
+  "Trần Khánh Duy":
+    "Chúc anh luôn tự tin, năng động và giữ được tinh thần lạc quan. Mong những kế hoạch phía trước đều thuận lợi, công việc có nhiều niềm vui và cuộc sống thêm nhiều trải nghiệm ý nghĩa.",
+
+  "Huỳnh Kiết Lê":
+    "Chúc anh thật nhiều sức khỏe, may mắn và luôn có tinh thần thoải mái trong công việc. Mong những ngày sắp tới mang đến nhiều cơ hội tốt và những niềm vui bất ngờ.",
+
+  "Nguyễn Dũng":
+    "Chúc anh luôn mạnh khỏe, kiên định và có thêm nhiều động lực trong những điều mình theo đuổi. Mong công việc thuận lợi, cuộc sống bình an và có thêm nhiều khoảnh khắc đáng quý.",
+
+  "Trần Thanh":
+    "Chúc anh luôn giữ được sự tự tin, tinh thần tích cực và niềm vui trong công việc. Mong mỗi chặng đường mới đều mang đến những cơ hội tốt đẹp và nhiều trải nghiệm thú vị.",
+
+  "Huỳnh Quốc Hào":
+    "Chúc anh luôn dồi dào sức khỏe, may mắn và tràn đầy năng lượng. Mong công việc hanh thông, những kế hoạch cá nhân thuận lợi và cuộc sống có thêm nhiều niềm vui.",
+
+  "Phạm Minh Thông":
+    "Chúc anh thật nhiều sức khỏe, niềm vui và gặp nhiều may mắn. Mong công việc luôn thuận lợi, có thêm nhiều cơ hội học hỏi, trải nghiệm và phát triển theo cách riêng của mình.",
+
+  "Lương Nguyễn Hà Bình":
+    "Chúc anh luôn giữ được tinh thần lạc quan, sự kiên trì và niềm hứng khởi trong mỗi ngày làm việc. Mong cuộc sống có thêm nhiều khoảnh khắc bình yên, vui vẻ và đáng nhớ.",
+
+  "Lê Minh Hòa":
+    "Chúc anh thật nhiều sức khỏe, niềm vui và luôn có những người đồng hành tuyệt vời. Mong công việc thuận lợi, những dự định sớm thành hiện thực và cuộc sống luôn cân bằng.",
+
+  "Nguyễn Danh Hoài Bảo":
+    "Chúc anh luôn tự tin theo đuổi những mục tiêu của mình, giữ được tinh thần tích cực và sự nhiệt huyết. Mong những điều tốt đẹp sẽ đến từ chính những nỗ lực mỗi ngày.",
+
+  "Trần Thắng":
+    "Chúc anh thật nhiều sức khỏe, sự vững vàng và niềm vui trong cuộc sống. Mong mọi dự định đều thuận lợi, có thêm những thành quả đáng quý và những trải nghiệm mới.",
+
+  "Nguyễn Minh Quân":
+    "Chúc anh luôn tràn đầy năng lượng, tinh thần ham học hỏi và sự tự tin trước những thử thách mới. Mong công việc thuận lợi và có thêm nhiều cơ hội phát triển.",
+
+  "Đỗ Hoàng Phúc":
+    "Chúc anh luôn giữ được sự nhiệt tình, niềm vui và tinh thần bền bỉ trong những điều mình theo đuổi. Mong những nỗ lực mỗi ngày mang đến nhiều thành quả và trải nghiệm đáng nhớ.",
+
+  "Lê Tiến Duy":
+    "Chúc anh luôn mạnh khỏe, tự tin và giữ được sự hào hứng với những mục tiêu mới. Mong công việc có thêm nhiều cơ hội tốt và cuộc sống luôn có những điều thú vị để khám phá.",
+
+  "Nguyễn Minh Quang":
+    "Chúc anh thật nhiều sức khỏe, niềm vui và may mắn. Mong anh luôn giữ được tinh thần tích cực, có thêm nhiều trải nghiệm mới và những bước tiến đáng tự hào.",
+
+  "Võ Minh Tân":
+    "Nhân ngày Quốc tế Nam giới, kính chúc anh luôn mạnh khỏe, bình an và gặp nhiều thuận lợi. Chúc anh tiếp tục vững vàng với những kế hoạch, định hướng của mình và có thêm nhiều thành công cùng tập thể."
+};
+
+/* MỖI LẦN VÀO THAY ĐỔI PHẦN MỞ ĐẦU VÀ KẾT */
+
+const WISH_OPENINGS = [
+  "Nhân ngày 19/11, gửi đến anh những lời chúc tốt đẹp và sự trân trọng chân thành.",
+  "Một ngày đặc biệt để gửi đến anh lời cảm ơn vì những điều tốt đẹp đã cùng chia sẻ.",
+  "Hôm nay, chúng mình muốn dành cho anh một lời chúc thật riêng và thật nhiều sự quý mến.",
+  "Nhân dịp Quốc tế Nam giới, mong anh nhận được thật nhiều niềm vui từ những điều giản dị.",
+  "Có những lời cảm ơn thường ngày chưa kịp nói. Hôm nay là dịp để gửi đến anh một lời chúc thật ý nghĩa."
 ];
 
-/* ================================
-   CẤU HÌNH CHUNG
-================================ */
+const WISH_ENDINGS = [
+  "Cảm ơn anh vì đã là một phần đáng quý của tập thể.",
+  "Mong mỗi chặng đường phía trước đều có những điều khiến anh tự hào và mỉm cười.",
+  "Chúc anh có thêm thật nhiều khoảnh khắc đẹp bên gia đình, bạn bè và đồng nghiệp.",
+  "Mong anh luôn có thời gian cho những điều mình yêu thích và những người mình trân quý.",
+  "Cảm ơn sự đồng hành của anh và mong những điều tốt đẹp luôn tiếp tục."
+];
+
+/* ==========================================
+   4. CẤU HÌNH CHUNG
+========================================== */
 
 const $ = id => document.getElementById(id);
 
 const SCREENS = [
-  "intro",
-  "slides",
-  "name",
-  "heart",
-  "greeting"
+  "intro","slides","name","heart","greeting"
 ];
 
 let slideIndex = 0;
 let timer = null;
 let playing = true;
 let visitor = "";
+let matchedEmployee = "";
 let selectedWish = "";
 
-function show(id) {
+function show(id){
   clearTimeout(timer);
-
-  SCREENS.forEach(s => {
-    $(s).classList.toggle("active", s === id);
+  SCREENS.forEach(s=>{
+    $(s).classList.toggle("active",s===id);
   });
-
-  window.scrollTo(0, 0);
+  window.scrollTo(0,0);
 }
 
-function toast(message) {
-  const el = $("toast");
-
-  el.textContent = message;
-  el.hidden = false;
-
+function toast(message){
+  const el=$("toast");
+  el.textContent=message;
+  el.hidden=false;
   clearTimeout(toast.timer);
-
-  toast.timer = setTimeout(() => {
-    el.hidden = true;
-  }, 3300);
+  toast.timer=setTimeout(()=>el.hidden=true,3300);
 }
 
-/* ================================
-   POSTER DỰ PHÒNG TÊN FILE
-================================ */
-
-$("posterImg").addEventListener("error", function () {
-  if (!this.dataset.fallback) {
-    this.dataset.fallback = "1";
-    this.src = "./POSTER%20.jpg";
+/* POSTER DỰ PHÒNG */
+$("posterImg").addEventListener("error",function(){
+  if(!this.dataset.fallback){
+    this.dataset.fallback="1";
+    this.src="./POSTER%20.jpg";
   }
 });
 
-/* ================================
-   NHẠC NỀN
-================================ */
+/* NHẠC */
+const audio=$("audio");
+audio.volume=.33;
 
-const audio = $("audio");
-audio.volume = .33;
-
-function updateMusic() {
-  $("musicBtn").textContent =
-    audio.paused ? "Bật nhạc" : "Tắt nhạc";
+function updateMusic(){
+  $("musicBtn").textContent=audio.paused?"Bật nhạc":"Tắt nhạc";
 }
 
-async function playMusic() {
-  try {
+async function playMusic(){
+  try{
     await audio.play();
-  } catch (e) {
+  }catch(e){
     toast("Nhấn Bật nhạc để phát nhạc nền.");
   }
-
   updateMusic();
 }
 
-$("musicBtn").onclick = async () => {
-  if (audio.paused) {
+$("musicBtn").onclick=async()=>{
+  if(audio.paused){
     await playMusic();
-  } else {
+  }else{
     audio.pause();
     updateMusic();
   }
 };
 
-/* ================================
-   ĐIỀU KHIỂN 19 ẢNH
-================================ */
+/* ==========================================
+   5. TRÌNH CHIẾU
+========================================== */
 
-function renderSlide() {
-  const n = String(slideIndex + 1).padStart(2, "0");
-  const img = $("slideImg");
+function renderSlide(){
+  const n=String(slideIndex+1).padStart(2,"0");
+  const img=$("slideImg");
 
   img.classList.remove("reveal");
-  img.hidden = false;
-  $("photoError").hidden = true;
+  img.hidden=false;
+  $("photoError").hidden=true;
 
-  img.onload = () => {
-    img.hidden = false;
-    $("photoError").hidden = true;
-
+  img.onload=()=>{
+    img.hidden=false;
+    $("photoError").hidden=true;
     void img.offsetWidth;
     img.classList.add("reveal");
   };
 
-  img.onerror = () => {
-    img.hidden = true;
-    $("photoError").hidden = false;
-    $("photoError").textContent =
-      "Chưa tìm thấy ảnh " + n + ".jpg.";
+  img.onerror=()=>{
+    img.hidden=true;
+    $("photoError").hidden=false;
+    $("photoError").textContent="Chưa tìm thấy ảnh "+n+".jpg.";
   };
 
-  img.src = "./" + n + ".jpg";
+  img.src="./"+n+".jpg";
 
-  $("photoCount").textContent = n + " / 19";
+  $("photoCount").textContent=n+" / 19";
+  $("storyTitle").textContent=STORIES[slideIndex][0];
+  $("storyText").textContent=STORIES[slideIndex][1];
+  $("progressFill").style.width=((slideIndex+1)/19*100)+"%";
+  $("prevBtn").disabled=slideIndex===0;
 
-  $("storyTitle").textContent =
-    STORIES[slideIndex][0];
-
-  $("storyText").textContent =
-    STORIES[slideIndex][1];
-
-  $("progressFill").style.width =
-    ((slideIndex + 1) / 19 * 100) + "%";
-
-  $("prevBtn").disabled = slideIndex === 0;
-
-  $("nextBtn").textContent =
-    slideIndex === 18
-      ? "Nhận thông điệp tiếp theo"
-      : "Ảnh tiếp theo";
+  $("nextBtn").textContent=slideIndex===18
+    ?"Nhận thông điệp tiếp theo"
+    :"Ảnh tiếp theo";
 
   clearTimeout(timer);
-
-  if (playing) {
-    timer = setTimeout(nextSlide, 8000);
-  }
+  if(playing)timer=setTimeout(nextSlide,8000);
 }
 
-function nextSlide() {
-  if (slideIndex < 18) {
+function nextSlide(){
+  if(slideIndex<18){
     slideIndex++;
     renderSlide();
-  } else {
+  }else{
     show("name");
   }
 }
 
-function previousSlide() {
-  if (slideIndex > 0) {
+function previousSlide(){
+  if(slideIndex>0){
     slideIndex--;
     renderSlide();
   }
 }
 
-function updatePause() {
-  $("pauseBtn").textContent =
-    playing ? "Tạm dừng" : "Tiếp tục";
-
-  $("slideStatus").textContent =
-    playing
-      ? "Tự chuyển ảnh sau 8 giây."
-      : "Đã tạm dừng tự chuyển ảnh.";
+function updatePause(){
+  $("pauseBtn").textContent=playing?"Tạm dừng":"Tiếp tục";
+  $("slideStatus").textContent=playing
+    ?"Tự chuyển ảnh sau 8 giây."
+    :"Đã tạm dừng tự chuyển ảnh.";
 }
 
-$("startBtn").onclick = () => {
+$("startBtn").onclick=()=>{
   show("slides");
-
-  slideIndex = 0;
-  playing = true;
-
+  slideIndex=0;
+  playing=true;
   updatePause();
   renderSlide();
   playMusic();
 };
 
-$("nextBtn").onclick = nextSlide;
-$("prevBtn").onclick = previousSlide;
+$("nextBtn").onclick=nextSlide;
+$("prevBtn").onclick=previousSlide;
 
-$("pauseBtn").onclick = () => {
-  playing = !playing;
+$("pauseBtn").onclick=()=>{
+  playing=!playing;
   updatePause();
   renderSlide();
 };
 
-/* VUỐT ẢNH TRÊN ĐIỆN THOẠI */
+/* VUỐT ẢNH */
+let touchStart=null;
 
-let touchStart = null;
+$("photoStage").addEventListener("touchstart",e=>{
+  touchStart=e.changedTouches[0].screenX;
+},{passive:true});
 
-$("photoStage").addEventListener(
-  "touchstart",
-  e => {
-    touchStart = e.changedTouches[0].screenX;
-  },
-  { passive: true }
-);
-
-$("photoStage").addEventListener(
-  "touchend",
-  e => {
-    if (touchStart === null) return;
-
-    const dx =
-      e.changedTouches[0].screenX - touchStart;
-
-    if (dx < -55) nextSlide();
-    if (dx > 55) previousSlide();
-
-    touchStart = null;
-  },
-  { passive: true }
-);
+$("photoStage").addEventListener("touchend",e=>{
+  if(touchStart===null)return;
+  const dx=e.changedTouches[0].screenX-touchStart;
+  if(dx < -55)nextSlide();
+  if(dx > 55)previousSlide();
+  touchStart=null;
+},{passive:true});
 
 /* ==========================================
-   BỐ TRÍ TRÁI TIM
+   6. TRÁI TIM XẾP TÊN A-Z
 
-   30 TÊN THƯỜNG:
-   CÙNG MỘT CỠ CHỮ.
-
-   3 LÃNH ĐẠO:
-   LỚN HƠN, NỔI BẬT Ở TRUNG TÂM.
+   30 TÊN THƯỜNG THEO THỨ TỰ A-Z.
+   3 LÃNH ĐẠO GIỮ Ở TRUNG TÂM.
 ========================================== */
 
-const HEART_PATH =
-  "M600 954 " +
-  "C467 855 93 592 93 342 " +
-  "C93 105 387 85 600 289 " +
-  "C813 85 1107 105 1107 342 " +
+const HEART_PATH=
+  "M600 954 "+
+  "C467 855 93 592 93 342 "+
+  "C93 105 387 85 600 289 "+
+  "C813 85 1107 105 1107 342 "+
   "C1107 592 733 855 600 954 Z";
 
-/* CÁC HÀNG TÊN TRONG TRÁI TIM */
+/*
+  TỔNG 30 TÊN:
+  2 + 2 + 4 + 4 + 4 + 4 + 4 + 3 + 2 + 1 = 30.
+  THỨ TỰ ĐƯỢC GIỮ TỪ TRÊN XUỐNG DƯỚI,
+  TỪ TRÁI SANG PHẢI.
+*/
 
-const ROW_PLAN = [
-  { y: 210, count: 2, split: true },
-  { y: 265, count: 2, split: true },
-  { y: 333, count: 5 },
-  { y: 400, count: 4 },
-  { y: 538, count: 4 },
-  { y: 602, count: 4 },
-  { y: 665, count: 3 },
-  { y: 723, count: 3 },
-  { y: 782, count: 2 },
-  { y: 840, count: 1 }
+const ROW_PLAN=[
+  {y:190,count:2,split:true},
+  {y:250,count:2,split:true},
+  {y:325,count:4},
+  {y:390,count:4},
+  {y:545,count:4},
+  {y:610,count:4},
+  {y:675,count:4},
+  {y:740,count:3},
+  {y:805,count:2},
+  {y:865,count:1}
 ];
 
-/* XÁC ĐỊNH VÙNG AN TOÀN CHO TỪNG HÀNG */
+function safeIntervals(ctx,path,y){
+  const segments=[];
+  let start=null;
 
-function safeIntervals(ctx, path, y) {
-  const segments = [];
-  let start = null;
+  for(let x=0;x<=1200;x+=1){
+    const inside=
+      ctx.isPointInPath(path,x,y-19) &&
+      ctx.isPointInPath(path,x,y+10);
 
-  for (let x = 0; x <= 1200; x += 1) {
-    const inside =
-      ctx.isPointInPath(path, x, y - 24) &&
-      ctx.isPointInPath(path, x, y + 12);
+    if(inside && start===null)start=x;
 
-    if (inside && start === null) {
-      start = x;
-    }
-
-    if (!inside && start !== null) {
-      segments.push([start + 37, x - 37]);
-      start = null;
+    if(!inside && start!==null){
+      segments.push([start+23,x-23]);
+      start=null;
     }
   }
 
-  if (start !== null) {
-    segments.push([start + 37, 1163]);
-  }
+  if(start!==null)segments.push([start+23,1177]);
 
-  return segments.filter(([a, b]) => b > a);
+  return segments.filter(([a,b])=>b>a);
 }
 
-/* ĐO ĐỘ DÀI CHỮ */
-
-function getWidth(ctx, name, fontSize, leader = false) {
-  ctx.font =
-    `${leader ? 800 : 700} ${fontSize}px Montserrat,Arial,sans-serif`;
-
+function getWidth(ctx,name,size,leader=false){
+  ctx.font=`${leader?800:700} ${size}px Montserrat,Arial,sans-serif`;
   return ctx.measureText(name).width;
 }
 
-/* CHUẨN BỊ SỨC CHỨA CỦA CÁC HÀNG */
+function prepareRows(ctx,path){
+  let cursor=0;
 
-function prepareRows(ctx, path) {
-  return ROW_PLAN.map(row => {
-    const intervals = safeIntervals(ctx, path, row.y);
+  return ROW_PLAN.map(row=>{
+    const names=NORMAL_NAMES.slice(cursor,cursor+row.count);
+    cursor+=row.count;
 
-    const segment = intervals
-      .slice()
-      .sort((a, b) =>
-        (b[1] - b[0]) - (a[1] - a[0])
-      )[0];
+    const intervals=safeIntervals(ctx,path,row.y);
+    const segment=intervals.slice()
+      .sort((a,b)=>(b[1]-b[0])-(a[1]-a[0]))[0];
 
-    const capacity = row.split
-      ? Math.min(...intervals.map(([a, b]) => b - a))
-      : (segment ? segment[1] - segment[0] : 0);
-
-    return {
-      ...row,
-      intervals,
-      segment,
-      capacity,
-      names: []
-    };
+    return {...row,names,intervals,segment};
   });
 }
 
-/* PHÂN BỔ CÁC TÊN THEO CHIỀU DÀI */
+function rowFits(ctx,row,size){
+  const widths=row.names.map(name=>getWidth(ctx,name,size));
 
-function assignNames(ctx, fontSize, rows) {
-  const normalNames = TEAM_NAMES.filter(
-    name => !LEADERS.includes(name)
-  );
+  if(row.split){
+    if(row.intervals.length<2)return false;
 
-  const measured = normalNames
-    .map(name => ({
-      name,
-      w: getWidth(ctx, name, fontSize)
-    }))
-    .sort((a, b) => b.w - a.w);
+    return widths.every((w,i)=>{
+      const segment=row.intervals[i];
+      return segment && w<=segment[1]-segment[0];
+    });
+  }
 
-  const prioritized = rows.slice().sort((a, b) => {
-    const ca = a.split
-      ? a.capacity
-      : (a.capacity - 20 * (a.count - 1)) / a.count;
+  if(!row.segment)return false;
 
-    const cb = b.split
-      ? b.capacity
-      : (b.capacity - 20 * (b.count - 1)) / b.count;
+  const total=widths.reduce((a,b)=>a+b,0);
+  const available=row.segment[1]-row.segment[0];
 
-    return cb - ca;
-  });
-
-  let cursor = 0;
-
-  prioritized.forEach(row => {
-    row.names = measured.slice(
-      cursor,
-      cursor + row.count
-    );
-
-    cursor += row.count;
-  });
-
-  return rows;
+  return total+Math.max(0,row.names.length-1)*14<=available;
 }
 
-/* KIỂM TRA KHẢ NĂNG HIỂN THỊ ĐỦ CHỮ */
-
-function rowFits(row) {
-  if (row.names.length !== row.count) {
-    return false;
-  }
-
-  if (row.split) {
-    if (row.intervals.length < 2) {
-      return false;
-    }
-
-    return row.names.every(
-      (item, i) =>
-        item.w <=
-        row.intervals[i][1] - row.intervals[i][0]
-    );
-  }
-
-  if (!row.segment) {
-    return false;
-  }
-
-  const sum = row.names.reduce(
-    (s, item) => s + item.w,
-    0
-  );
-
-  return (
-    sum + (row.count - 1) * 20 <= row.capacity
-  );
-}
-
-/* ================================
-   TẠO 33 TÊN TRONG TRÁI TIM
-================================ */
-
-function renderHeartNames() {
-  const group = $("heartNames");
-  const NS = "http://www.w3.org/2000/svg";
-
+function renderHeartNames(){
+  const group=$("heartNames");
+  const NS="http://www.w3.org/2000/svg";
   group.replaceChildren();
 
-  const ctx = document
-    .createElement("canvas")
-    .getContext("2d");
+  const ctx=document.createElement("canvas").getContext("2d");
+  const path=new Path2D(HEART_PATH);
+  const rows=prepareRows(ctx,path);
 
-  const path = new Path2D(HEART_PATH);
+  /* MỘT CỠ CHỮ CHUNG CHO TOÀN BỘ 30 TÊN */
 
-  let rows;
-  let normalSize = 19.5;
+  let normalSize=20;
 
-  /*
-    CÙNG MỘT CỠ CHỮ CHO 30 TÊN THƯỜNG.
-    CHỈ THAY ĐỔI KHI CẢ BỐ CỤC CẦN THU NHỎ.
-  */
-
-  for (
-    ;
-    normalSize >= 14;
-    normalSize -= .25
-  ) {
-    rows = assignNames(
-      ctx,
-      normalSize,
-      prepareRows(ctx, path)
-    );
-
-    if (rows.every(rowFits)) {
-      break;
-    }
+  while(normalSize>10 && !rows.every(row=>rowFits(ctx,row,normalSize))){
+    normalSize-=.25;
   }
 
-  /* HÀM TẠO CHỮ SVG */
+  function makeText(name,x,y,size,leader=false){
+    const t=document.createElementNS(NS,"text");
+    t.setAttribute("x",x.toFixed(2));
+    t.setAttribute("y",y.toFixed(2));
+    t.setAttribute("text-anchor","middle");
+    t.setAttribute("font-size",size.toFixed(2));
+    t.setAttribute("class",leader?"heart-name leader":"heart-name");
+    t.textContent=name;
 
-  const makeText = (
-    name,
-    x,
-    y,
-    size,
-    leader = false
-  ) => {
-    const t = document.createElementNS(NS, "text");
-
-    t.setAttribute("x", x.toFixed(2));
-    t.setAttribute("y", y.toFixed(2));
-    t.setAttribute("text-anchor", "middle");
-    t.setAttribute("font-size", size.toFixed(2));
-
-    t.setAttribute(
-      "class",
-      leader
-        ? "heart-name leader"
-        : "heart-name"
-    );
-
-    t.textContent = name;
-    t.setAttribute("aria-label", name);
-
+    const title=document.createElementNS(NS,"title");
+    title.textContent=name;
+    t.appendChild(title);
     group.appendChild(t);
-  };
+  }
 
-  /* VẼ 30 TÊN THƯỜNG */
+  /* TÊN THƯỜNG THEO A-Z */
 
-  rows.forEach(row => {
+  rows.forEach(row=>{
+    const widths=row.names.map(name=>getWidth(ctx,name,normalSize));
 
-    if (row.split) {
-      row.names.forEach((item, i) => {
-        const [a, b] = row.intervals[i];
-
-        makeText(
-          item.name,
-          (a + b) / 2,
-          row.y,
-          normalSize
-        );
+    if(row.split){
+      row.names.forEach((name,i)=>{
+        const segment=row.intervals[i];
+        if(!segment)return;
+        makeText(name,(segment[0]+segment[1])/2,row.y,normalSize);
       });
-
       return;
     }
 
-    const [left, right] = row.segment;
+    if(!row.segment)return;
 
-    const total = row.names.reduce(
-      (s, item) => s + item.w,
-      0
-    );
+    const [left,right]=row.segment;
+    const total=widths.reduce((a,b)=>a+b,0);
+    const gap=(right-left-total)/(row.names.length+1);
 
-    const gap =
-      (right - left - total) /
-      (row.names.length + 1);
+    let current=left+gap;
 
-    let current = left + gap;
-
-    row.names.forEach(item => {
-      makeText(
-        item.name,
-        current + item.w / 2,
-        row.y,
-        normalSize
-      );
-
-      current += item.w + gap;
+    row.names.forEach((name,i)=>{
+      makeText(name,current+widths[i]/2,row.y,normalSize);
+      current+=widths[i]+gap;
     });
   });
 
-  /* ================================
-     BA TÊN LÃNH ĐẠO Ở TRUNG TÂM
-  ================================ */
+  /* BA LÃNH ĐẠO NẰM GIỮA TRÁI TIM */
 
-  const bossY = 470;
-  const bossSize = 24;
+  const bossY=470;
+  let bossSize=24;
+  const interval=safeIntervals(ctx,path,bossY)
+    .sort((a,b)=>(b[1]-b[0])-(a[1]-a[0]))[0];
 
-  const bossInterval = safeIntervals(
-    ctx,
-    path,
-    bossY
-  )
-    .sort((a, b) =>
-      (b[1] - b[0]) - (a[1] - a[0])
-    )[0];
+  if(!interval)return;
 
-  const [xMin, xMax] = bossInterval;
-  const span = xMax - xMin;
+  const [left,right]=interval;
+  const available=right-left;
 
-  const bossXs = [
-    xMin + span / 6,
-    xMin + span / 2,
-    xMin + span * 5 / 6
-  ];
-
-  LEADERS.forEach((name, i) => {
-
-    const w = getWidth(
-      ctx,
-      name,
-      bossSize,
-      true
+  while(bossSize>17){
+    const total=LEADERS.reduce(
+      (sum,name)=>sum+getWidth(ctx,name,bossSize,true)+24,0
     );
 
-    /* NỀN VÀNG NHẸ */
+    if(total+28<=available)break;
+    bossSize-=.25;
+  }
 
-    const plate = document.createElementNS(
-      NS,
-      "rect"
-    );
+  const widths=LEADERS.map(name=>getWidth(ctx,name,bossSize,true)+24);
+  const total=widths.reduce((a,b)=>a+b,0);
+  const gap=Math.max(8,(available-total)/4);
 
-    plate.setAttribute(
-      "x",
-      (bossXs[i] - w / 2 - 12).toFixed(2)
-    );
+  let x=left+gap;
 
-    plate.setAttribute(
-      "y",
-      String(bossY - 26)
-    );
+  LEADERS.forEach((name,i)=>{
+    const center=x+widths[i]/2;
 
-    plate.setAttribute(
-      "width",
-      (w + 24).toFixed(2)
-    );
-
-    plate.setAttribute("height", "39");
-    plate.setAttribute("rx", "12");
-    plate.setAttribute("class", "leader-plate");
-
+    const plate=document.createElementNS(NS,"rect");
+    plate.setAttribute("x",(center-widths[i]/2).toFixed(2));
+    plate.setAttribute("y",(bossY-bossSize-7).toFixed(2));
+    plate.setAttribute("width",widths[i].toFixed(2));
+    plate.setAttribute("height",(bossSize+17).toFixed(2));
+    plate.setAttribute("rx","11");
+    plate.setAttribute("class","leader-plate");
     group.appendChild(plate);
 
-    /* TÊN LÃNH ĐẠO */
+    makeText(name,center,bossY,bossSize,true);
 
-    makeText(
-      name,
-      bossXs[i],
-      bossY,
-      bossSize,
-      true
-    );
-
-    /* GẠCH CHÂN VÀNG NHẸ */
-
-    const line = document.createElementNS(
-      NS,
-      "line"
-    );
-
-    line.setAttribute(
-      "x1",
-      (
-        bossXs[i] - Math.min(w / 3, 75)
-      ).toFixed(2)
-    );
-
-    line.setAttribute(
-      "x2",
-      (
-        bossXs[i] + Math.min(w / 3, 75)
-      ).toFixed(2)
-    );
-
-    line.setAttribute(
-      "y1",
-      String(bossY + 8)
-    );
-
-    line.setAttribute(
-      "y2",
-      String(bossY + 8)
-    );
-
-    line.setAttribute(
-      "class",
-      "leader-underline"
-    );
-
+    const line=document.createElementNS(NS,"line");
+    line.setAttribute("x1",(center-Math.min(widths[i]/3,75)).toFixed(2));
+    line.setAttribute("x2",(center+Math.min(widths[i]/3,75)).toFixed(2));
+    line.setAttribute("y1",String(bossY+9));
+    line.setAttribute("y2",String(bossY+9));
+    line.setAttribute("class","leader-underline");
     group.appendChild(line);
 
+    x+=widths[i]+gap;
   });
 }
 
-/* ================================
-   XỬ LÝ NHẬP TÊN
-================================ */
+/* ==========================================
+   7. NHẬN DIỆN TÊN
 
-function normalizeName(value) {
-  return value.replace(/\s+/g, " ").trim();
+   CHẤP NHẬN:
+   - HỌ TÊN ĐẦY ĐỦ.
+   - TÊN KHÔNG DẤU.
+   - TÊN VIẾT TẮT NẾU KHÔNG TRÙNG.
+========================================== */
+
+function normalizeName(value){
+  return value.replace(/\s+/g," ").trim();
 }
 
-function hashName(value) {
-  let hash = 0;
-
-  const norm = value
+function searchKey(value){
+  return normalizeName(value)
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/đ/g, "d")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/đ/gi,"d")
     .toLowerCase();
+}
 
-  for (const c of norm) {
-    hash = (
-      (hash * 31) + c.charCodeAt(0)
-    ) >>> 0;
+function findEmployee(input){
+  const key=searchKey(input);
+  if(!key)return {name:null,ambiguous:false};
+
+  const exact=TEAM_NAMES.filter(name=>searchKey(name)===key);
+  if(exact.length===1)return {name:exact[0],ambiguous:false};
+
+  const partial=TEAM_NAMES.filter(name=>{
+    const words=searchKey(name).split(" ");
+    return searchKey(name).includes(key) &&
+      (words.includes(key) || searchKey(name).endsWith(" "+key));
+  });
+
+  if(partial.length===1)return {name:partial[0],ambiguous:false};
+  if(partial.length>1)return {name:null,ambiguous:true};
+
+  return {name:null,ambiguous:false};
+}
+
+/* ==========================================
+   8. TẠO LỜI CHÚC THAY ĐỔI MỖI LẦN VÀO
+
+   DÙNG LOCALSTORAGE ĐỂ LUÂN PHIÊN
+   25 PHỐI HỢP MỞ ĐẦU / KẾT.
+   TRÁNH LẶP NGAY LẦN TRƯỚC.
+========================================== */
+
+const localWishCounters={};
+
+function getNextWishIndex(name){
+  const key="mensday-2026-wish-"+searchKey(name);
+
+  let previous=-1;
+
+  try{
+    const stored=localStorage.getItem(key);
+    if(stored!==null)previous=Number(stored);
+  }catch(e){
+    previous=localWishCounters[key]??-1;
   }
 
-  return hash;
+  if(!Number.isInteger(previous)||previous < -1 || previous>=25){
+    previous=-1;
+  }
+
+  const next=(previous+1)%25;
+
+  localWishCounters[key]=next;
+
+  try{
+    localStorage.setItem(key,String(next));
+  }catch(e){}
+
+  return next;
 }
 
-async function submitName() {
-  const name = normalizeName(
-    $("nameInput").value
-  );
+function createPersonalWish(name){
+  const core=PERSONAL_WISHES[name] ||
+    "Chúc anh thật nhiều sức khỏe, niềm vui và may mắn. Mong công việc luôn thuận lợi và có thêm nhiều trải nghiệm ý nghĩa.";
 
-  if (name.length < 2) {
-    $("nameError").textContent =
+  const index=getNextWishIndex(name);
+  const opening=WISH_OPENINGS[index%5];
+  const ending=WISH_ENDINGS[Math.floor(index/5)%5];
+
+  return opening+"\n\n"+core+"\n\n"+ending;
+}
+
+async function submitName(){
+  const entered=normalizeName($("nameInput").value);
+
+  if(entered.length<2){
+    $("nameError").textContent=
       "Anh vui lòng nhập tên từ 2 ký tự trở lên.";
-
     return;
   }
 
-  $("nameError").textContent = "";
+  const result=findEmployee(entered);
 
-  visitor = name;
+  if(result.ambiguous){
+    $("nameError").textContent=
+      "Tên này trùng với nhiều anh. Anh vui lòng nhập thêm họ hoặc tên đệm nhé.";
+    return;
+  }
 
-  selectedWish =
-    WISHES[hashName(name) % WISHES.length];
+  $("nameError").textContent="";
+  matchedEmployee=result.name || entered;
+  visitor=result.name || entered;
 
-  if (
-    document.fonts &&
-    document.fonts.ready
-  ) {
+  /* LỜI CHÚC ĐƯỢC CHỌN KHI NHẬP TÊN */
+
+  selectedWish=createPersonalWish(matchedEmployee);
+
+  if(document.fonts && document.fonts.ready){
     await document.fonts.ready;
   }
 
   renderHeartNames();
 
-  $("heartRecipient").textContent =
-    "Gửi đến Anh trai " + visitor;
+  $("heartRecipient").textContent=
+    "Gửi đến Anh trai "+visitor;
 
   show("heart");
 }
 
-$("createHeartBtn").onclick = submitName;
+$("createHeartBtn").onclick=submitName;
 
-$("nameInput").addEventListener(
-  "keydown",
-  e => {
-    if (e.key === "Enter") {
-      submitName();
-    }
-  }
-);
+$("nameInput").addEventListener("keydown",e=>{
+  if(e.key==="Enter")submitName();
+});
 
-$("editNameBtn").onclick = () => {
-  show("name");
-};
+$("editNameBtn").onclick=()=>show("name");
 
-/* ================================
-   HIỆU ỨNG CHÚC MỪNG
-================================ */
+/* ==========================================
+   9. MỞ THIỆP
+========================================== */
 
-function confetti() {
-  if (
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches
-  ) {
-    return;
-  }
+function confetti(){
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
 
-  const colors = [
-    "#e5bc73",
-    "#85bfe2",
-    "#b7e2f3",
-    "#f2dfab"
-  ];
+  const colors=["#e5bc73","#85bfe2","#b7e2f3","#f2dfab"];
 
-  for (let i = 0; i < 36; i++) {
-    const el = document.createElement("i");
-
-    el.className = "confetti";
-    el.style.left =
-      Math.random() * 100 + "vw";
-
-    el.style.background =
-      colors[i % colors.length];
-
-    el.style.setProperty(
-      "--duration",
-      (1.5 + Math.random() * 1.5) + "s"
-    );
-
+  for(let i=0;i<36;i++){
+    const el=document.createElement("i");
+    el.className="confetti";
+    el.style.left=Math.random()*100+"vw";
+    el.style.background=colors[i%colors.length];
+    el.style.setProperty("--duration",(1.5+Math.random()*1.5)+"s");
     document.body.appendChild(el);
-
-    setTimeout(() => {
-      el.remove();
-    }, 3500);
+    setTimeout(()=>el.remove(),3500);
   }
 }
 
-/* ================================
-   MỞ LỜI CHÚC CÁ NHÂN
-================================ */
-
-$("heartBtn").onclick = () => {
-  $("recipient").textContent =
-    "Gửi đến Anh trai " + visitor;
-
-  $("wishMessage").textContent =
-    selectedWish;
-
+$("heartBtn").onclick=()=>{
+  $("recipient").textContent="Gửi đến Anh trai "+visitor;
+  $("wishMessage").textContent=selectedWish;
   show("greeting");
   confetti();
 };
 
-$("backHeartBtn").onclick = () => {
-  show("heart");
-};
+$("backHeartBtn").onclick=()=>show("heart");
+$("restartBtn").onclick=()=>show("intro");
 
-$("restartBtn").onclick = () => {
-  show("intro");
-};
+/* ==========================================
+   10. LƯU THIỆP PNG
+========================================== */
 
-/* ================================
-   XUẤT THIỆP PNG
-================================ */
+function wrap(ctx,text,maxWidth){
+  const lines=[];
+  let line="";
 
-function wrap(ctx, text, maxWidth) {
-  const lines = [];
-  let line = "";
+  for(const word of text.split(/\s+/)){
+    const test=line?line+" "+word:word;
 
-  for (const word of text.split(/\s+/)) {
-    const test =
-      line ? line + " " + word : word;
-
-    if (
-      ctx.measureText(test).width > maxWidth &&
-      line
-    ) {
+    if(ctx.measureText(test).width>maxWidth && line){
       lines.push(line);
-      line = word;
-    } else {
-      line = test;
+      line=word;
+    }else{
+      line=test;
     }
   }
 
-  if (line) {
-    lines.push(line);
-  }
-
+  if(line)lines.push(line);
   return lines;
 }
 
-function slug(name) {
-  return name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/đ/g, "d")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+function slug(name){
+  return searchKey(name)
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-+|-+$/g,"");
 }
 
-$("saveBtn").onclick = async () => {
-  try {
-    if (
-      document.fonts &&
-      document.fonts.ready
-    ) {
+$("saveBtn").onclick=async()=>{
+  try{
+    if(document.fonts && document.fonts.ready){
       await document.fonts.ready;
     }
 
-    const canvas = document.createElement("canvas");
+    const canvas=document.createElement("canvas");
+    canvas.width=1080;
+    canvas.height=1350;
+    const ctx=canvas.getContext("2d");
 
-    canvas.width = 1080;
-    canvas.height = 1350;
+    const bg=ctx.createLinearGradient(0,0,1080,1350);
+    bg.addColorStop(0,"#e4f4fd");
+    bg.addColorStop(1,"#fff2df");
+    ctx.fillStyle=bg;
+    ctx.fillRect(0,0,1080,1350);
 
-    const ctx = canvas.getContext("2d");
-
-    /* NỀN */
-
-    const bg = ctx.createLinearGradient(
-      0,
-      0,
-      1080,
-      1350
-    );
-
-    bg.addColorStop(0, "#e4f4fd");
-    bg.addColorStop(1, "#fff2df");
-
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, 1080, 1350);
-
-    /* KHUNG TRẮNG */
-
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle="#fff";
     ctx.beginPath();
-    ctx.roundRect(65, 80, 950, 1190, 34);
+    ctx.roundRect(65,80,950,1190,34);
     ctx.fill();
 
-    ctx.textAlign = "center";
+    ctx.textAlign="center";
+    ctx.fillStyle="#347da7";
+    ctx.font="800 24px Montserrat,Arial";
 
-    /* TIÊU ĐỀ */
+    ctx.fillText("HAPPY INTERNATIONAL MEN'S DAY",540,185);
+    ctx.fillText("19/11",540,230);
 
-    ctx.fillStyle = "#347da7";
-    ctx.font = "800 24px Montserrat,Arial";
+    ctx.fillStyle="#286b94";
 
-    ctx.fillText(
-      "HAPPY INTERNATIONAL MEN'S DAY",
-      540,
-      185
-    );
+    let size=43;
+    let nameLines=[];
 
-    ctx.fillText(
-      "19/11",
-      540,
-      230
-    );
+    do{
+      ctx.font=`800 ${size}px Montserrat,Arial`;
+      nameLines=wrap(ctx,"Gửi đến Anh trai "+visitor,790);
+      if(nameLines.length<=2)break;
+      size-=2;
+    }while(size>23);
 
-    /* TÊN NGƯỜI NHẬN */
-
-    ctx.fillStyle = "#286b94";
-
-    let size = 43;
-    let nameLines = [];
-
-    do {
-      ctx.font =
-        `800 ${size}px Montserrat,Arial`;
-
-      nameLines = wrap(
-        ctx,
-        "Gửi đến Anh trai " + visitor,
-        790
-      );
-
-      if (nameLines.length <= 2) {
-        break;
-      }
-
-      size -= 2;
-
-    } while (size > 23);
-
-    nameLines.forEach((line, i) => {
-      ctx.fillText(
-        line,
-        540,
-        320 + i * 54
-      );
+    nameLines.forEach((line,i)=>{
+      ctx.fillText(line,540,320+i*54);
     });
 
-    /* DÒNG CHÚC MỪNG */
+    ctx.fillStyle="#235471";
+    ctx.font="800 39px Montserrat,Arial";
+    ctx.fillText("Chúc anh một ngày thật vui.",540,480);
 
-    ctx.fillStyle = "#235471";
-    ctx.font = "800 39px Montserrat,Arial";
+    /*
+      LỜI CHÚC DÀI CÓ THỂ XUỐNG NHIỀU DÒNG.
+      TỰ THU NHỎ CỠ CHỮ ĐỂ KHÔNG ĐÈ LÊN CHỮ KÝ.
+    */
 
-    ctx.fillText(
-      "Chúc anh một ngày thật vui.",
-      540,
-      480
-    );
+    const paragraphs=selectedWish.split(/\n+/).filter(Boolean);
+    let bodySize=25;
+    let bodyLines=[];
 
-    /* NỘI DUNG LỜI CHÚC */
+    while(bodySize>=18){
+      ctx.font=`500 ${bodySize}px Montserrat,Arial`;
+      bodyLines=[];
 
-    ctx.fillStyle = "#4f6c7e";
-    ctx.font = "500 26px Montserrat,Arial";
+      paragraphs.forEach((paragraph,i)=>{
+        bodyLines.push(...wrap(ctx,paragraph,790));
+        if(i<paragraphs.length-1)bodyLines.push("");
+      });
 
-    const lines = wrap(
-      ctx,
-      selectedWish,
-      790
-    );
+      const lineHeight=bodySize*1.65;
+      if(bodyLines.length*lineHeight<=480)break;
+      bodySize-=1;
+    }
 
-    let y = 580;
+    ctx.fillStyle="#4f6c7e";
+    ctx.font=`500 ${bodySize}px Montserrat,Arial`;
 
-    lines.forEach(line => {
-      ctx.fillText(line, 540, y);
-      y += 49;
+    const lineHeight=bodySize*1.65;
+    let y=570;
+
+    bodyLines.forEach(line=>{
+      if(line)ctx.fillText(line,540,y);
+      y+=lineHeight;
     });
 
-    /* HÌNH TRÁI TIM TRANG TRÍ */
+    ctx.fillStyle="#d8aa74";
+    ctx.font="bold 74px Arial";
+    ctx.fillText("♡",540,1055);
 
-    ctx.fillStyle = "#d8aa74";
-    ctx.font = "bold 74px Arial";
+    ctx.fillStyle="#70889a";
+    ctx.font="700 21px Montserrat,Arial";
+    ctx.fillText("Với tất cả sự quý mến và trân trọng.",540,1140);
 
-    ctx.fillText(
-      "♡",
-      540,
-      1045
-    );
-
-    /* CHỮ KÝ */
-
-    ctx.fillStyle = "#70889a";
-    ctx.font = "700 21px Montserrat,Arial";
-
-    ctx.fillText(
-      "Với tất cả sự quý mến và trân trọng.",
-      540,
-      1140
-    );
-
-    ctx.font = "600 18px Montserrat,Arial";
-
+    ctx.font="600 18px Montserrat,Arial";
     ctx.fillText(
       "Phúc Thiện · Phúc Thịnh · 3D Tech Vision",
-      540,
-      1185
+      540,1185
     );
 
-    /* TẢI ẢNH */
-
-    const link = document.createElement("a");
-
-    link.download =
-      "thiep-19-11-" + slug(visitor) + ".png";
-
-    link.href = canvas.toDataURL("image/png");
-
+    const link=document.createElement("a");
+    link.download="thiep-19-11-"+slug(visitor)+".png";
+    link.href=canvas.toDataURL("image/png");
     link.click();
 
     toast("Đã tạo ảnh thiệp PNG.");
-
-  } catch (e) {
-    toast(
-      "Chưa thể lưu ảnh trên trình duyệt này."
-    );
+  }catch(e){
+    toast("Chưa thể lưu ảnh trên trình duyệt này.");
   }
 };
 
 updateMusic();
-
 </script>
 </body>
 </html>

@@ -2,1282 +2,1148 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0c192c">
-<title>19/11 | The Men Behind The Moments</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#edf6ff">
+  <title>19/11 – Một chút đặc biệt gửi đến các anh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --navy: #0c192c;
-  --panel: #172c45;
-  --gold: #dfbd81;
-  --white: #f8f6f1;
-  --muted: #c1cede;
-  --line: rgba(223,189,129,.38);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  min-height: 100svh;
-  background:
-    radial-gradient(circle at 82% 0%,#2b4968,transparent 36%),
-    linear-gradient(160deg,#0c192c,#11243b 68%,#0a1626);
-  color: var(--white);
-  font-family: Arial,Helvetica,sans-serif;
-  overflow-x: hidden;
-}
-button,input { font: inherit; }
-button { cursor: pointer; }
-button:focus-visible,input:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 3px;
-}
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 16px clamp(14px,4vw,44px);
-}
-.brand {
-  font-size: 11px;
-  font-weight: 700;
-  color: #dce6f0;
-  letter-spacing: .08em;
-  line-height: 1.6;
-}
-.sound {
-  white-space: nowrap;
-  border: 1px solid var(--line);
-  background: #1b304a;
-  color: var(--gold);
-  border-radius: 30px;
-  padding: 11px 15px;
-  font-size: 13px;
-  font-weight: 700;
-}
-main {
-  width: min(1060px,100%);
-  min-height: calc(100svh - 110px);
-  margin: auto;
-  padding: 18px 16px 38px;
-  display: grid;
-  place-items: center;
-}
-.screen {
-  display: none;
-  width: 100%;
-  animation: enter .6s ease both;
-}
-.screen.active { display: block; }
-@keyframes enter {
-  from { opacity: 0; transform: translateY(13px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.eyebrow {
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .18em;
-  line-height: 1.8;
-  text-transform: uppercase;
-}
-.hero,.panel,.award {
-  border: 1px solid var(--line);
-  border-radius: 23px;
-  background:
-    radial-gradient(circle at 70% 0%,#284763,transparent 60%),
-    #14263e;
-  box-shadow: 0 22px 75px #0005;
-  text-align: center;
-}
-.hero {
-  padding: clamp(38px,8vw,90px) clamp(18px,5vw,60px);
-  position: relative;
-  overflow: hidden;
-}
-.hero:after {
-  content: "";
-  position: absolute;
-  inset: 18px;
-  border: 1px solid rgba(223,189,129,.14);
-  border-radius: 15px;
-  pointer-events: none;
-}
-.number {
-  font-size: clamp(68px,15vw,135px);
-  line-height: 1;
-  font-weight: 900;
-  letter-spacing: -.07em;
-  color: rgba(223,189,129,.23);
-  margin: 12px 0;
-}
-h1 {
-  font-size: clamp(32px,6vw,66px);
-  line-height: 1.12;
-  margin: 5px auto 19px;
-  letter-spacing: -.035em;
-}
-.gold { color: var(--gold); }
-.lead {
-  font-size: clamp(15px,2vw,18px);
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 680px;
-  margin: 0 auto 28px;
-}
-.btn {
-  min-height: 45px;
-  padding: 13px 20px;
-  background: var(--gold);
-  color: #15263b;
-  border: 1px solid var(--gold);
-  border-radius: 10px;
-  font-weight: 800;
-  transition: transform .2s,background .2s;
-}
-.btn:hover {
-  background: #f6d8a4;
-  transform: translateY(-2px);
-}
-.btn.alt {
-  background: transparent;
-  color: var(--gold);
-}
-.btn.alt:hover { background: #dfbd8119; }
-.btn:disabled {
-  opacity: .4;
-  cursor: not-allowed;
-  transform: none;
-}
-.hint {
-  font-size: 12px;
-  line-height: 1.7;
-  color: #a8bbce;
-  text-align: center;
-  margin: 17px auto 0;
-}
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 11px;
-  margin-top: 18px;
-}
-.gallery {
-  background: #152940;
-  border: 1px solid var(--line);
-  border-radius: 19px;
-  overflow: hidden;
-  box-shadow: 0 20px 70px #0005;
-}
-.gallery-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 13px 17px;
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .1em;
-}
-.photo {
-  aspect-ratio: 3/2;
-  position: relative;
-  background: linear-gradient(145deg,#213b58,#0d1b2d);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.photo img {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  display: none;
-}
-.photo img.ready {
-  display: block;
-  animation: photoEnter .65s ease both;
-}
-@keyframes photoEnter {
-  from { opacity: .25; transform: scale(1.02); }
-  to { opacity: 1; transform: scale(1); }
-}
-.photo-status {
-  padding: 30px;
-  text-align: center;
-  color: #c7d5e4;
-  line-height: 1.8;
-}
-.slide-copy {
-  text-align: center;
-  padding: 23px clamp(15px,4vw,38px) 27px;
-}
-.slide-copy h2 {
-  color: var(--gold);
-  font-size: clamp(22px,3.5vw,34px);
-  line-height: 1.35;
-  margin: 8px auto 12px;
-}
-.slide-copy p {
-  max-width: 760px;
-  margin: 0 auto;
-  color: #e0e8f0;
-  font-size: clamp(15px,2vw,17px);
-  line-height: 1.75;
-}
-.progress {
-  height: 4px;
-  border-radius: 9px;
-  background: #405069;
-  margin: 17px 0 12px;
-  overflow: hidden;
-}
-.progress > div {
-  height: 100%;
-  width: 0;
-  background: var(--gold);
-  transition: width .35s;
-}
-.gallery-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.mini {
-  border: 1px solid #60738a;
-  color: #e2e9f2;
-  border-radius: 8px;
-  background: transparent;
-  padding: 8px 12px;
-  font-size: 12px;
-}
-.panel {
-  max-width: 750px;
-  margin: auto;
-  padding: clamp(30px,6vw,64px) clamp(20px,5vw,52px);
-}
-.panel h2 {
-  font-size: clamp(29px,5vw,47px);
-  line-height: 1.3;
-  margin: 15px 0;
-}
-.panel p {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.85;
-  margin: 0 auto 23px;
-  max-width: 550px;
-}
-.name-input {
-  width: min(100%,450px);
-  padding: 15px;
-  border: 1px solid #c2cbd6;
-  background: white;
-  color: #172b42;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 17px;
-  display: block;
-  margin: auto;
-}
-.error {
-  min-height: 24px;
-  padding: 7px;
-  font-size: 13px;
-  color: #ffbdbd;
-}
-.award {
-  max-width: 760px;
-  padding: clamp(30px,6vw,62px) clamp(18px,5vw,55px);
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-}
-.award:before {
-  content: "19:11";
-  position: absolute;
-  bottom: -23px;
-  left: 0;
-  font-size: 145px;
-  font-weight: 900;
-  color: #dfbd8110;
-  pointer-events: none;
-}
-.award > * { position: relative; }
-.award-symbol {
-  font-size: 47px;
-  color: var(--gold);
-  margin: 18px 0;
-}
-.recipient {
-  font-size: clamp(26px,5vw,43px);
-  line-height: 1.35;
-  margin: 18px 0;
-  overflow-wrap: anywhere;
-}
-.rule {
-  width: 80px;
-  height: 2px;
-  background: var(--gold);
-  margin: 24px auto;
-}
-.wish-title {
-  color: var(--gold);
-  font-size: clamp(20px,3vw,27px);
-  line-height: 1.5;
-  font-weight: 800;
-}
-.wish-text {
-  color: #f2f3f5;
-  line-height: 1.85;
-  font-size: clamp(15px,2vw,18px);
-  max-width: 640px;
-  margin: 17px auto;
-  white-space: pre-line;
-}
-.signature {
-  margin-top: 29px;
-  font-size: 11px;
-  color: #d5bc92;
-  font-weight: 700;
-  letter-spacing: .06em;
-  line-height: 1.8;
-}
-.footer {
-  text-align: center;
-  font-size: 10px;
-  color: #a1b3c7;
-  padding: 0 15px 20px;
-  letter-spacing: .08em;
-}
-#toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #28405a;
-  color: #fff;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 13px 17px;
-  font-size: 13px;
-  line-height: 1.5;
-  text-align: center;
-  max-width: calc(100vw - 28px);
-  z-index: 10;
-  box-shadow: 0 12px 30px #0006;
-}
-#toast[hidden] { display: none; }
-@media(max-width:650px) {
-  .topbar { padding: 13px; }
-  .brand { font-size: 9px; letter-spacing: 0; }
-  .sound { font-size: 11px; padding: 10px; }
-  .photo { aspect-ratio: 3/2; }
-  .gallery-top { font-size: 9px; }
-  .actions .btn { flex: 1 1 auto; }
-  .slide-copy { padding: 20px 14px 23px; }
-  .gallery-controls { justify-content: center; }
-  .hero:after { inset: 10px; }
-}
-@media(prefers-reduced-motion:reduce) {
-  *,*:before,*:after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-</style>
+  <style>
+    :root {
+      --blue: #246ca5;
+      --blue-dark: #214866;
+      --blue-soft: #e9f4ff;
+      --cream: #fff8ed;
+      --gold: #e6b763;
+      --ink: #29465d;
+      --muted: #687e90;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", Arial, sans-serif;
+      background: linear-gradient(145deg, #eaf5ff, #ffffff 55%, #fff6e9);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    button, input { font: inherit; }
+
+    button { cursor: pointer; }
+
+    button:focus-visible, input:focus-visible {
+      outline: 3px solid #85c9ff;
+      outline-offset: 3px;
+    }
+
+    .screen {
+      display: none;
+      min-height: 100svh;
+      padding: 28px 18px 90px;
+    }
+
+    .screen.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 50;
+      border: 0;
+      border-radius: 40px;
+      padding: 13px 18px;
+      background: #fff;
+      color: var(--blue-dark);
+      box-shadow: 0 6px 28px #183f6226;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 40px;
+      padding: 14px 23px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .primary {
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 8px 22px #246ca532;
+    }
+
+    .light {
+      color: var(--blue-dark);
+      background: #edf5fc;
+    }
+
+    .white {
+      background: #fff;
+      color: var(--blue-dark);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, h3 { letter-spacing: -.5px; }
+
+    /* TRANG MỞ ĐẦU */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: #d9ecfb;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(13, 43, 70, .12) 0%,
+          rgba(13, 43, 70, .20) 40%,
+          rgba(13, 43, 70, .78) 100%),
+        url("./anh-chung-tap-the.jpg") center center / cover no-repeat;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(15,45,72,.30), transparent 65%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      width: min(100%, 880px);
+      text-align: center;
+      color: #fff;
+      padding: 40px 22px;
+      margin-top: min(22vh, 180px);
+      animation: rise .8s ease both;
+    }
+
+    .hero .eyebrow {
+      color: #ffe4a6;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.30);
+      padding: 11px 18px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5.3vw, 57px);
+      line-height: 1.22;
+      font-weight: 800;
+      margin-bottom: 19px;
+      text-shadow: 0 3px 16px #0b294a44;
+    }
+
+    .hero p {
+      font-size: clamp(14px, 1.7vw, 17px);
+      line-height: 1.95;
+      max-width: 690px;
+      margin: 0 auto;
+      color: #f8fbff;
+      font-weight: 500;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: #fff8e9;
+      margin-top: 23px;
+      opacity: .92;
+    }
+
+    /* KHUNG NỘI DUNG */
+
+    .panel {
+      width: min(100%, 1000px);
+      background: #ffffffed;
+      border: 1px solid #dceaf5;
+      border-radius: 28px;
+      box-shadow: 0 20px 60px #315f861b;
+      padding: clamp(20px, 3vw, 36px);
+      animation: rise .5s ease both;
+    }
+
+    .center { text-align: center; }
+
+    .section-heading {
+      color: var(--blue-dark);
+      font-size: clamp(23px, 3.5vw, 35px);
+      line-height: 1.35;
+      margin: 12px 0;
+      font-weight: 800;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    /* TRÌNH CHIẾU */
+
+    .photo-stage {
+      position: relative;
+      width: 100%;
+      height: clamp(290px, 53vw, 550px);
+      background: #e8f2fa;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      opacity: 1;
+      transition: opacity .35s ease;
+    }
+
+    .photo-stage img.fade { opacity: .15; }
+
+    .photo-count {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      border-radius: 30px;
+      padding: 9px 14px;
+      background: #153a5bbf;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .photo-error {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      background: #e8f2fa;
+      text-align: center;
+      color: #536c80;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .progress {
+      height: 5px;
+      background: #e5eff8;
+      border-radius: 10px;
+      margin: 16px 0 22px;
+      overflow: hidden;
+    }
+
+    .progress > div {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #71b9ee, #e6b763);
+      transition: width .4s ease;
+    }
+
+    .slide-caption {
+      min-height: 116px;
+      text-align: center;
+      padding: 8px 16px 0;
+    }
+
+    .slide-caption h3 {
+      color: var(--blue-dark);
+      font-size: clamp(17px, 2.6vw, 23px);
+      margin-bottom: 10px;
+    }
+
+    .slide-caption p {
+      color: #566f83;
+      font-size: 14px;
+      line-height: 1.85;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .small-note {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+
+    /* NHẬP TÊN */
+
+    .name-panel {
+      max-width: 720px;
+      text-align: center;
+      padding-top: 54px;
+      padding-bottom: 54px;
+    }
+
+    .name-emoji {
+      font-size: 44px;
+      margin-bottom: 16px;
+    }
+
+    .name-input {
+      display: block;
+      width: min(100%, 470px);
+      padding: 17px 20px;
+      border: 1.5px solid #cbdfee;
+      border-radius: 15px;
+      background: #fafdff;
+      text-align: center;
+      font-size: 16px;
+      color: var(--blue-dark);
+      margin: 24px auto 0;
+    }
+
+    .input-error {
+      color: #b23e45;
+      font-size: 13px;
+      min-height: 22px;
+      margin-top: 10px;
+    }
+
+    /* THIỆP CÁ NHÂN */
+
+    .wish-panel {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .wish-card {
+      position: relative;
+      background: linear-gradient(145deg, #f1f8ff, #fffdf7);
+      border: 1px solid #d7e6f2;
+      border-radius: 24px;
+      padding: clamp(28px, 5vw, 55px) 22px;
+      overflow: hidden;
+    }
+
+    .wish-card::before,
+    .wish-card::after {
+      content: "✦";
+      position: absolute;
+      color: #e6b763;
+      font-size: 30px;
+      opacity: .8;
+    }
+
+    .wish-card::before { top: 15px; left: 22px; }
+    .wish-card::after { bottom: 15px; right: 22px; }
+
+    .wish-card .eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .recipient {
+      color: #2c78aa;
+      font-size: clamp(19px, 3vw, 25px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      overflow-wrap: anywhere;
+    }
+
+    .wish-card h2 {
+      color: #214866;
+      font-size: clamp(23px, 4vw, 35px);
+      line-height: 1.4;
+      margin-bottom: 22px;
+    }
+
+    .wish-message {
+      color: #49677e;
+      line-height: 2;
+      font-size: clamp(14px, 1.8vw, 16px);
+      white-space: pre-line;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .wish-footer {
+      color: #668198;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 30px;
+      letter-spacing: .3px;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .hero::before {
+        background-position: center top;
+      }
+
+      .hero-content {
+        margin-top: 27vh;
+        padding: 24px 6px;
+      }
+
+      .hero h1 { font-size: 31px; }
+
+      .hero p { font-size: 13px; line-height: 1.85; }
+
+      .photo-stage { height: 340px; }
+
+      .panel { border-radius: 22px; }
+
+      .button { padding: 13px 17px; font-size: 12px; }
+
+      .slide-caption { min-height: 160px; }
+
+      .music-btn { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <audio id="bgMusic" src="./music.mp3" loop preload="none"></audio>
 
-<header class="topbar">
-  <div class="brand">
-    PHÚC THIỆN · PHÚC THỊNH · 3D TECH VISION
-  </div>
-
-  <button class="sound" type="button" id="musicBtn">
+  <button class="music-btn" id="musicButton" type="button">
     ♪ Bật nhạc
   </button>
-</header>
 
-<audio id="music" src="./music.mp3" preload="none" loop></audio>
-
-<main>
-
-  <!-- MÀN HÌNH 1: MỞ ĐẦU -->
-  <section class="screen active" id="welcome">
-    <div class="hero">
-      <div class="eyebrow">
-        SPECIAL PREMIERE · INTERNATIONAL MEN'S DAY 2026
-      </div>
-
-      <div class="number">19:11</div>
+  <!-- MÀN HÌNH MỞ ĐẦU -->
+  <section class="screen hero active" id="hero">
+    <div class="hero-content">
+      <span class="eyebrow">19.11.2026 · INTERNATIONAL MEN'S DAY</span>
 
       <h1>
-        THE MEN
-        <br>
-        <span class="gold">BEHIND THE MOMENTS</span>
+        Một chút đặc biệt<br>
+        gửi đến các anh 💙
       </h1>
 
-      <p class="lead">
-        Có những hành trình đáng nhớ vì những người
-        đã cùng tạo nên chúng.
-        <br>
-        Ngày 19/11, chúng mình có một điều đặc biệt
-        dành cho các anh.
+      <p>
+        Có những khoảnh khắc chẳng cần quá cầu kỳ,
+        chỉ cần nhìn lại cũng đủ thấy vui.
+        Nhân ngày Quốc tế Đàn ông 19/11,
+        xin gửi đến các anh một món quà nhỏ,
+        cùng những lời chúc thật chân thành
+        và một chút bất ngờ ở cuối hành trình.
       </p>
 
-      <button class="btn" type="button" id="startBtn">
-        BẮT ĐẦU HÀNH TRÌNH →
-      </button>
+      <div class="actions">
+        <button class="button white" id="startButton" type="button">
+          Xem điều bất ngờ ✨
+        </button>
+      </div>
 
-      <p class="hint">
-        19 khoảnh khắc · Một lời chúc chung ·
-        Một bất ngờ dành riêng cho anh
-      </p>
+      <div class="hero-note">
+        Một vài phút để cùng nhìn lại những khoảnh khắc đáng nhớ.
+      </div>
     </div>
   </section>
 
-  <!-- MÀN HÌNH 2: 19 ẢNH -->
-  <section class="screen" id="story">
-    <div class="gallery">
-
-      <div class="gallery-top">
-        <span id="chapter">CHAPTER 01</span>
-        <span id="photoCounter">01 / 19</span>
+  <!-- MÀN HÌNH TRÌNH CHIẾU -->
+  <section class="screen" id="slideshow">
+    <div class="panel">
+      <div class="center">
+        <span class="eyebrow">OUR LITTLE MOMENTS</span>
+        <h2 class="section-heading">Những khoảnh khắc của chúng ta</h2>
+        <p class="section-desc">
+          Những bức ảnh lưu lại tiếng cười, sự gắn kết
+          và những điều giản dị đã tạo nên một tập thể thật đặc biệt.
+        </p>
       </div>
 
-      <div class="photo" id="photoArea">
-        <img id="slideImg" alt="Ảnh kỷ niệm công ty">
-        <div class="photo-status" id="photoStatus">
-          Đang tải hình ảnh...
+      <div class="photo-stage" id="photoStage">
+        <img id="slideImage" src="./01.jpg" alt="Ảnh kỷ niệm tập thể">
+        <div class="photo-error" id="photoError">
+          Không tìm thấy ảnh. Hãy kiểm tra tên file và vị trí ảnh trên GitHub.
         </div>
+        <div class="photo-count" id="photoCount">01 / 19</div>
       </div>
 
-      <div class="slide-copy">
-        <div class="eyebrow" id="tagline"></div>
-        <h2 id="slideTitle"></h2>
+      <div class="progress">
+        <div id="progressFill"></div>
+      </div>
+
+      <div class="slide-caption" aria-live="polite">
+        <h3 id="slideTitle"></h3>
         <p id="slideText"></p>
       </div>
 
-    </div>
-
-    <div class="progress">
-      <div id="progressFill"></div>
-    </div>
-
-    <div class="gallery-controls">
-      <span class="eyebrow" id="progressText">
-        KHOẢNH KHẮC 01 / 19
-      </span>
-
-      <button class="mini" type="button" id="autoBtn">
-        Ⅱ Tạm dừng tự chuyển
-      </button>
-    </div>
-
-    <div class="actions">
-      <button class="btn alt" type="button" id="prevBtn">
-        ← Ảnh trước
-      </button>
-
-      <button class="btn" type="button" id="nextBtn">
-        Ảnh tiếp theo →
-      </button>
-    </div>
-
-    <p class="hint">
-      Ảnh tự chuyển sau 6,5 giây. Có thể bấm Tiếp,
-      quay lại hoặc vuốt trên điện thoại.
-    </p>
-  </section>
-
-  <!-- MÀN HÌNH 3: NHẬP TÊN -->
-  <section class="screen" id="reveal">
-    <div class="panel">
-      <div class="eyebrow">
-        ONE MORE THING · ACCESS 19:11
+      <div class="actions">
+        <button class="button light" id="previousButton" type="button">
+          ← Ảnh trước
+        </button>
+        <button class="button light" id="pauseButton" type="button">
+          Tạm dừng
+        </button>
+        <button class="button primary" id="nextButton" type="button">
+          Ảnh tiếp theo →
+        </button>
       </div>
 
-      <h2>
-        KHOAN ĐÃ...
-        <br>
-        <span class="gold">
-          CÒN MỘT ĐIỀU DÀNH RIÊNG CHO ANH.
-        </span>
-      </h2>
+      <p class="small-note">
+        Ảnh tự chuyển sau 6,5 giây. Bạn có thể chuyển thủ công hoặc tạm dừng.
+      </p>
+    </div>
+  </section>
 
-      <p>
-        Hành trình hình ảnh đã khép lại,
-        nhưng lời chúc đặc biệt thì chưa.
-        Hãy nhập họ tên để mở tấm thẻ 19/11
-        của riêng mình.
+  <!-- MÀN HÌNH NHẬP TÊN -->
+  <section class="screen" id="nameScreen">
+    <div class="panel name-panel">
+      <div class="name-emoji">🎁</div>
+      <span class="eyebrow">A LITTLE SURPRISE FOR YOU</span>
+      <h2 class="section-heading">
+        Khoan đã, còn một điều dành riêng cho anh!
+      </h2>
+      <p class="section-desc">
+        Những bức ảnh là lời chúc chung dành cho tất cả mọi người.
+        Còn bây giờ, hãy nhập tên để nhận một lời chúc nhỏ
+        dành riêng cho mình nhé.
       </p>
 
       <input
         class="name-input"
         id="nameInput"
-        maxlength="70"
+        type="text"
+        maxlength="60"
         autocomplete="name"
-        placeholder="Nhập họ và tên của anh"
-        aria-label="Họ và tên"
+        placeholder="Nhập tên của anh tại đây"
       >
 
-      <div class="error" id="nameError" role="alert"></div>
+      <div class="input-error" id="nameError"></div>
 
-      <button class="btn" type="button" id="unlockBtn">
-        MỞ KHÓA LỜI CHÚC →
+      <button class="button primary" id="revealButton" type="button">
+        Mở lời chúc của tôi 💌
       </button>
     </div>
   </section>
 
-  <!-- MÀN HÌNH 4: THẺ CÁ NHÂN -->
-  <section class="screen" id="result">
-    <div class="award" id="card">
+  <!-- MÀN HÌNH LỜI CHÚC -->
+  <section class="screen" id="wishScreen">
+    <div class="panel wish-panel">
+      <div class="wish-card" id="wishCard">
+        <span class="eyebrow">HAPPY INTERNATIONAL MEN'S DAY</span>
 
-      <div class="eyebrow">
-        SPECIAL EDITION · 19 NOVEMBER 2026
+        <div class="recipient" id="recipient"></div>
+
+        <h2 id="wishTitle"></h2>
+
+        <div class="wish-message" id="wishMessage"></div>
+
+        <div class="wish-footer">
+          19.11.2026 · PHÚC THIỆN · PHÚC THỊNH · 3D TECH VISION
+        </div>
       </div>
 
-      <div class="award-symbol">✦</div>
+      <div class="actions">
+        <button class="button primary" id="downloadButton" type="button">
+          Lưu thiệp của tôi ↓
+        </button>
 
-      <div class="eyebrow">
-        HAPPY INTERNATIONAL MEN'S DAY
+        <button class="button light" id="anotherWishButton" type="button">
+          Một lời chúc khác
+        </button>
+
+        <button class="button light" id="restartButton" type="button">
+          Xem lại từ đầu
+        </button>
       </div>
 
-      <h2 class="recipient" id="recipientName"></h2>
-
-      <div class="rule"></div>
-
-      <div class="wish-title" id="wishTitle"></div>
-
-      <p class="wish-text" id="wishText"></p>
-
-      <div class="signature">
-        TRÂN TRỌNG GỬI TỪ
-        <br>
-        PHÚC THIỆN · PHÚC THỊNH · 3D TECH VISION
-      </div>
+      <p class="small-note">
+        Có thể lưu thiệp dưới dạng ảnh PNG để giữ làm kỷ niệm.
+      </p>
     </div>
-
-    <div class="actions">
-      <button class="btn" type="button" id="saveBtn">
-        ↓ LƯU THẺ PNG
-      </button>
-
-      <button class="btn alt" type="button" id="otherBtn">
-        NHẬP TÊN KHÁC
-      </button>
-
-      <button class="btn alt" type="button" id="replayBtn">
-        XEM LẠI ẢNH
-      </button>
-    </div>
-
-    <p class="hint">
-      Thẻ chúc mừng có thể lưu thành ảnh PNG
-      trên điện thoại hoặc máy tính.
-    </p>
   </section>
 
-</main>
-
-<footer class="footer">
-  HAPPY MEN'S DAY · 19.11.2026
-</footer>
-
-<div id="toast" role="status" hidden></div>
-
-<script>
-"use strict";
-
-/* ==================================================
-   1. CẤU HÌNH TRÌNH CHIẾU
-   ================================================== */
-
-const CONFIG = {
-  secondsPerPhoto: 6.5,
-  autoPlay: true
-};
-
-/* ==================================================
-   2. DANH SÁCH 19 ẢNH VÀ LỜI CHÚC
-   ================================================== */
-
-const SLIDES = [
-  {
-    file: "01.jpg",
-    title: "NHỮNG NGƯỜI ĐỒNG HÀNH",
-    text: "Một tập thể được tạo nên từ những con người khác nhau, cùng chung tinh thần gắn kết."
-  },
-  {
-    file: "02.jpg",
-    title: "MỖI NGƯỜI MỘT DẤU ẤN",
-    text: "Mỗi cá tính, mỗi góc nhìn đều góp phần tạo nên những điều đặc biệt."
-  },
-  {
-    file: "03.jpg",
-    title: "CÙNG NHAU LƯU GIỮ KỶ NIỆM",
-    text: "Đôi khi, một tấm hình cũng đủ để nhắc chúng ta về một khoảnh khắc đáng nhớ."
-  },
-  {
-    file: "04.jpg",
-    title: "HÀNH TRÌNH CÓ NHAU",
-    text: "Cảm ơn các anh vì đã luôn góp mặt trong những chặng đường chung."
-  },
-  {
-    file: "05.jpg",
-    title: "NHỮNG ĐÓNG GÓP THẦM LẶNG",
-    text: "Không phải nỗ lực nào cũng được nhắc tên, nhưng mọi đóng góp đều đáng trân trọng."
-  },
-  {
-    file: "06.jpg",
-    title: "TINH THẦN TRÁCH NHIỆM",
-    text: "Sự tận tâm trong từng công việc nhỏ làm nên giá trị của cả một tập thể."
-  },
-  {
-    file: "07.jpg",
-    title: "CÙNG NHAU TIẾN VỀ PHÍA TRƯỚC",
-    text: "Mỗi thử thách là thêm một cơ hội để học hỏi, phối hợp và trưởng thành."
-  },
-  {
-    file: "08.jpg",
-    title: "KHÔNG NGẠI THỬ THÁCH",
-    text: "Cảm ơn các anh vì tinh thần chủ động và sự bền bỉ trong công việc."
-  },
-  {
-    file: "09.jpg",
-    title: "ĐỒNG ĐỘI LÀ ĐỂ SẺ CHIA",
-    text: "Có những việc trở nên nhẹ nhàng hơn khi chúng ta cùng hỗ trợ nhau."
-  },
-  {
-    file: "10.jpg",
-    title: "VÀ RỒI... ĐẾN GIỜ GIẢI LAO",
-    text: "Bên cạnh deadline, vẫn luôn có chỗ cho những phút giây thư giãn."
-  },
-  {
-    file: "11.jpg",
-    title: "NHỮNG TIẾNG CƯỜI RẤT RIÊNG",
-    text: "Đâu chỉ có công việc, chúng ta còn có những câu chuyện vui để nhớ mãi."
-  },
-  {
-    file: "12.jpg",
-    title: "MỖI KHOẢNH KHẮC MỘT CÂU CHUYỆN",
-    text: "Có những điều không cần kể quá nhiều, chỉ nhìn ảnh là nhớ."
-  },
-  {
-    file: "13.jpg",
-    title: "CỨ VUI HẾT MÌNH",
-    text: "Chúc các anh luôn có thêm nhiều dịp tận hưởng những niềm vui giản dị."
-  },
-  {
-    file: "14.jpg",
-    title: "GIỮ VỮNG NĂNG LƯỢNG TÍCH CỰC",
-    text: "Giữa những ngày bận rộn, mong các anh vẫn luôn giữ được nụ cười."
-  },
-  {
-    file: "15.jpg",
-    title: "CẢM ƠN VÌ ĐÃ ĐỒNG HÀNH",
-    text: "Cảm ơn sự nỗ lực, tinh thần trách nhiệm và những đóng góp đáng quý của các anh."
-  },
-  {
-    file: "16.jpg",
-    title: "CẢM ƠN VÌ NHỮNG DẤU ẤN",
-    text: "Mỗi đóng góp đều là một phần trong những thành quả mà tập thể cùng tạo nên."
-  },
-  {
-    file: "17.jpg",
-    title: "DÀNH MỘT NGÀY CHO CHÍNH MÌNH",
-    text: "Hôm nay, tạm gác những công việc thường ngày để nhận một lời chúc đặc biệt nhé."
-  },
-  {
-    file: "18.jpg",
-    title: "GỬI ĐẾN CÁC ANH MỘT LỜI CHÚC",
-    text: "Chúc các anh thật nhiều sức khỏe, may mắn, công việc thuận lợi và gia đình hạnh phúc."
-  },
-  {
-    file: "19.jpg",
-    title: "HAPPY INTERNATIONAL MEN'S DAY",
-    text: "Chúc các anh ngày 19/11 thật vui, nhiều tiếng cười và những khoảnh khắc đáng nhớ. Cảm ơn vì đã là một phần của tập thể!"
-  }
-];
-
-/* ==================================================
-   3. LỜI CHÚC CÁ NHÂN THEO TÊN
-
-   Khi có danh sách nhân sự, điền vào đây.
-
-   Ví dụ:
-   "nguyen van a": {
-     xungHo: "Anh",
-     title: "LỜI CHÚC RIÊNG",
-     text: "Chúc anh..."
-   }
-   ================================================== */
-
-const PERSONAL_WISHES = {};
-
-/* ==================================================
-   4. LỜI CHÚC MẪU KHI CHƯA CÓ TÊN RIÊNG
-   ================================================== */
-
-const DEFAULT_WISHES = [
-  {
-    title: "VỮNG VÀNG VÀ NHIỀU NIỀM VUI",
-    text: "Nhân ngày Quốc tế Đàn ông 19/11, chúc anh luôn mạnh khỏe, may mắn và giữ được tinh thần tích cực. Mong công việc luôn thuận lợi, các kế hoạch đạt kết quả tốt đẹp và cuộc sống có thật nhiều khoảnh khắc ấm áp bên gia đình."
-  },
-  {
-    title: "CÔNG VIỆC THUẬN LỢI – CUỘC SỐNG THÊM VUI",
-    text: "Cảm ơn anh vì sự đồng hành và những đóng góp trong công việc chung. Chúc anh thêm nhiều sức khỏe, niềm vui, có những cơ hội phát triển mới và luôn dành được thời gian cho bản thân cùng những người thân yêu."
-  },
-  {
-    title: "THÊM NĂNG LƯỢNG – THÊM THÀNH CÔNG",
-    text: "Chúc anh một ngày 19/11 thật đáng nhớ. Mong anh luôn tràn đầy năng lượng, công việc suôn sẻ, những dự định từng bước thành hiện thực và mỗi ngày đều có thêm điều tích cực để mỉm cười."
-  },
-  {
-    title: "MỘT LỜI CHÚC ĐẶC BIỆT DÀNH CHO ANH",
-    text: "Cảm ơn anh vì tinh thần trách nhiệm và sự góp sức trong hành trình chung. Nhân ngày Quốc tế Đàn ông, chúc anh thật nhiều sức khỏe, bình an, may mắn, gia đình hạnh phúc và đón nhận thêm nhiều trải nghiệm ý nghĩa."
-  },
-  {
-    title: "BỀN BỈ, TỰ TIN VÀ HẠNH PHÚC",
-    text: "Chúc anh luôn vững vàng trước những thử thách, tự tin với lựa chọn của mình và gặp nhiều thuận lợi trong công việc. Mong những chặng đường sắp tới mang đến thêm nhiều cơ hội tốt đẹp, niềm vui và thời gian quý giá bên gia đình."
-  }
-];
-
-/* ==================================================
-   5. HIỂN THỊ VÀ PHÁT NHẠC
-   ================================================== */
-
-const $ = id => document.getElementById(id);
-const music = $("music");
-
-music.volume = 0.33;
-
-let index = 0;
-let auto = CONFIG.autoPlay;
-let timer = null;
-let imageToken = 0;
-let recipient = "";
-let wish = null;
-let honorific = "Anh";
-let toastTimer = null;
-
-function notify(message) {
-  $("toast").textContent = message;
-  $("toast").hidden = false;
-
-  clearTimeout(toastTimer);
-
-  toastTimer = setTimeout(() => {
-    $("toast").hidden = true;
-  }, 4500);
-}
-
-function showScreen(id) {
-  clearTimeout(timer);
-
-  document.querySelectorAll(".screen").forEach(s => {
-    s.classList.toggle("active", s.id === id);
-  });
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-  music.volume =
-    id === "result" || id === "reveal"
-      ? 0.20
-      : 0.33;
-}
-
-async function playMusic() {
-  if (!music.paused) return;
-
-  try {
-    await music.play();
-    $("musicBtn").textContent = "♫ Tắt nhạc";
-  } catch (e) {
-    $("musicBtn").textContent = "♪ Bật nhạc";
-
-    notify(
-      "Không phát được nhạc. Hãy kiểm tra file music.mp3 trên GitHub."
-    );
-  }
-}
-
-$("musicBtn").addEventListener("click", () => {
-  if (music.paused) {
-    playMusic();
-  } else {
-    music.pause();
-    $("musicBtn").textContent = "♪ Bật nhạc";
-  }
-});
-
-/* ==================================================
-   6. TRÌNH CHIẾU 19 ẢNH
-   ================================================== */
-
-function schedule() {
-  clearTimeout(timer);
-
-  if (
-    auto &&
-    $("story").classList.contains("active") &&
-    !document.hidden
-  ) {
-    timer = setTimeout(
-      next,
-      CONFIG.secondsPerPhoto * 1000
-    );
-  }
-}
-
-function showPhoto() {
-  const slide = SLIDES[index];
-  const total = SLIDES.length;
-
-  $("chapter").textContent =
-    index < 4
-      ? "CHAPTER I · GẮN KẾT"
-      : index < 9
-      ? "CHAPTER II · ĐỒNG HÀNH"
-      : index < 14
-      ? "CHAPTER III · KHOẢNH KHẮC"
-      : "CHAPTER IV · TRI ÂN";
-
-  $("tagline").textContent =
-    "INTERNATIONAL MEN'S DAY · 19.11.2026";
-
-  $("slideTitle").textContent = slide.title;
-  $("slideText").textContent = slide.text;
-
-  const count =
-    String(index + 1).padStart(2, "0") +
-    " / " +
-    String(total).padStart(2, "0");
-
-  $("photoCounter").textContent = count;
-
-  $("progressText").textContent =
-    "KHOẢNH KHẮC " + count;
-
-  $("progressFill").style.width =
-    ((index + 1) / total * 100) + "%";
-
-  $("prevBtn").disabled = index === 0;
-
-  $("nextBtn").textContent =
-    index === total - 1
-      ? "MỞ LỜI CHÚC RIÊNG →"
-      : "Ảnh tiếp theo →";
-
-  $("autoBtn").textContent =
-    auto
-      ? "Ⅱ Tạm dừng tự chuyển"
-      : "▶ Tiếp tục tự chuyển";
-
-  const token = ++imageToken;
-  const img = $("slideImg");
-
-  img.classList.remove("ready");
-  img.removeAttribute("src");
-
-  $("photoStatus").hidden = false;
-  $("photoStatus").textContent =
-    "Đang tải " + slide.file + "...";
-
-  const preloader = new Image();
-
-  preloader.onload = () => {
-    if (token !== imageToken) return;
-
-    img.src = preloader.src;
-    img.alt = "Khoảnh khắc " + (index + 1);
-    img.classList.add("ready");
-
-    $("photoStatus").hidden = true;
-  };
-
-  preloader.onerror = () => {
-    if (token !== imageToken) return;
-
-    $("photoStatus").textContent =
-      "Chưa tìm thấy " +
-      slide.file +
-      ". Hãy tải ảnh lên GitHub cùng thư mục index.html.";
-  };
-
-  preloader.src = "./" + slide.file;
-
-  // Chuẩn bị tải trước tấm ảnh kế tiếp.
-  if (index + 1 < total) {
-    const upcoming = new Image();
-    upcoming.src = "./" + SLIDES[index + 1].file;
-  }
-
-  schedule();
-}
-
-function next() {
-  if (index < SLIDES.length - 1) {
-    index++;
-    showPhoto();
-  } else {
-    showScreen("reveal");
-    $("nameInput").focus({ preventScroll: true });
-  }
-}
-
-function prev() {
-  if (index > 0) {
-    index--;
-    showPhoto();
-  }
-}
-
-$("startBtn").addEventListener("click", () => {
-  index = 0;
-  showScreen("story");
-  showPhoto();
-  playMusic();
-});
-
-$("nextBtn").addEventListener("click", next);
-$("prevBtn").addEventListener("click", prev);
-
-$("autoBtn").addEventListener("click", () => {
-  auto = !auto;
-  schedule();
-
-  $("autoBtn").textContent =
-    auto
-      ? "Ⅱ Tạm dừng tự chuyển"
-      : "▶ Tiếp tục tự chuyển";
-});
-
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    clearTimeout(timer);
-  } else {
-    schedule();
-  }
-});
-
-// Vuốt ảnh trên điện thoại.
-let touchX = null;
-
-$("photoArea").addEventListener(
-  "touchstart",
-  e => {
-    touchX = e.changedTouches[0].screenX;
-  },
-  { passive: true }
-);
-
-$("photoArea").addEventListener(
-  "touchend",
-  e => {
-    if (touchX === null) return;
-
-    const dx =
-      e.changedTouches[0].screenX - touchX;
-
-    touchX = null;
-
-    if (dx < -65) {
-      next();
-    } else if (dx > 65) {
-      prev();
-    }
-  },
-  { passive: true }
-);
-
-/* ==================================================
-   7. NHẬP TÊN VÀ HIỆN LỜI CHÚC CÁ NHÂN
-   ================================================== */
-
-function normalize(s) {
-  return s
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/đ/g, "d")
-    .replace(/Đ/g, "D")
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function nameHash(s) {
-  let h = 2166136261;
-
-  for (const c of s) {
-    h ^= c.codePointAt(0);
-    h = Math.imul(h, 16777619);
-  }
-
-  return h >>> 0;
-}
-
-function unlock() {
-  const name = $("nameInput")
-    .value
-    .trim()
-    .replace(/\s+/g, " ");
-
-  if (!name) {
-    $("nameError").textContent =
-      "Anh vui lòng nhập họ tên nhé.";
-    return;
-  }
-
-  $("nameError").textContent = "";
-  recipient = name;
-
-  const key = normalize(name);
-  const personal = PERSONAL_WISHES[key];
-
-  honorific = personal?.xungHo || "Anh";
-
-  wish =
-    personal ||
-    DEFAULT_WISHES[
-      nameHash(key) % DEFAULT_WISHES.length
+  <script>
+    "use strict";
+
+    // CẤU HÌNH
+    const CONFIG = {
+      totalPhotos: 19,
+      secondsPerPhoto: 6.5,
+      autoPlay: true,
+      musicVolume: 0.33
+    };
+
+    // LỜI NHẮN CHO 19 ẢNH
+    const SLIDES = [
+      {
+        title: "Mỗi người một màu sắc",
+        text: "Và khi cùng nhau, chúng ta tạo nên một tập thể thật nhiều năng lượng."
+      },
+      {
+        title: "Một chút phong độ",
+        text: "Đi làm hết mình, lên hình cũng phải thật chỉn chu."
+      },
+      {
+        title: "Những đồng đội đáng quý",
+        text: "Cảm ơn các anh vì luôn sẵn sàng đồng hành và hỗ trợ nhau."
+      },
+      {
+        title: "Có đồng đội, có niềm vui",
+        text: "Đôi khi những khoảnh khắc giản dị lại là điều khiến chúng ta nhớ lâu nhất."
+      },
+      {
+        title: "Tinh thần luôn sẵn sàng",
+        text: "Chúc các anh luôn giữ được sự nhiệt tình và nguồn năng lượng tích cực."
+      },
+      {
+        title: "Cùng nhau tiến bước",
+        text: "Mỗi chặng đường đều ý nghĩa hơn khi có những người đồng hành."
+      },
+      {
+        title: "Một bức ảnh, nhiều kỷ niệm",
+        text: "Lưu lại một chút vui vẻ để sau này nhìn lại vẫn có thể mỉm cười."
+      },
+      {
+        title: "Phong độ là nhất thời?",
+        text: "Không đâu, nhìn những bức ảnh này thì phong độ vẫn rất ổn định."
+      },
+      {
+        title: "Chung một tinh thần",
+        text: "Cùng làm việc, cùng chia sẻ và cùng tạo nên những điều đáng nhớ."
+      },
+      {
+        title: "Niềm vui từ những điều nhỏ",
+        text: "Một nụ cười, một lời động viên cũng đủ làm ngày làm việc thêm dễ chịu."
+      },
+      {
+        title: "Không chỉ là đồng nghiệp",
+        text: "Mà còn là những người cùng nhau trải qua rất nhiều câu chuyện."
+      },
+      {
+        title: "Ghi nhận những nỗ lực",
+        text: "Mỗi sự cố gắng đều đáng trân trọng, dù lớn hay nhỏ."
+      },
+      {
+        title: "Những dấu ấn đáng tự hào",
+        text: "Thành quả hôm nay có sự góp sức của rất nhiều người."
+      },
+      {
+        title: "Tiếng cười là điều không thể thiếu",
+        text: "Vì một tập thể vui vẻ luôn có thêm động lực để cùng tiến lên."
+      },
+      {
+        title: "Những khoảnh khắc tự nhiên nhất",
+        text: "Chẳng cần tạo dáng quá nhiều, vẫn đủ để lưu lại một kỷ niệm đẹp."
+      },
+      {
+        title: "Đồng hành và sẻ chia",
+        text: "Cảm ơn các anh vì sự chân thành, trách nhiệm và tinh thần gắn kết."
+      },
+      {
+        title: "Thêm nhiều hành trình phía trước",
+        text: "Chúc các anh luôn mạnh khỏe, tự tin và có thêm nhiều trải nghiệm đáng nhớ."
+      },
+      {
+        title: "Một chút cảm ơn",
+        text: "Vì những đóng góp, sự nhiệt tình và cả những tiếng cười trong tập thể."
+      },
+      {
+        title: "Và cuối cùng...",
+        text: "Chúc các anh một ngày 19/11 thật vui. Nhưng khoan, vẫn còn một lời chúc đặc biệt đang chờ!"
+      }
     ];
 
-  $("recipientName").textContent =
-    "GỬI ĐẾN " +
-    honorific.toLocaleUpperCase("vi-VN") +
-    " " +
-    name.toLocaleUpperCase("vi-VN");
+    // LỜI CHÚC CÁ NHÂN
+    const PERSONAL_WISHES = [
+      {
+        title: "Vững vàng bản lĩnh, trọn vẹn niềm vui",
+        text: "Cảm ơn anh vì sự đồng hành và những đóng góp đáng quý.\n\nChúc anh luôn dồi dào sức khỏe, công việc thuận lợi, giữ vững phong độ và có thêm thật nhiều niềm vui trong cuộc sống."
+      },
+      {
+        title: "Thêm nhiều năng lượng, thêm nhiều thành công",
+        text: "Chúc anh luôn giữ được tinh thần tích cực và sự nhiệt huyết trong mọi việc.\n\nMong những dự định sắp tới của anh đều thuận lợi, mỗi ngày có thêm một điều vui và mỗi chặng đường đều thật đáng nhớ."
+      },
+      {
+        title: "Phong độ vững vàng, niềm vui đầy ắp",
+        text: "Nhân ngày 19/11, chúc anh luôn mạnh khỏe, vui vẻ và tự tin trên hành trình của mình.\n\nCảm ơn anh vì những điều tích cực đã mang đến cho tập thể. Chúc anh có thêm nhiều thành quả và những khoảnh khắc thật ý nghĩa."
+      },
+      {
+        title: "Công việc hanh thông, cuộc sống nhiều niềm vui",
+        text: "Chúc anh một ngày Quốc tế Đàn ông thật vui và đáng nhớ.\n\nMong công việc luôn suôn sẻ, những kế hoạch ấp ủ sớm trở thành hiện thực và cuộc sống luôn có những điều thú vị để mong chờ."
+      },
+      {
+        title: "Luôn là phiên bản thật tốt của chính mình",
+        text: "Cảm ơn anh vì những nỗ lực và sự tận tâm trong công việc.\n\nChúc anh luôn giữ được sự tự tin, tinh thần lạc quan và có thêm nhiều cơ hội để phát triển theo cách của riêng mình."
+      },
+      {
+        title: "Sức khỏe dồi dào, may mắn ngập tràn",
+        text: "Nhân dịp 19/11, gửi đến anh lời chúc thật nhiều sức khỏe và niềm vui.\n\nChúc anh luôn gặp những người đồng hành tốt, công việc thuận lợi và mỗi ngày đều có thêm những điều khiến mình mỉm cười."
+      },
+      {
+        title: "Nhiệt huyết mỗi ngày, thành quả mỗi chặng",
+        text: "Cảm ơn anh vì tinh thần trách nhiệm và sự cố gắng đáng trân trọng.\n\nChúc anh luôn giữ được nhiệt huyết, gặp nhiều may mắn và có thêm những kết quả thật đáng tự hào."
+      },
+      {
+        title: "Bình an trong cuộc sống, tự tin trong công việc",
+        text: "Chúc anh luôn mạnh khỏe, bình an và có thật nhiều thời gian cho những điều mình yêu thích.\n\nMong công việc luôn thuận lợi và những dự định sắp tới đều mang lại nhiều trải nghiệm tích cực."
+      },
+      {
+        title: "Giữ vững phong độ, đón thêm tin vui",
+        text: "Chúc anh luôn vui vẻ, tự tin và giữ được phong độ thật tốt.\n\nMong mỗi ngày làm việc đều có thêm động lực, mỗi kế hoạch đều tiến triển suôn sẻ và mỗi hành trình đều có những kỷ niệm đẹp."
+      },
+      {
+        title: "Một năm thật nhiều điều đáng nhớ",
+        text: "Cảm ơn anh vì đã góp phần tạo nên một tập thể gắn kết và nhiều năng lượng.\n\nChúc anh có thêm nhiều niềm vui, những cơ hội mới và thật nhiều khoảnh khắc đáng quý bên gia đình, bạn bè và đồng nghiệp."
+      }
+    ];
 
-  $("wishTitle").textContent = wish.title;
-  $("wishText").textContent = wish.text;
+    // Có thể thêm lời chúc riêng cho từng người tại đây.
+    // Ví dụ:
+    // const CUSTOM_WISHES = {
+    //   "nguyen van a": {
+    //     title: "Lời chúc dành riêng cho anh",
+    //     text: "Nội dung lời chúc riêng..."
+    //   }
+    // };
 
-  showScreen("result");
-}
+    const CUSTOM_WISHES = {};
 
-$("unlockBtn").addEventListener("click", unlock);
+    let currentIndex = 0;
+    let slideTimer = null;
+    let isAutoPlaying = CONFIG.autoPlay;
+    let currentName = "";
+    let currentWishIndex = 0;
 
-$("nameInput").addEventListener("keydown", e => {
-  if (e.key === "Enter") unlock();
-});
+    const $ = id => document.getElementById(id);
 
-$("nameInput").addEventListener("input", () => {
-  $("nameError").textContent = "";
-});
+    const music = $("bgMusic");
+    music.volume = CONFIG.musicVolume;
 
-$("otherBtn").addEventListener("click", () => {
-  showScreen("reveal");
-  $("nameInput").focus({ preventScroll: true });
-});
+    function showScreen(id) {
+      clearInterval(slideTimer);
+      slideTimer = null;
 
-$("replayBtn").addEventListener("click", () => {
-  index = 0;
-  showScreen("story");
-  showPhoto();
-});
+      document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.toggle("active", screen.id === id);
+      });
 
-/* ==================================================
-   8. LƯU THẺ PNG
-   ================================================== */
+      window.scrollTo(0, 0);
+    }
 
-function wrap(ctx, text, maxWidth) {
-  const result = [];
+    async function playMusic() {
+      try {
+        await music.play();
+      } catch (error) {
+        // Trình duyệt có thể chặn phát nhạc tự động.
+      }
+      updateMusicButton();
+    }
 
-  for (const paragraph of String(text).split("\n")) {
-    let line = "";
+    function updateMusicButton() {
+      $("musicButton").textContent = music.paused
+        ? "♪ Bật nhạc"
+        : "♫ Tắt nhạc";
+    }
 
-    for (
-      const word of paragraph.split(/\s+/).filter(Boolean)
-    ) {
-      const attempt = line
-        ? line + " " + word
-        : word;
-
-      if (
-        line &&
-        ctx.measureText(attempt).width > maxWidth
-      ) {
-        result.push(line);
-        line = word;
+    function toggleMusic() {
+      if (music.paused) {
+        playMusic();
       } else {
-        line = attempt;
+        music.pause();
+        updateMusicButton();
       }
     }
 
-    if (line) result.push(line);
-  }
-
-  return result;
-}
-
-function linesAt(ctx, lines, y, lh) {
-  for (const line of lines) {
-    ctx.fillText(line, 600, y);
-    y += lh;
-  }
-
-  return y;
-}
-
-function saveCard() {
-  if (!recipient || !wish) return;
-
-  const c = document.createElement("canvas");
-
-  c.width = 1200;
-  c.height = 1500;
-
-  const x = c.getContext("2d");
-
-  const g = x.createLinearGradient(
-    0, 0, 1200, 1500
-  );
-
-  g.addColorStop(0, "#2b4765");
-  g.addColorStop(.55, "#172c45");
-  g.addColorStop(1, "#0c192c");
-
-  x.fillStyle = g;
-  x.fillRect(0, 0, 1200, 1500);
-
-  x.strokeStyle = "#dfbd81";
-  x.lineWidth = 4;
-
-  x.strokeRect(45, 45, 1110, 1410);
-
-  x.textAlign = "center";
-  x.textBaseline = "top";
-  x.fillStyle = "#dfbd81";
-
-  x.font = "bold 28px Arial";
-
-  x.fillText(
-    "INTERNATIONAL MEN'S DAY · 19.11.2026",
-    600,
-    148
-  );
-
-  x.font = "67px Arial";
-  x.fillText("✦", 600, 222);
-
-  const fullName =
-    "GỬI ĐẾN " +
-    honorific.toLocaleUpperCase("vi-VN") +
-    " " +
-    recipient.toLocaleUpperCase("vi-VN");
-
-  let size = 52;
-  let nameLines = [];
-
-  do {
-    x.font = "bold " + size + "px Arial";
-
-    nameLines = wrap(
-      x,
-      fullName,
-      980
-    );
-
-    if (nameLines.length <= 3) break;
-
-    size -= 2;
-  } while (size >= 30);
-
-  x.fillStyle = "#fff";
-
-  let y = linesAt(
-    x,
-    nameLines,
-    345,
-    size + 13
-  );
-
-  x.fillStyle = "#dfbd81";
-  x.fillRect(548, y + 18, 104, 3);
-
-  y += 78;
-
-  x.font = "bold 39px Arial";
-
-  y = linesAt(
-    x,
-    wrap(x, wish.title, 950),
-    y,
-    57
-  ) + 38;
-
-  let bodySize = 32;
-  let bodyLines = [];
-
-  while (bodySize >= 22) {
-    x.font = bodySize + "px Arial";
-
-    bodyLines = wrap(
-      x,
-      wish.text,
-      970
-    );
-
-    if (
-      y + bodyLines.length * bodySize * 1.55 < 1320
-    ) {
-      break;
+    function imagePath(index) {
+      return "./" + String(index + 1).padStart(2, "0") + ".jpg";
     }
 
-    bodySize--;
-  }
+    function renderSlide() {
+      const img = $("slideImage");
+      const error = $("photoError");
+      const path = imagePath(currentIndex);
+      const message = SLIDES[currentIndex];
 
-  x.fillStyle = "#f8f6f1";
-  x.font = bodySize + "px Arial";
+      img.classList.add("fade");
+      error.style.display = "none";
 
-  linesAt(
-    x,
-    bodyLines,
-    y,
-    bodySize * 1.55
-  );
+      img.onload = function () {
+        img.classList.remove("fade");
+        error.style.display = "none";
+      };
 
-  x.fillStyle = "#dfbd81";
-  x.font = "bold 23px Arial";
+      img.onerror = function () {
+        img.classList.remove("fade");
+        error.style.display = "flex";
+        error.textContent =
+          "Không tải được " + path +
+          ". Vui lòng kiểm tra file trên GitHub.";
+      };
 
-  x.fillText(
-    "PHÚC THIỆN · PHÚC THỊNH · 3D TECH VISION",
-    600,
-    1390
-  );
+      img.src = path;
 
-  const a = document.createElement("a");
+      $("photoCount").textContent =
+        String(currentIndex + 1).padStart(2, "0") +
+        " / " + CONFIG.totalPhotos;
 
-  a.download =
-    "thiep-19-11-" +
-    normalize(recipient)
-      .replace(/[^a-z0-9 ]/g, "")
-      .replace(/ /g, "-") +
-    ".png";
+      $("slideTitle").textContent = message.title;
+      $("slideText").textContent = message.text;
 
-  a.href = c.toDataURL("image/png");
+      $("progressFill").style.width =
+        ((currentIndex + 1) / CONFIG.totalPhotos * 100) + "%";
 
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
+      $("previousButton").disabled = currentIndex === 0;
+      $("previousButton").style.opacity =
+        currentIndex === 0 ? ".45" : "1";
 
-  notify(
-    "Đã tạo thẻ PNG. Kiểm tra mục Tải xuống của trình duyệt nhé."
-  );
-}
+      $("nextButton").textContent =
+        currentIndex === CONFIG.totalPhotos - 1
+          ? "Nhận lời chúc riêng →"
+          : "Ảnh tiếp theo →";
+    }
 
-$("saveBtn").addEventListener("click", saveCard);
+    function scheduleNext() {
+      clearInterval(slideTimer);
 
-</script>
+      if (!isAutoPlaying) return;
+
+      slideTimer = setInterval(() => {
+        nextSlide();
+      }, CONFIG.secondsPerPhoto * 1000);
+    }
+
+    function startShow() {
+      currentIndex = 0;
+      isAutoPlaying = CONFIG.autoPlay;
+
+      showScreen("slideshow");
+      renderSlide();
+      updatePauseButton();
+      scheduleNext();
+      playMusic();
+    }
+
+    function nextSlide() {
+      if (currentIndex >= CONFIG.totalPhotos - 1) {
+        showScreen("nameScreen");
+        return;
+      }
+
+      currentIndex++;
+      renderSlide();
+      scheduleNext();
+    }
+
+    function previousSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderSlide();
+        scheduleNext();
+      }
+    }
+
+    function updatePauseButton() {
+      $("pauseButton").textContent =
+        isAutoPlaying ? "Tạm dừng" : "Tiếp tục";
+    }
+
+    function toggleSlideshow() {
+      isAutoPlaying = !isAutoPlaying;
+      updatePauseButton();
+      scheduleNext();
+    }
+
+    function normalizeName(value) {
+      return value
+        .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d")
+        .replace(/Đ/g, "D")
+        .toLowerCase()
+        .replace(/\s+/g, " ");
+    }
+
+    function nameHash(value) {
+      let hash = 0;
+
+      for (let i = 0; i < value.length; i++) {
+        hash = ((hash * 31) + value.charCodeAt(i)) >>> 0;
+      }
+
+      return hash;
+    }
+
+    function getPersonalWish(name) {
+      const key = normalizeName(name);
+
+      if (CUSTOM_WISHES[key]) {
+        return CUSTOM_WISHES[key];
+      }
+
+      currentWishIndex = nameHash(key) % PERSONAL_WISHES.length;
+      return PERSONAL_WISHES[currentWishIndex];
+    }
+
+    function displayWish(wish) {
+      $("recipient").textContent = "Gửi anh " + currentName;
+      $("wishTitle").textContent = wish.title;
+      $("wishMessage").textContent = wish.text;
+      showScreen("wishScreen");
+    }
+
+    function revealWish() {
+      const name = $("nameInput").value.trim();
+
+      if (!name) {
+        $("nameError").textContent =
+          "Anh nhập tên để nhận lời chúc nhé.";
+        $("nameInput").focus();
+        return;
+      }
+
+      $("nameError").textContent = "";
+      currentName = name;
+
+      displayWish(getPersonalWish(name));
+    }
+
+    function anotherWish() {
+      currentWishIndex =
+        (currentWishIndex + 1) % PERSONAL_WISHES.length;
+
+      displayWish(PERSONAL_WISHES[currentWishIndex]);
+    }
+
+    function restart() {
+      currentIndex = 0;
+      showScreen("hero");
+    }
+
+    // XUẤT THIỆP PNG
+    function wrapCanvasText(ctx, text, maxWidth) {
+      const lines = [];
+      const paragraphs = text.split("\n");
+
+      paragraphs.forEach(paragraph => {
+        if (!paragraph.trim()) {
+          lines.push("");
+          return;
+        }
+
+        let line = "";
+
+        paragraph.split(/\s+/).forEach(word => {
+          const test = line ? line + " " + word : word;
+
+          if (ctx.measureText(test).width > maxWidth && line) {
+            lines.push(line);
+            line = word;
+          } else {
+            line = test;
+          }
+        });
+
+        if (line) lines.push(line);
+      });
+
+      return lines;
+    }
+
+    function drawCenteredLines(ctx, lines, centerX, startY, lineHeight) {
+      let y = startY;
+
+      lines.forEach(line => {
+        if (line) ctx.fillText(line, centerX, y);
+        y += lineHeight;
+      });
+
+      return y;
+    }
+
+    async function downloadCard() {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1080;
+      canvas.height = 1350;
+
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+
+      if (document.fonts && document.fonts.ready) {
+        try { await document.fonts.ready; } catch (_) {}
+      }
+
+      const gradient = ctx.createLinearGradient(0, 0, w, h);
+      gradient.addColorStop(0, "#eaf5ff");
+      gradient.addColorStop(.55, "#ffffff");
+      gradient.addColorStop(1, "#fff5e4");
+
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.strokeStyle = "#d9e8f4";
+      ctx.lineWidth = 3;
+
+      ctx.beginPath();
+      ctx.roundRect(55, 65, 970, 1220, 38);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.textAlign = "center";
+      ctx.textBaseline = "top";
+
+      ctx.fillStyle = "#2877a9";
+      ctx.font = "700 24px Montserrat, Arial, sans-serif";
+      ctx.fillText("HAPPY INTERNATIONAL MEN'S DAY", 540, 160);
+
+      ctx.fillStyle = "#d8a950";
+      ctx.font = "700 52px Montserrat, Arial, sans-serif";
+      ctx.fillText("✦", 540, 220);
+
+      ctx.fillStyle = "#276c9e";
+      ctx.font = "800 37px Montserrat, Arial, sans-serif";
+
+      const nameLines = wrapCanvasText(
+        ctx,
+        "Gửi anh " + currentName,
+        820
+      );
+
+      let y = drawCenteredLines(ctx, nameLines, 540, 305, 53);
+
+      ctx.fillStyle = "#214866";
+      ctx.font = "800 43px Montserrat, Arial, sans-serif";
+
+      const titleLines = wrapCanvasText(
+        ctx,
+        $("wishTitle").textContent,
+        840
+      );
+
+      y = drawCenteredLines(ctx, titleLines, 540, y + 48, 63);
+
+      ctx.fillStyle = "#49677e";
+      ctx.font = "500 27px Montserrat, Arial, sans-serif";
+
+      const messageLines = wrapCanvasText(
+        ctx,
+        $("wishMessage").textContent,
+        830
+      );
+
+      const remainingHeight = 1120 - (y + 55);
+      const lineHeight = Math.min(
+        47,
+        Math.max(31, remainingHeight / Math.max(messageLines.length, 1))
+      );
+
+      drawCenteredLines(ctx, messageLines, 540, y + 55, lineHeight);
+
+      ctx.fillStyle = "#668198";
+      ctx.font = "700 20px Montserrat, Arial, sans-serif";
+      ctx.fillText("19.11.2026", 540, 1190);
+      ctx.font = "600 16px Montserrat, Arial, sans-serif";
+      ctx.fillText(
+        "PHÚC THIỆN · PHÚC THỊNH · 3D TECH VISION",
+        540,
+        1222
+      );
+
+      const safeName = normalizeName(currentName)
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+
+      const link = document.createElement("a");
+      link.download = "thiep-19-11-" + (safeName || "ca-nhan") + ".png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+
+    // SỰ KIỆN NÚT BẤM
+    $("musicButton").addEventListener("click", toggleMusic);
+    $("startButton").addEventListener("click", startShow);
+    $("nextButton").addEventListener("click", nextSlide);
+    $("previousButton").addEventListener("click", previousSlide);
+    $("pauseButton").addEventListener("click", toggleSlideshow);
+    $("revealButton").addEventListener("click", revealWish);
+    $("anotherWishButton").addEventListener("click", anotherWish);
+    $("restartButton").addEventListener("click", restart);
+    $("downloadButton").addEventListener("click", downloadCard);
+
+    $("nameInput").addEventListener("keydown", event => {
+      if (event.key === "Enter") revealWish();
+    });
+
+    // VUỐT TRÊN ĐIỆN THOẠI
+    let touchStartX = 0;
+
+    $("photoStage").addEventListener("touchstart", event => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    $("photoStage").addEventListener("touchend", event => {
+      const distance =
+        event.changedTouches[0].screenX - touchStartX;
+
+      if (Math.abs(distance) < 60) return;
+
+      if (distance < 0) nextSlide();
+      else previousSlide();
+    }, { passive: true });
+
+    // KHỞI TẠO
+    updateMusicButton();
+    renderSlide();
+  </script>
 </body>
 </html>

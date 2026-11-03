@@ -1,1220 +1,1459 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Có các anh, hành trình thêm đáng nhớ.</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --blue-1: #eaf6ff;
-      --blue-2: #d5efff;
-      --blue-3: #79bff5;
-      --blue-4: #2f7dbf;
-      --blue-5: #245b90;
-      --gold: #f0bf57;
-      --text: #31526d;
-      --muted: #6f8598;
-      --white: #ffffff;
-      --pink-line: #efc6d0;
-      --heart-fill-1: #fff7f8;
-      --heart-fill-2: #ffe9ee;
-      --heart-name: #b14f6a;
-      --shadow: 0 18px 50px rgba(28, 76, 112, 0.14);
-      --radius: 28px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: "Montserrat", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, #fdfefe 0%, #ecf8ff 45%, #dff1ff 100%);
-    }
-
-    body {
-      min-height: 100vh;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    button, input {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-    }
-
-    .screen {
-      display: none;
-      min-height: 100vh;
-      padding: 24px 16px 36px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .screen.active {
-      display: flex;
-      animation: fadeUp 0.55s ease both;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .panel {
-      width: min(100%, 980px);
-      background: rgba(255,255,255,0.90);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(193,220,240,0.7);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: clamp(18px, 4vw, 34px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      line-height: 1.6;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: #5793be;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
-    h1, h2, h3, p {
-      margin: 0;
-    }
-
-    h1 {
-      font-size: clamp(28px, 5vw, 54px);
-      line-height: 1.18;
-      text-align: center;
-      color: var(--blue-5);
-      margin-bottom: 14px;
-      font-weight: 800;
-    }
-
-    h2 {
-      font-size: clamp(24px, 4vw, 36px);
-      line-height: 1.3;
-      text-align: center;
-      color: var(--blue-5);
-      margin-bottom: 12px;
-      font-weight: 800;
-    }
-
-    h3 {
-      font-size: clamp(20px, 3vw, 28px);
-      line-height: 1.35;
-      color: var(--blue-4);
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .desc {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.9;
-      color: var(--muted);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 22px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 13px 22px;
-      font-size: 13px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #2e8de2, #286aa8);
-      color: white;
-      box-shadow: 0 10px 24px rgba(44, 117, 173, 0.22);
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn.secondary {
-      background: #eef7fd;
-      color: #36607d;
-      box-shadow: none;
-      border: 1px solid #d8eaf7;
-    }
-
-    .btn:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .music-btn {
-      position: fixed;
-      top: 14px;
-      right: 14px;
-      z-index: 30;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.92);
-      color: var(--blue-5);
-      border: 1px solid #d8ebf7;
-      box-shadow: 0 8px 22px rgba(38, 90, 126, 0.14);
-      padding: 10px 14px;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    /* INTRO */
-
-    .intro-wrap {
-      display: grid;
-      grid-template-columns: 1.06fr 0.94fr;
-      gap: 22px;
-      align-items: center;
-    }
-
-    .intro-poster {
-      background: linear-gradient(180deg, #ffffff, #edf7ff);
-      border-radius: 24px;
-      border: 1px solid #ddeef8;
-      padding: 14px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
-    }
-
-    .intro-poster img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border-radius: 18px;
-      background: #fff;
-    }
-
-    .intro-text p {
-      font-size: 14px;
-      line-height: 1.95;
-      color: var(--muted);
-      text-align: center;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    /* SLIDES */
-
-    .photo-stage {
-      margin-top: 18px;
-      background: linear-gradient(180deg, #f8fcff, #eef8ff);
-      border: 1px solid #dbeefa;
-      border-radius: 24px;
-      overflow: hidden;
-      padding: 16px;
-    }
-
-    .photo-box {
-      position: relative;
-      width: 100%;
-      height: clamp(340px, 60vw, 620px);
-      border-radius: 18px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.94), rgba(238,248,255,0.94));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center center;
-      border-radius: 14px;
-      animation: soften 0.5s ease both;
-    }
-
-    @keyframes soften {
-      from {
-        opacity: 0;
-        transform: scale(1.02);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .count-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(34, 83, 124, 0.88);
-      color: white;
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 11px;
-      font-weight: 800;
-      z-index: 2;
-    }
-
-    .slide-story {
-      margin-top: 16px;
-      background: linear-gradient(135deg, #f6fbff, #fffaf1);
-      border: 1px solid #e4eef6;
-      border-radius: 20px;
-      padding: 20px 18px;
-    }
-
-    .slide-story p {
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.9;
-      color: #637a8e;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .progress {
-      height: 6px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: #e6f1f8;
-      margin-top: 18px;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #59b5ef, #efc36a);
-      transition: width 0.35s ease;
-    }
-
-    .slide-status {
-      margin-top: 12px;
-      font-size: 12px;
-      text-align: center;
-      color: #8196a8;
-    }
-
-    /* NAME INPUT */
-
-    .name-box {
-      max-width: 660px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .name-input {
-      width: min(100%, 460px);
-      margin: 18px auto 0;
-      display: block;
-      padding: 16px 18px;
-      border-radius: 16px;
-      border: 1.5px solid #cfe3f2;
-      background: #ffffff;
-      text-align: center;
-      font-size: 15px;
-      color: var(--blue-5);
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .name-input:focus {
-      border-color: #7cbced;
-      box-shadow: 0 0 0 4px rgba(128, 191, 239, 0.18);
-    }
-
-    .error {
-      min-height: 22px;
-      font-size: 12px;
-      color: #c05670;
-      margin-top: 10px;
-    }
-
-    /* HEART */
-
-    .heart-panel {
-      background:
-        radial-gradient(circle at top left, rgba(237, 248, 255, 0.95), rgba(255,255,255,0.95) 50%),
-        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,252,255,0.96));
-    }
-
-    .heart-poster-wrap {
-      max-width: 280px;
-      margin: 0 auto 18px;
-      background: #fff;
-      border-radius: 18px;
-      padding: 10px;
-      border: 1px solid #deebf5;
-      box-shadow: 0 12px 24px rgba(45, 93, 128, 0.10);
-    }
-
-    .heart-poster-wrap img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border-radius: 12px;
-      background: white;
-    }
-
-    .heart-only-hint {
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--muted);
-      margin: 0 auto 16px;
-      max-width: 520px;
-    }
-
-    .heart-stage {
-      position: relative;
-      max-width: 690px;
-      margin: 0 auto;
-      padding: 6px 6px 0;
-    }
-
-    .heart-button {
-      width: 100%;
-      background: transparent;
-      padding: 0;
-      display: block;
-      transition: transform 0.25s ease;
-      filter: drop-shadow(0 16px 28px rgba(194, 109, 131, 0.18));
-    }
-
-    .heart-button:hover {
-      transform: scale(1.015);
-    }
-
-    .heart-button:active {
-      transform: scale(0.99);
-    }
-
-    .heart-meta {
-      margin-top: 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .heart-recipient {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid #f0d4dc;
-      color: #a34c66;
-      font-size: 14px;
-      font-weight: 800;
-      box-shadow: 0 8px 20px rgba(188, 105, 125, 0.08);
-      max-width: 100%;
-      text-align: center;
-      word-break: break-word;
-    }
-
-    .heart-meta-note {
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: #886d78;
-    }
-
-    /* GREETING */
-
-    .wish-card {
-      position: relative;
-      max-width: 760px;
-      margin: 0 auto;
-      border-radius: 28px;
-      padding: clamp(24px, 4vw, 42px);
-      background:
-        radial-gradient(circle at top right, rgba(255, 240, 204, 0.75), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(214, 241, 255, 0.85), transparent 38%),
-        #ffffff;
-      border: 1px solid #e1edf6;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
-    }
-
-    .wish-recipient {
-      margin-top: 16px;
-      text-align: center;
-      font-size: clamp(20px, 3vw, 28px);
-      line-height: 1.5;
-      color: #2c7aa6;
-      font-weight: 800;
-      word-break: break-word;
-    }
-
-    .wish-message {
-      margin-top: 22px;
-      white-space: pre-line;
-      text-align: center;
-      font-size: 15px;
-      line-height: 2;
-      color: #5e7488;
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .wish-sign {
-      margin-top: 28px;
-      text-align: center;
-      font-size: 12px;
-      line-height: 1.9;
-      color: #8395a4;
-      font-weight: 600;
-    }
-
-    /* TOAST */
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(34, 75, 112, 0.96);
-      color: white;
-      border-radius: 14px;
-      padding: 12px 16px;
-      font-size: 12px;
-      font-weight: 700;
-      z-index: 50;
-      display: none;
-      max-width: calc(100vw - 32px);
-      text-align: center;
-    }
-
-    .toast.show {
-      display: block;
-      animation: fadeUp 0.35s ease both;
-    }
-
-    /* CONFETTI */
-
-    .confetti {
-      position: fixed;
-      top: -20px;
-      width: 10px;
-      height: 14px;
-      border-radius: 2px;
-      pointer-events: none;
-      z-index: 100;
-      animation: drop linear forwards;
-    }
-
-    @keyframes drop {
-      to {
-        transform: translateY(110vh) rotate(680deg);
-        opacity: 0;
-      }
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 860px) {
-      .intro-wrap {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .screen {
-        padding: 18px 12px 28px;
-      }
-
-      .panel {
-        padding: 16px;
-      }
-
-      .photo-box {
-        height: 440px;
-      }
-
-      .heart-recipient {
-        font-size: 13px;
-        padding: 11px 16px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eaf5ff">
+<title>Có các anh, hành trình thêm đáng nhớ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue:#287eae;
+  --deep:#245678;
+  --ink:#31546d;
+  --muted:#70869a;
+  --gold:#e9bc70;
+  --pink:#b65c77;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Montserrat,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at top left,#dff2ff,transparent 45%),
+    radial-gradient(circle at bottom right,#fff0dd,transparent 45%),
+    #f7fbff;
+}
+button,input {font:inherit}
+button {cursor:pointer}
+button:focus-visible,input:focus-visible {
+  outline:3px solid #e9bc70;
+  outline-offset:3px;
+}
+[hidden] {display:none!important}
+
+.screen {
+  display:none;
+  min-height:100svh;
+  padding:65px 16px 45px;
+  align-items:center;
+  justify-content:center;
+}
+.screen.active {
+  display:flex;
+  animation:enter .55s ease both;
+}
+@keyframes enter {
+  from {opacity:0;transform:translateY(12px)}
+  to {opacity:1;transform:translateY(0)}
+}
+.panel {
+  width:min(100%,980px);
+  padding:clamp(20px,4vw,38px);
+  border-radius:28px;
+  background:#fffffff0;
+  border:1px solid #dcebf4;
+  box-shadow:0 18px 55px #285b7b20;
+  text-align:center;
+}
+.eyebrow {
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+  line-height:1.8;
+  color:#458caf;
+}
+h1,h2,h3,p {margin-top:0}
+h2 {
+  font-size:clamp(24px,4vw,37px);
+  line-height:1.35;
+  color:var(--deep);
+  margin:8px 0 13px;
+}
+.desc {
+  max-width:700px;
+  margin:0 auto 22px;
+  font-size:13px;
+  line-height:1.9;
+  color:var(--muted);
+}
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:11px;
+  margin-top:23px;
+}
+.btn {
+  border:0;
+  border-radius:999px;
+  padding:14px 22px;
+  min-height:47px;
+  background:#287eae;
+  color:white;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 8px 20px #1b659025;
+  transition:transform .2s,background .2s;
+}
+.btn:hover {
+  transform:translateY(-2px);
+  background:#1b638e;
+}
+.btn.alt {
+  background:#eaf3fa;
+  color:#275777;
+  box-shadow:none;
+}
+.btn:disabled {
+  opacity:.4;
+  cursor:not-allowed;
+}
+.music {
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:60;
+  padding:11px 15px;
+  border:1px solid #d8e7f0;
+  border-radius:999px;
+  background:#fffffff0;
+  color:#285d7c;
+  font-size:12px;
+  font-weight:800;
+  box-shadow:0 8px 23px #285b7b22;
+}
+
+/* TRANG MỞ ĐẦU */
+
+.hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#204663;
+  color:white;
+}
+.hero-photo {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+  z-index:-3;
+}
+.hero:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:linear-gradient(
+    180deg,
+    #0d2d461a 0%,
+    #102f4750 35%,
+    #0a293fea 100%
+  );
+}
+.hero:after {
+  content:"";
+  position:absolute;
+  inset:-20%;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 25%,#ffe8b82b,transparent 25%),
+    radial-gradient(circle at 85% 80%,#a9e4ff27,transparent 28%);
+  animation:glow 8s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from {opacity:.35;transform:scale(1)}
+  to {opacity:1;transform:scale(1.08)}
+}
+.hero-content {
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+  padding-top:min(30vh,260px);
+}
+.hero .eyebrow {color:#ffe0a1}
+.hero h1 {
+  font-size:clamp(30px,6vw,62px);
+  line-height:1.22;
+  letter-spacing:-.035em;
+  margin:15px auto 20px;
+  text-shadow:0 4px 20px #09243b99;
+}
+.hero h1 span {color:#ffe0a5}
+.hero p {
+  max-width:670px;
+  margin:auto;
+  font-size:clamp(13px,1.7vw,16px);
+  line-height:1.95;
+  color:#f2f8ff;
+}
+.hero .btn {
+  background:white;
+  color:#235c82;
+}
+.hero-foot {
+  margin-top:21px;
+  font-size:11px;
+  color:#e5eef7;
+}
+
+/* TRÌNH CHIẾU */
+
+.photo-stage {
+  height:clamp(340px,56vw,590px);
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:20px;
+  background:#e6f1f8;
+}
+.photo-stage img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.photo-stage img.reveal {
+  animation:photoIn .7s ease both;
+}
+@keyframes photoIn {
+  from {opacity:0;transform:scale(1.02)}
+  to {opacity:1;transform:scale(1)}
+}
+.photo-counter {
+  position:absolute;
+  top:13px;
+  right:13px;
+  background:#173c5acb;
+  color:white;
+  padding:9px 13px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:800;
+}
+.photo-error {
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:25px;
+  text-align:center;
+  background:#e6f1f8;
+  color:#607e92;
+  font-size:13px;
+}
+.track {
+  height:5px;
+  margin:17px 0;
+  background:#e5eef3;
+  border-radius:999px;
+  overflow:hidden;
+}
+.fill {
+  width:0;
+  height:100%;
+  background:linear-gradient(90deg,#4baad1,#e9b86b);
+  transition:width .4s;
+}
+.story {
+  min-height:160px;
+  padding:24px 22px;
+  border-radius:19px;
+  border:1px solid #e0edf4;
+  background:linear-gradient(125deg,#eef7ff,#fff9ef);
+}
+.story h3 {
+  font-size:clamp(18px,2.7vw,25px);
+  line-height:1.45;
+  color:#245f82;
+  margin:6px 0 10px;
+}
+.story p {
+  max-width:750px;
+  margin:auto;
+  font-size:clamp(13px,1.6vw,15px);
+  line-height:1.85;
+  color:#536e80;
+}
+.slide-status {
+  margin-top:15px;
+  color:#70869a;
+  font-size:11px;
+}
+
+/* TRANG NHẬP TÊN VỚI POSTER */
+
+.name-panel {max-width:800px}
+.poster-frame {
+  width:min(100%,440px);
+  margin:0 auto 26px;
+  padding:9px;
+  border-radius:22px;
+  background:white;
+  border:1px solid #e0edf6;
+  box-shadow:0 12px 35px #265b8220;
+}
+.poster-frame img {
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:15px;
+}
+.name-input {
+  display:block;
+  width:min(100%,460px);
+  margin:22px auto 8px;
+  padding:16px 19px;
+  border:1.5px solid #c8dfed;
+  border-radius:14px;
+  background:white;
+  color:#245675;
+  text-align:center;
+  font-size:15px;
+}
+.name-error {
+  min-height:20px;
+  color:#bb4662;
+  font-size:12px;
+}
+
+/* TRÁI TIM */
+
+.heart-panel {
+  max-width:930px;
+  background:
+    radial-gradient(circle at 5% 8%,#eaf7ff,transparent 35%),
+    radial-gradient(circle at 95% 90%,#fff0e3,transparent 35%),
+    #fff;
+}
+.heart-hint {
+  color:#7d7684;
+  font-size:14px;
+  line-height:1.8;
+  margin:5px auto 20px;
+}
+.heart-button {
+  display:block;
+  width:min(100%,790px);
+  padding:0;
+  border:0;
+  background:transparent;
+  margin:auto;
+  filter:drop-shadow(0 16px 23px #d19aa72b);
+  transition:transform .25s;
+  animation:heartBeat 3.2s ease-in-out infinite;
+}
+.heart-button:hover {transform:scale(1.015)}
+.heart-button svg {
+  display:block;
+  width:100%;
+  height:auto;
+}
+@keyframes heartBeat {
+  0%,100% {filter:brightness(1)}
+  50% {filter:brightness(1.025)}
+}
+.heart-name {
+  fill:#ac526c;
+  font-family:Montserrat,Arial,sans-serif;
+  font-weight:700;
+}
+.heart-recipient {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  margin:12px auto 0;
+  padding:13px 23px;
+  min-height:48px;
+  max-width:100%;
+  background:#fff8fa;
+  border:1px solid #edcbd5;
+  border-radius:999px;
+  color:#a34c68;
+  font-size:clamp(13px,2vw,17px);
+  font-weight:800;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+.heart-sub {
+  margin-top:13px;
+  color:#987684;
+  font-size:12px;
+}
+
+/* THIỆP CÁ NHÂN */
+
+.wish-card {
+  padding:clamp(30px,6vw,65px) clamp(20px,5vw,55px);
+  border-radius:24px;
+  border:1px solid #dceaf3;
+  background:
+    radial-gradient(circle at 100% 0,#fff0d9,transparent 35%),
+    radial-gradient(circle at 0 100%,#dff0fa,transparent 35%),
+    #fcfdff;
+}
+.recipient {
+  margin:25px auto 20px;
+  color:#287aa6;
+  font-size:clamp(19px,3vw,27px);
+  font-weight:800;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+.wish-card h2 {
+  font-size:clamp(23px,4vw,34px);
+}
+.wish-message {
+  max-width:620px;
+  margin:0 auto;
+  color:#506d80;
+  font-size:clamp(13px,1.9vw,16px);
+  line-height:1.95;
+  white-space:pre-line;
+}
+.sign {
+  margin-top:35px;
+  color:#71899b;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.9;
+}
+.confetti {
+  position:fixed;
+  top:-20px;
+  z-index:90;
+  width:8px;
+  height:12px;
+  border-radius:2px;
+  pointer-events:none;
+  animation:fall var(--duration,2s) ease-out forwards;
+}
+@keyframes fall {
+  to {
+    transform:translateY(105vh) rotate(650deg);
+    opacity:0;
+  }
+}
+.toast {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  max-width:90%;
+  padding:13px 18px;
+  border-radius:12px;
+  background:#235473;
+  color:white;
+  text-align:center;
+  font-size:12px;
+}
+@media(max-width:650px) {
+  .screen {padding:65px 12px 35px}
+  .panel {padding:19px 13px}
+  .hero-content {padding-top:36vh}
+  .hero h1 {font-size:clamp(30px,8vw,43px)}
+  .photo-stage {height:390px}
+  .story {min-height:205px;padding:20px 15px}
+  .heart-panel {padding:20px 8px}
+  .heart-hint {font-size:12px}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <audio id="audio" src="./music.mp3" loop preload="none"></audio>
+<audio id="audio" src="./music.mp3" loop preload="none"></audio>
 
-  <button id="musicBtn" class="music-btn" type="button">Bật nhạc.</button>
+<button id="musicBtn" class="music" type="button">
+  Bật nhạc
+</button>
 
-  <!-- INTRO -->
-  <section id="intro" class="screen active">
-    <div class="panel">
-      <div class="intro-wrap">
-        <div class="intro-poster">
-          <img src="./POSTER.jpg" alt="Poster chào mừng ngày Quốc tế Nam giới" />
-        </div>
+<!-- 1. MỞ ĐẦU VỚI ẢNH TẬP THỂ -->
 
-        <div class="intro-text">
-          <div class="eyebrow">19.11.2026</div>
-          <h1>Có các anh, hành trình thêm đáng nhớ.</h1>
-          <p>
-            Nhân ngày Quốc tế Nam giới, đây là một món quà nhỏ dành cho các anh.
-            Một chút hình ảnh, một chút tri ân, và một thông điệp riêng được gửi đến từng người.
-          </p>
+<section id="intro" class="screen hero active">
 
-          <div class="actions">
-            <button id="startBtn" class="btn" type="button">Bắt đầu xem.</button>
-          </div>
-        </div>
+  <img
+    class="hero-photo"
+    src="./anh-chung-tap-the.jpg"
+    alt="Ảnh tập thể công ty">
+
+  <div class="hero-content">
+    <div class="eyebrow">
+      19.11.2026 · HAPPY INTERNATIONAL MEN'S DAY
+    </div>
+
+    <h1>
+      Có các anh,
+      <br>
+      <span>hành trình thêm đáng nhớ.</span>
+    </h1>
+
+    <p>
+      Nhân ngày Quốc tế Nam giới, chúng mình muốn
+      gửi đến các anh một món quà nhỏ.
+      Những khoảnh khắc thân quen, vài lời cảm ơn
+      chân thành và một bất ngờ dành riêng
+      cho mỗi người.
+    </p>
+
+    <div class="actions">
+      <button class="btn" id="startBtn" type="button">
+        Cùng xem lại những khoảnh khắc
+      </button>
+    </div>
+
+    <div class="hero-foot">
+      Phúc Thiện · Phúc Thịnh · 3D Tech Vision
+    </div>
+  </div>
+</section>
+
+<!-- 2. 19 ẢNH TRI ÂN -->
+
+<section id="slides" class="screen">
+  <div class="panel">
+
+    <div class="eyebrow">
+      19 KHOẢNH KHẮC · 19 LỜI TRI ÂN
+    </div>
+
+    <h2>Mỗi bức ảnh, một lời cảm ơn.</h2>
+
+    <p class="desc">
+      Có những điều thường ngày ít khi nói thành lời.
+      Hôm nay, chúng mình gửi đến các anh
+      qua từng bức ảnh.
+    </p>
+
+    <div class="photo-stage" id="photoStage">
+
+      <img
+        id="slideImg"
+        alt="Ảnh kỷ niệm của tập thể">
+
+      <div id="photoError" class="photo-error" hidden></div>
+
+      <div id="photoCount" class="photo-counter">
+        01 / 19
       </div>
     </div>
-  </section>
 
-  <!-- SLIDES -->
-  <section id="slides" class="screen">
-    <div class="panel">
-      <div class="eyebrow">19 KHOẢNH KHẮC</div>
-      <h2>Mỗi bức ảnh là một lời cảm ơn.</h2>
-      <p class="desc">
-        Những hình ảnh quen thuộc này là lời ghi nhận nhỏ dành cho các anh.
-      </p>
-
-      <div class="photo-stage">
-        <div class="photo-box">
-          <span id="countBadge" class="count-badge">01 / 19</span>
-          <img id="slideImg" src="" alt="Ảnh kỷ niệm 19 tháng 11" />
-        </div>
-
-        <div class="progress">
-          <div id="progressBar" class="progress-bar"></div>
-        </div>
-
-        <div class="slide-status" id="slideStatus">Tự chuyển ảnh sau 8 giây.</div>
-
-        <div class="slide-story">
-          <div class="eyebrow" id="storyIndex">LỜI TRI ÂN 01</div>
-          <h3 id="storyTitle"></h3>
-          <p id="storyText"></p>
-        </div>
-
-        <div class="actions">
-          <button id="prevBtn" class="btn secondary" type="button">Ảnh trước.</button>
-          <button id="pauseBtn" class="btn secondary" type="button">Tạm dừng.</button>
-          <button id="nextBtn" class="btn" type="button">Ảnh tiếp theo.</button>
-        </div>
-      </div>
+    <div class="track">
+      <div id="progressFill" class="fill"></div>
     </div>
-  </section>
 
-  <!-- NAME -->
-  <section id="name" class="screen">
-    <div class="panel">
-      <div class="name-box">
-        <div class="eyebrow">MÓN QUÀ RIÊNG</div>
-        <h2>Đến lượt anh nhận thông điệp của mình.</h2>
-        <p class="desc">
-          Anh nhập tên để mở món quà tiếp theo nhé.
-        </p>
+    <article class="story" aria-live="polite">
+      <div id="storyKicker" class="eyebrow"></div>
+      <h3 id="storyTitle"></h3>
+      <p id="storyText"></p>
+    </article>
 
-        <input
-          id="nameInput"
-          class="name-input"
-          type="text"
-          maxlength="60"
-          placeholder="Nhập tên của anh."
-        />
-
-        <div id="nameError" class="error"></div>
-
-        <div class="actions">
-          <button id="createHeartBtn" class="btn" type="button">Tạo trái tim.</button>
-        </div>
-      </div>
+    <div id="slideStatus" class="slide-status">
+      Tự chuyển ảnh sau 8 giây.
     </div>
-  </section>
 
-  <!-- HEART -->
-  <section id="heart" class="screen">
-    <div class="panel heart-panel">
-      <div class="heart-poster-wrap">
-        <img src="./POSTER.jpg" alt="Poster chào mừng ngày Quốc tế Nam giới" />
-      </div>
+    <div class="actions">
+      <button id="prevBtn" class="btn alt" type="button">
+        Ảnh trước
+      </button>
 
-      <div class="eyebrow">THÔNG ĐIỆP DÀNH RIÊNG CHO ANH</div>
-      <h2>Một trái tim, một lời gửi gắm.</h2>
-      <p class="heart-only-hint">Chạm vào trái tim để nhận thông điệp.</p>
+      <button id="pauseBtn" class="btn alt" type="button">
+        Tạm dừng
+      </button>
 
-      <div class="heart-stage">
-        <button id="heartBtn" class="heart-button" type="button" aria-label="Chạm vào trái tim để nhận thông điệp">
-          <svg id="heartSvg" viewBox="0 0 640 560" role="img" aria-label="Trái tim thông điệp">
-            <defs>
-              <linearGradient id="heartGradient" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#fff8f8"></stop>
-                <stop offset="100%" stop-color="#ffe8ee"></stop>
-              </linearGradient>
+      <button id="nextBtn" class="btn" type="button">
+        Ảnh tiếp theo
+      </button>
+    </div>
+  </div>
+</section>
 
-              <clipPath id="heartClip">
-                <path d="M320 524
-                         C265 480 56 349 56 190
-                         C56 75 195 52 320 174
-                         C445 52 584 75 584 190
-                         C584 349 375 480 320 524 Z"/>
-              </clipPath>
-            </defs>
+<!-- 3. POSTER VÀ NHẬP TÊN -->
 
+<section id="name" class="screen">
+  <div class="panel name-panel">
+
+    <div class="poster-frame">
+      <img
+        src="./POSTER.jpg"
+        alt="Poster chào mừng Quốc tế Nam giới">
+    </div>
+
+    <div class="eyebrow">
+      MỘT MÓN QUÀ RIÊNG DÀNH CHO ANH
+    </div>
+
+    <h2>Đến lượt anh nhận thông điệp của mình.</h2>
+
+    <p class="desc">
+      Những lời cảm ơn là dành cho tất cả các anh.
+      Còn thông điệp tiếp theo sẽ mang chính tên của anh.
+      Anh nhập tên để nhận nhé.
+    </p>
+
+    <input
+      id="nameInput"
+      class="name-input"
+      type="text"
+      maxlength="60"
+      autocomplete="name"
+      placeholder="Nhập tên của anh tại đây">
+
+    <div id="nameError" class="name-error"></div>
+
+    <div class="actions">
+      <button id="createHeartBtn" class="btn" type="button">
+        Nhận trái tim của anh
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. TRÁI TIM ĐỦ 33 TÊN -->
+
+<section id="heart" class="screen">
+  <div class="panel heart-panel">
+
+    <div class="eyebrow">
+      THÔNG ĐIỆP DÀNH RIÊNG CHO ANH
+    </div>
+
+    <h2>Một trái tim, một lời gửi gắm.</h2>
+
+    <p class="heart-hint">
+      Chạm vào trái tim để nhận thông điệp.
+    </p>
+
+    <button
+      id="heartBtn"
+      class="heart-button"
+      type="button"
+      aria-label="Chạm vào trái tim để nhận thông điệp">
+
+      <svg
+        id="heartSvg"
+        viewBox="0 0 900 760"
+        role="img"
+        aria-label="Trái tim kỷ niệm">
+
+        <defs>
+          <linearGradient
+            id="heartGradient"
+            x1="0" y1="0"
+            x2="1" y2="1">
+
+            <stop offset="0%" stop-color="#fff8f9"/>
+            <stop offset="100%" stop-color="#ffe8ee"/>
+          </linearGradient>
+
+          <clipPath id="heartClip">
             <path
-              d="M320 524
-                 C265 480 56 349 56 190
-                 C56 75 195 52 320 174
-                 C445 52 584 75 584 190
-                 C584 349 375 480 320 524 Z"
-              fill="url(#heartGradient)"
-              stroke="#efc4cf"
-              stroke-width="3"
-            ></path>
+              d="M450 725
+                 C350 650 70 450 70 260
+                 C70 80 290 65 450 220
+                 C610 65 830 80 830 260
+                 C830 450 550 650 450 725 Z"/>
+          </clipPath>
+        </defs>
 
-            <g id="heartNamesGroup" clip-path="url(#heartClip)"></g>
-          </svg>
-        </button>
+        <path
+          d="M450 725
+             C350 650 70 450 70 260
+             C70 80 290 65 450 220
+             C610 65 830 80 830 260
+             C830 450 550 650 450 725 Z"
+          fill="url(#heartGradient)"
+          stroke="#e9b8c7"
+          stroke-width="3"/>
 
-        <div class="heart-meta">
-          <div id="heartRecipient" class="heart-recipient">Gửi đến Anh trai.</div>
-          <div class="heart-meta-note">Chạm vào trái tim để mở lời chúc.</div>
-        </div>
-      </div>
+        <g
+          id="heartNames"
+          clip-path="url(#heartClip)">
+        </g>
+      </svg>
+    </button>
 
-      <div class="actions">
-        <button id="editNameBtn" class="btn secondary" type="button">Đổi tên.</button>
-      </div>
+    <div id="heartRecipient" class="heart-recipient">
+      Gửi đến Anh trai
     </div>
-  </section>
 
-  <!-- GREETING -->
-  <section id="greeting" class="screen">
-    <div class="panel">
-      <div id="wishCard" class="wish-card">
-        <div class="eyebrow">19.11.2026</div>
-        <h2>Một lời chúc dành riêng cho anh.</h2>
-        <div id="wishRecipient" class="wish-recipient"></div>
-        <div id="wishMessage" class="wish-message"></div>
+    <p class="heart-sub">
+      Chạm vào trái tim để mở lời chúc.
+    </p>
 
-        <div class="wish-sign">
-          Với sự quý mến và trân trọng.<br />
-          Đại gia đình Phúc Thiện. Phúc Thịnh. 3D Tech Vision.
-        </div>
-      </div>
-
-      <div class="actions">
-        <button id="saveBtn" class="btn" type="button">Lưu thiệp PNG.</button>
-        <button id="backHeartBtn" class="btn secondary" type="button">Quay lại trái tim.</button>
-        <button id="restartBtn" class="btn secondary" type="button">Xem lại từ đầu.</button>
-      </div>
+    <div class="actions">
+      <button id="editNameBtn" class="btn alt" type="button">
+        Đổi tên
+      </button>
     </div>
-  </section>
 
-  <div id="toast" class="toast"></div>
+  </div>
+</section>
 
-  <script>
-    "use strict";
+<!-- 5. THIỆP CÁ NHÂN -->
 
-    const TEAM_NAMES = [
-      "Nguyễn Ngọc Tuấn",
-      "Nguyễn Văn Nghĩa",
-      "Nguyễn Quốc Cường",
-      "Trương Như Trường",
-      "Nguyễn Ngọc Nam",
-      "Nguyễn Hữu Trí",
-      "Nguyễn Bá Tòng",
-      "Hồ Anh Tuấn",
-      "Đỗ Lộc Giang",
-      "Nguyễn Khắc Duy",
-      "Nguyễn Minh Trường",
-      "Hoàng Trung Việt",
-      "Nguyễn Nhật Trung",
-      "Đỗ Ngọc Dũng",
-      "Phạm Đình Hùng",
-      "Trần Thái Dương",
-      "Ngô Hoàng Sang",
-      "Nguyễn Lam Trường",
-      "Trần Khánh Duy",
-      "Huỳnh Kiết Lê",
-      "Nguyễn Dũng",
-      "Trần Thanh",
-      "Huỳnh Quốc Hào",
-      "Phạm Minh Thông",
-      "Lương Nguyễn Hà Bình",
-      "Lê Minh Hòa",
-      "Nguyễn Danh Hoài Bảo",
-      "Trần Thắng",
-      "Nguyễn Minh Quân",
-      "Đỗ Hoàng Phúc",
-      "Lê Tiến Duy",
-      "Nguyễn Minh Quang",
-      "Võ Minh Tân"
-    ];
+<section id="greeting" class="screen">
+  <div class="panel" style="max-width:790px">
 
-    const STORIES = [
-      ["Cảm ơn vì luôn có mặt.", "Có những sự đồng hành không cần quá nhiều lời. Chỉ cần nhìn lại những khoảnh khắc này là đủ thấy các anh luôn là một phần đáng quý của tập thể."],
-      ["Mỗi người một dấu ấn riêng.", "Mỗi anh mang đến một màu sắc riêng. Chính những điều khác biệt ấy đã làm nên một tập thể gần gũi và đầy năng lượng."],
-      ["Sự tận tâm luôn đáng trân trọng.", "Đằng sau mỗi công việc hoàn thành là rất nhiều thời gian, sự tập trung và trách nhiệm. Cảm ơn các anh vì những nỗ lực bền bỉ mỗi ngày."],
-      ["Đồng hành để mọi thứ nhẹ nhàng hơn.", "Một lời hỏi thăm, một lần hỗ trợ đúng lúc, hay một sự chủ động nhỏ cũng đủ làm cho ngày làm việc trở nên dễ chịu hơn."],
-      ["Tiếng cười cũng là một món quà.", "Không phải lúc nào chúng ta cũng nhớ hết những đầu việc đã làm, nhưng những tiếng cười và những khoảnh khắc vui vẻ cùng nhau thường ở lại rất lâu."],
-      ["Cảm ơn những lần sẻ chia.", "Có những kinh nghiệm được truyền lại, những góp ý chân thành và những lần cùng nhau tìm cách giải quyết vấn đề. Tất cả đều đáng quý."],
-      ["Chung một hành trình.", "Dù ở vị trí nào, các anh vẫn đang cùng góp sức cho một chặng đường chung. Cảm ơn vì sự đồng lòng ấy."],
-      ["Sự vững vàng đến từ những điều giản dị.", "Giữ lời hứa, làm tốt phần việc của mình và luôn sẵn sàng khi đồng đội cần là những điều giản dị nhưng rất đáng trân trọng."],
-      ["Những điều nhỏ nhưng ấm áp.", "Một cử chỉ hỗ trợ, một lời động viên hay một nụ cười đúng lúc đều góp phần làm cho tập thể trở nên gắn bó hơn."],
-      ["Cùng nhau trưởng thành.", "Qua mỗi dự án và mỗi thử thách, chúng ta đều học thêm được điều gì đó. Thật vui vì hành trình ấy có sự đồng hành của các anh."],
-      ["Không chỉ là đồng nghiệp.", "Qua những lần gặp gỡ và những dịp quây quần, chúng ta hiểu nhau hơn một chút. Đó là điều làm cho những ngày đi làm có thêm nhiều ý nghĩa."],
-      ["Biết cổ vũ nhau là điều rất đẹp.", "Thành công của một người cũng có thể trở thành niềm vui của cả nhóm. Cảm ơn các anh vì tinh thần ghi nhận và cổ vũ nhau."],
-      ["Luôn sẵn sàng góp sức.", "Có những lúc công việc cần thêm một bàn tay, một ý tưởng hay một chút kiên nhẫn. Cảm ơn các anh vì đã luôn sẵn sàng chung tay."],
-      ["Giữ lại những khoảnh khắc đẹp.", "Mỗi tấm hình không chỉ lưu lại vài giây. Phía sau đó là những câu chuyện, những kỷ niệm và rất nhiều điều đáng nhớ."],
-      ["Cảm ơn sự kiên trì.", "Không phải ngày nào cũng thuận lợi, nhưng việc tiếp tục cố gắng và làm tốt hơn từng ngày là điều rất đáng ghi nhận."],
-      ["Niềm vui đến từ điều giản dị.", "Đôi khi chỉ là một buổi gặp mặt, một câu chuyện vui hay một lần cùng chụp ảnh. Những điều giản dị ấy lại tạo nên sự gắn kết."],
-      ["Mỗi đóng góp đều có ý nghĩa.", "Dù là một ý tưởng lớn hay một việc nhỏ được hoàn thành chu đáo, mọi đóng góp đều đang tạo nên kết quả chung."],
-      ["Thật vui vì được đồng hành.", "Một tập thể đáng nhớ không chỉ được tạo nên bởi công việc, mà còn bởi những con người đã cùng nhau đi qua nhiều dấu mốc."],
-      ["Và lời cảm ơn vẫn còn tiếp tục.", "Mười chín bức ảnh không thể kể hết mọi điều đáng quý. Mong các anh luôn mạnh khỏe, vui vẻ và có thật nhiều điều tốt đẹp phía trước."]
-    ];
+    <div id="wishCard" class="wish-card">
 
-    const WISHES = [
-      "Chúc anh luôn dồi dào sức khỏe, giữ được tinh thần lạc quan và sự nhiệt huyết trong những điều mình theo đuổi. Mong công việc thuận lợi, cuộc sống có thêm nhiều niềm vui và mỗi ngày đều mang đến một điều đáng mong chờ. Cảm ơn anh vì đã là một phần đáng quý của tập thể.",
-      "Nhân ngày 19.11, chúc anh thật nhiều sức khỏe, bình an và may mắn. Mong anh luôn có những người đồng hành tuyệt vời, có thời gian cho những điều mình yêu thích và tiếp tục gặt hái nhiều trải nghiệm đáng nhớ trong công việc lẫn cuộc sống.",
-      "Chúc anh một ngày 19.11 trọn vẹn niềm vui. Mong những dự định sắp tới đều thuận lợi, những nỗ lực được ghi nhận và cuộc sống luôn có đủ những khoảnh khắc thư thái, vui vẻ bên gia đình, bạn bè và đồng nghiệp.",
-      "Gửi đến anh lời chúc sức khỏe, niềm vui và thật nhiều năng lượng tích cực. Cảm ơn anh vì sự đồng hành, những đóng góp và cả những khoảnh khắc vui vẻ đã mang đến cho tập thể. Chúc anh luôn vững vàng và hạnh phúc theo cách riêng của mình.",
-      "Mong anh luôn giữ được sự tự tin, nhiệt thành và một tinh thần thoải mái trước những thử thách mới. Chúc công việc hanh thông, cuộc sống cân bằng và có thêm nhiều cơ hội để làm những điều anh mong muốn."
-    ];
+      <div class="eyebrow">
+        HAPPY INTERNATIONAL MEN'S DAY · 19/11
+      </div>
 
-    const SCREENS = ["intro", "slides", "name", "heart", "greeting"];
-    const AUTO_SECONDS = 8;
+      <div id="recipient" class="recipient"></div>
 
-    const $ = (id) => document.getElementById(id);
+      <h2>Chúc anh một ngày thật vui.</h2>
 
-    let slideIndex = 0;
-    let autoTimer = null;
-    let autoPlaying = true;
-    let currentName = "";
-    let currentWish = "";
+      <p id="wishMessage" class="wish-message"></p>
 
-    const audio = $("audio");
-    audio.volume = 0.35;
+      <div class="sign">
+        Với tất cả sự quý mến và trân trọng.
+        <br>
+        Đại gia đình Phúc Thiện · Phúc Thịnh ·
+        3D Tech Vision
+      </div>
 
-    function showScreen(id) {
-      clearTimeout(autoTimer);
-      SCREENS.forEach((screenId) => {
-        $(screenId).classList.toggle("active", screenId === id);
+    </div>
+
+    <div class="actions">
+      <button id="saveBtn" class="btn" type="button">
+        Lưu thiệp PNG
+      </button>
+
+      <button id="backHeartBtn" class="btn alt" type="button">
+        Xem lại trái tim
+      </button>
+
+      <button id="restartBtn" class="btn alt" type="button">
+        Xem lại từ đầu
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<div id="toast" class="toast" hidden></div>
+
+<script>
+"use strict";
+
+/* =====================================
+   33 NHÂN SỰ NAM
+===================================== */
+
+const TEAM_NAMES = [
+  "Nguyễn Ngọc Tuấn",
+  "Nguyễn Văn Nghĩa",
+  "Nguyễn Quốc Cường",
+  "Trương Như Trường",
+  "Nguyễn Ngọc Nam",
+  "Nguyễn Hữu Trí",
+  "Nguyễn Bá Tòng",
+  "Hồ Anh Tuấn",
+  "Đỗ Lộc Giang",
+  "Nguyễn Khắc Duy",
+  "Nguyễn Minh Trường",
+  "Hoàng Trung Việt",
+  "Nguyễn Nhật Trung",
+  "Đỗ Ngọc Dũng",
+  "Phạm Đình Hùng",
+  "Trần Thái Dương",
+  "Ngô Hoàng Sang",
+  "Nguyễn Lam Trường",
+  "Trần Khánh Duy",
+  "Huỳnh Kiết Lê",
+  "Nguyễn Dũng",
+  "Trần Thanh",
+  "Huỳnh Quốc Hào",
+  "Phạm Minh Thông",
+  "Lương Nguyễn Hà Bình",
+  "Lê Minh Hòa",
+  "Nguyễn Danh Hoài Bảo",
+  "Trần Thắng",
+  "Nguyễn Minh Quân",
+  "Đỗ Hoàng Phúc",
+  "Lê Tiến Duy",
+  "Nguyễn Minh Quang",
+  "Võ Minh Tân"
+];
+
+/* =====================================
+   19 LỜI TRI ÂN
+===================================== */
+
+const STORIES = [
+  [
+    "Cảm ơn vì luôn có mặt.",
+    "Có những sự đồng hành không cần quá nhiều lời. Chỉ cần nhìn lại những khoảnh khắc này là đủ thấy các anh luôn là một phần đáng quý của tập thể."
+  ],
+  [
+    "Mỗi người một dấu ấn riêng.",
+    "Mỗi anh mang đến một màu sắc và một thế mạnh riêng. Chính những điều khác biệt ấy đã làm nên một tập thể gần gũi và đầy năng lượng."
+  ],
+  [
+    "Sự tận tâm luôn đáng trân trọng.",
+    "Đằng sau mỗi công việc hoàn thành là rất nhiều thời gian, sự tập trung và trách nhiệm. Cảm ơn các anh vì những nỗ lực bền bỉ mỗi ngày."
+  ],
+  [
+    "Đồng hành để mọi thứ nhẹ nhàng hơn.",
+    "Một lời hỏi thăm, một lần hỗ trợ đúng lúc hay một sự chủ động nhỏ cũng đủ làm cho ngày làm việc trở nên dễ chịu hơn."
+  ],
+  [
+    "Tiếng cười cũng là một món quà.",
+    "Không phải lúc nào chúng ta cũng nhớ hết những công việc đã làm, nhưng những tiếng cười và khoảnh khắc vui vẻ cùng nhau thường ở lại rất lâu."
+  ],
+  [
+    "Cảm ơn những lần sẻ chia.",
+    "Có những kinh nghiệm được truyền lại, những góp ý chân thành và những lần cùng nhau tìm cách giải quyết vấn đề. Tất cả đều đáng quý."
+  ],
+  [
+    "Chung một hành trình.",
+    "Dù ở vị trí nào, các anh vẫn đang cùng góp sức cho một chặng đường chung. Cảm ơn vì sự đồng lòng ấy."
+  ],
+  [
+    "Sự vững vàng từ những điều giản dị.",
+    "Giữ lời hứa, làm tốt phần việc của mình và luôn sẵn sàng khi đồng đội cần là những điều giản dị nhưng rất đáng trân trọng."
+  ],
+  [
+    "Những điều nhỏ nhưng ấm áp.",
+    "Một cử chỉ hỗ trợ, một lời động viên hay một nụ cười đúng lúc đều góp phần làm cho tập thể trở nên gắn bó hơn."
+  ],
+  [
+    "Cùng nhau trưởng thành.",
+    "Qua mỗi dự án và mỗi thử thách, chúng ta đều học thêm được điều gì đó. Thật vui vì hành trình ấy có sự đồng hành của các anh."
+  ],
+  [
+    "Không chỉ là đồng nghiệp.",
+    "Qua những lần gặp gỡ và những dịp quây quần, chúng ta hiểu nhau hơn một chút. Đó là điều làm cho những ngày đi làm có thêm nhiều ý nghĩa."
+  ],
+  [
+    "Biết cổ vũ nhau là điều rất đẹp.",
+    "Thành công của một người cũng có thể trở thành niềm vui của cả nhóm. Cảm ơn các anh vì tinh thần ghi nhận và cổ vũ nhau."
+  ],
+  [
+    "Luôn sẵn sàng góp sức.",
+    "Có những lúc công việc cần thêm một bàn tay, một ý tưởng hay một chút kiên nhẫn. Cảm ơn các anh vì đã luôn sẵn sàng chung tay."
+  ],
+  [
+    "Giữ lại những khoảnh khắc đẹp.",
+    "Mỗi tấm hình không chỉ lưu lại vài giây. Phía sau đó là những câu chuyện, những kỷ niệm và rất nhiều điều đáng nhớ."
+  ],
+  [
+    "Cảm ơn sự kiên trì.",
+    "Không phải ngày nào cũng thuận lợi, nhưng việc tiếp tục cố gắng và làm tốt hơn từng ngày là điều rất đáng ghi nhận."
+  ],
+  [
+    "Niềm vui đến từ điều giản dị.",
+    "Đôi khi chỉ là một buổi gặp mặt, một câu chuyện vui hay một lần cùng chụp ảnh. Những điều giản dị ấy lại tạo nên sự gắn kết."
+  ],
+  [
+    "Mỗi đóng góp đều có ý nghĩa.",
+    "Dù là một ý tưởng lớn hay một việc nhỏ được hoàn thành chu đáo, mọi đóng góp đều đang tạo nên kết quả chung."
+  ],
+  [
+    "Thật vui vì được đồng hành.",
+    "Một tập thể đáng nhớ không chỉ được tạo nên bởi công việc, mà còn bởi những con người đã cùng nhau đi qua nhiều dấu mốc."
+  ],
+  [
+    "Và lời cảm ơn vẫn còn tiếp tục.",
+    "Mười chín bức ảnh không thể kể hết mọi điều đáng quý. Mong các anh luôn mạnh khỏe, vui vẻ và có thật nhiều điều tốt đẹp phía trước."
+  ]
+];
+
+/* =====================================
+   LỜI CHÚC CÁ NHÂN
+===================================== */
+
+const WISHES = [
+  "Chúc anh luôn dồi dào sức khỏe, giữ được tinh thần lạc quan và sự nhiệt huyết trong những điều mình theo đuổi. Mong công việc thuận lợi, cuộc sống có thêm nhiều niềm vui và mỗi ngày đều mang đến một điều đáng mong chờ. Cảm ơn anh vì đã là một phần đáng quý của tập thể.",
+
+  "Nhân ngày 19/11, chúc anh thật nhiều sức khỏe, bình an và may mắn. Mong anh luôn có những người đồng hành tuyệt vời, có thời gian cho những điều mình yêu thích và tiếp tục gặt hái nhiều trải nghiệm đáng nhớ trong công việc lẫn cuộc sống.",
+
+  "Chúc anh một ngày 19/11 trọn vẹn niềm vui. Mong những dự định sắp tới đều thuận lợi, những nỗ lực được ghi nhận và cuộc sống luôn có đủ những khoảnh khắc thư thái, vui vẻ bên gia đình, bạn bè và đồng nghiệp.",
+
+  "Gửi đến anh lời chúc sức khỏe, niềm vui và thật nhiều năng lượng tích cực. Cảm ơn anh vì sự đồng hành, những đóng góp và cả những khoảnh khắc vui vẻ đã mang đến cho tập thể. Chúc anh luôn vững vàng và hạnh phúc theo cách riêng của mình.",
+
+  "Mong anh luôn giữ được sự tự tin, nhiệt thành và một tinh thần thoải mái trước những thử thách mới. Chúc công việc hanh thông, cuộc sống cân bằng và có thêm nhiều cơ hội để làm những điều anh mong muốn."
+];
+
+/* =====================================
+   CẤU HÌNH CHUNG
+===================================== */
+
+const $ = id => document.getElementById(id);
+
+const SCREENS = [
+  "intro",
+  "slides",
+  "name",
+  "heart",
+  "greeting"
+];
+
+const SLIDE_SECONDS = 8;
+
+let slideIndex = 0;
+let timer = null;
+let playing = true;
+let visitor = "";
+let selectedWish = "";
+
+function show(id) {
+  clearTimeout(timer);
+
+  SCREENS.forEach(s => {
+    $(s).classList.toggle("active",s===id);
+  });
+
+  window.scrollTo(0,0);
+}
+
+function toast(message) {
+  const el = $("toast");
+
+  el.textContent = message;
+  el.hidden = false;
+
+  clearTimeout(toast.timer);
+
+  toast.timer = setTimeout(() => {
+    el.hidden = true;
+  },3000);
+}
+
+/* =====================================
+   NHẠC NỀN
+===================================== */
+
+const audio = $("audio");
+audio.volume = .33;
+
+function updateMusic() {
+  $("musicBtn").textContent =
+    audio.paused ? "Bật nhạc" : "Tắt nhạc";
+}
+
+async function playMusic() {
+  try {
+    await audio.play();
+  } catch(e) {
+    toast("Nhấn Bật nhạc để phát nhạc nền.");
+  }
+  updateMusic();
+}
+
+$("musicBtn").onclick = async () => {
+  if(audio.paused) {
+    await playMusic();
+  } else {
+    audio.pause();
+    updateMusic();
+  }
+};
+
+/* =====================================
+   19 ẢNH
+===================================== */
+
+function renderSlide() {
+  const n = String(slideIndex+1).padStart(2,"0");
+  const img = $("slideImg");
+
+  img.classList.remove("reveal");
+  img.hidden = false;
+  $("photoError").hidden = true;
+
+  img.onload = () => {
+    img.hidden = false;
+    $("photoError").hidden = true;
+    void img.offsetWidth;
+    img.classList.add("reveal");
+  };
+
+  img.onerror = () => {
+    img.hidden = true;
+    $("photoError").hidden = false;
+    $("photoError").textContent =
+      "Chưa tìm thấy ảnh " + n + ".jpg.";
+  };
+
+  img.src = "./" + n + ".jpg";
+
+  $("photoCount").textContent = n + " / 19";
+  $("storyKicker").textContent = "LỜI TRI ÂN " + n;
+  $("storyTitle").textContent = STORIES[slideIndex][0];
+  $("storyText").textContent = STORIES[slideIndex][1];
+
+  $("progressFill").style.width =
+    ((slideIndex+1)/19*100) + "%";
+
+  $("prevBtn").disabled = slideIndex===0;
+
+  $("nextBtn").textContent =
+    slideIndex===18
+      ? "Nhận thông điệp tiếp theo"
+      : "Ảnh tiếp theo";
+
+  clearTimeout(timer);
+
+  if(playing) {
+    timer = setTimeout(nextSlide,SLIDE_SECONDS*1000);
+  }
+}
+
+function nextSlide() {
+  if(slideIndex<18) {
+    slideIndex++;
+    renderSlide();
+  } else {
+    show("name");
+  }
+}
+
+function previousSlide() {
+  if(slideIndex>0) {
+    slideIndex--;
+    renderSlide();
+  }
+}
+
+$("startBtn").onclick = () => {
+  show("slides");
+  slideIndex = 0;
+  playing = true;
+  updatePause();
+  renderSlide();
+  playMusic();
+};
+
+$("nextBtn").onclick = nextSlide;
+$("prevBtn").onclick = previousSlide;
+
+function updatePause() {
+  $("pauseBtn").textContent =
+    playing ? "Tạm dừng" : "Tiếp tục";
+
+  $("slideStatus").textContent =
+    playing
+      ? "Tự chuyển ảnh sau 8 giây."
+      : "Đã tạm dừng tự chuyển ảnh.";
+}
+
+$("pauseBtn").onclick = () => {
+  playing = !playing;
+  updatePause();
+  renderSlide();
+};
+
+/* Vuốt ảnh trên điện thoại */
+
+let touchStart = null;
+
+$("photoStage").addEventListener(
+  "touchstart",
+  e => {
+    touchStart = e.changedTouches[0].screenX;
+  },
+  {passive:true}
+);
+
+$("photoStage").addEventListener(
+  "touchend",
+  e => {
+    if(touchStart===null) return;
+
+    const dx =
+      e.changedTouches[0].screenX-touchStart;
+
+    if(dx < -55) nextSlide();
+    if(dx > 55) previousSlide();
+
+    touchStart = null;
+  },
+  {passive:true}
+);
+
+/* =====================================
+   BỐ TRÍ 33 TÊN TRONG TRÁI TIM
+
+   Các hàng được phân bổ theo hình dạng tim.
+   Mỗi tên được đo chiều rộng thực tế.
+   Font tự thu nhỏ nếu tên dài.
+===================================== */
+
+const HEART_ROWS = [
+  {y:145,xs:[245,655],width:235},
+  {y:180,xs:[245,655],width:235},
+
+  {y:245,xs:[162,350,550,738],width:165},
+  {y:285,xs:[160,350,550,740],width:165},
+  {y:325,xs:[165,350,550,735],width:165},
+  {y:365,xs:[175,355,545,725],width:155},
+  {y:405,xs:[185,360,540,715],width:145},
+
+  {y:445,xs:[265,450,635],width:160},
+  {y:485,xs:[285,450,615],width:145},
+
+  {y:525,xs:[355,545],width:170},
+  {y:570,xs:[450],width:240}
+];
+
+function makeHeart() {
+  const group = $("heartNames");
+  const ns = "http://www.w3.org/2000/svg";
+
+  group.replaceChildren();
+
+  const measure = document
+    .createElement("canvas")
+    .getContext("2d");
+
+  const slots = [];
+
+  HEART_ROWS.forEach(row => {
+    row.xs.forEach(x => {
+      slots.push({
+        x:x,
+        y:row.y,
+        width:row.width
       });
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+
+  TEAM_NAMES.forEach((name,i) => {
+    const slot = slots[i];
+    if(!slot) return;
+
+    let fontSize = 17;
+
+    while(fontSize>10) {
+      measure.font =
+        `700 ${fontSize}px Montserrat, Arial, sans-serif`;
+
+      if(
+        measure.measureText(name).width
+        <=slot.width
+      ) break;
+
+      fontSize-=.25;
     }
 
-    function showToast(message) {
-      const toast = $("toast");
-      toast.textContent = message;
-      toast.classList.add("show");
-      clearTimeout(showToast.timer);
-      showToast.timer = setTimeout(() => {
-        toast.classList.remove("show");
-      }, 3000);
+    const node = document.createElementNS(ns,"text");
+
+    node.setAttribute("x",slot.x);
+    node.setAttribute("y",slot.y);
+    node.setAttribute("text-anchor","middle");
+    node.setAttribute("class","heart-name");
+    node.setAttribute("font-size",fontSize.toFixed(2));
+    node.setAttribute("letter-spacing","0");
+    node.textContent = name;
+
+    const title = document.createElementNS(ns,"title");
+    title.textContent = name;
+    node.appendChild(title);
+
+    group.appendChild(node);
+  });
+}
+
+/* =====================================
+   NHẬP TÊN
+===================================== */
+
+function normalizeName(str) {
+  return str.replace(/\s+/g," ").trim();
+}
+
+function hashName(str) {
+  let hash = 0;
+
+  const text = str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/đ/g,"d")
+    .toLowerCase();
+
+  for(const c of text) {
+    hash =
+      ((hash*31)+c.charCodeAt(0))>>>0;
+  }
+
+  return hash;
+}
+
+async function submitName() {
+  const name = normalizeName($("nameInput").value);
+
+  if(name.length<2) {
+    $("nameError").textContent =
+      "Anh vui lòng nhập tên từ 2 ký tự trở lên.";
+    return;
+  }
+
+  $("nameError").textContent = "";
+
+  visitor = name;
+  selectedWish =
+    WISHES[hashName(name)%WISHES.length];
+
+  if(document.fonts && document.fonts.ready) {
+    await document.fonts.ready;
+  }
+
+  makeHeart();
+
+  $("heartRecipient").textContent =
+    "Gửi đến Anh trai " + visitor;
+
+  show("heart");
+}
+
+$("createHeartBtn").onclick = submitName;
+
+$("nameInput").addEventListener("keydown",e => {
+  if(e.key==="Enter") submitName();
+});
+
+$("editNameBtn").onclick = () => show("name");
+
+/* =====================================
+   MỞ LỜI CHÚC
+===================================== */
+
+function openGreeting() {
+  $("recipient").textContent =
+    "Gửi đến Anh trai " + visitor;
+
+  $("wishMessage").textContent = selectedWish;
+
+  show("greeting");
+  confetti();
+}
+
+$("heartBtn").onclick = openGreeting;
+
+$("backHeartBtn").onclick = () => show("heart");
+$("restartBtn").onclick = () => show("intro");
+
+/* =====================================
+   HIỆU ỨNG CHÚC MỪNG
+===================================== */
+
+function confetti() {
+  if(window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches) return;
+
+  const colors = [
+    "#e9bc70",
+    "#8ccbe9",
+    "#e8a8b8",
+    "#b7ddf2"
+  ];
+
+  for(let i=0;i<40;i++) {
+    const piece = document.createElement("i");
+
+    piece.className = "confetti";
+    piece.style.left = Math.random()*100+"vw";
+    piece.style.background =
+      colors[i%colors.length];
+
+    piece.style.setProperty(
+      "--duration",
+      (1.4+Math.random()*1.7)+"s"
+    );
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => piece.remove(),3400);
+  }
+}
+
+/* =====================================
+   LƯU THIỆP PNG
+===================================== */
+
+function wrapText(ctx,text,maxWidth) {
+  const words = text.split(/\s+/);
+  const lines = [];
+  let line = "";
+
+  for(const word of words) {
+    const test = line ? line+" "+word : word;
+
+    if(
+      ctx.measureText(test).width>maxWidth
+      && line
+    ) {
+      lines.push(line);
+      line=word;
+    } else {
+      line=test;
+    }
+  }
+
+  if(line) lines.push(line);
+  return lines;
+}
+
+function slugify(str) {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/đ/g,"d")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-+|-+$/g,"");
+}
+
+$("saveBtn").onclick = async () => {
+  try {
+    if(document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
     }
 
-    function updateMusicButton() {
-      $("musicBtn").textContent = audio.paused ? "Bật nhạc." : "Tắt nhạc.";
-    }
+    const canvas = document.createElement("canvas");
+    canvas.width=1080;
+    canvas.height=1350;
 
-    async function playMusic() {
-      try {
-        await audio.play();
-      } catch (error) {
-        showToast("Trình duyệt chưa cho phát nhạc. Anh bấm Bật nhạc để thử lại.");
-      }
-      updateMusicButton();
-    }
+    const ctx=canvas.getContext("2d");
 
-    $("musicBtn").addEventListener("click", async () => {
-      if (audio.paused) {
-        await playMusic();
-      } else {
-        audio.pause();
-        updateMusicButton();
-      }
+    const bg=ctx.createLinearGradient(
+      0,0,1080,1350
+    );
+
+    bg.addColorStop(0,"#e6f4fc");
+    bg.addColorStop(1,"#fff1df");
+
+    ctx.fillStyle=bg;
+    ctx.fillRect(0,0,1080,1350);
+
+    ctx.fillStyle="#ffffff";
+
+    ctx.beginPath();
+    ctx.roundRect(65,80,950,1190,35);
+    ctx.fill();
+
+    ctx.textAlign="center";
+
+    ctx.fillStyle="#347da7";
+    ctx.font="800 24px Montserrat,Arial";
+
+    ctx.fillText(
+      "HAPPY INTERNATIONAL MEN'S DAY",
+      540,190
+    );
+
+    ctx.fillText("19/11",540,235);
+
+    ctx.fillStyle="#286b94";
+
+    let nameSize=42;
+    let nameLines=[];
+
+    do {
+      ctx.font =
+        `800 ${nameSize}px Montserrat,Arial`;
+
+      nameLines=wrapText(
+        ctx,
+        "Gửi đến Anh trai "+visitor,
+        800
+      );
+
+      if(nameLines.length<=2) break;
+      nameSize-=2;
+    } while(nameSize>24);
+
+    nameLines.forEach((line,i) => {
+      ctx.fillText(
+        line,
+        540,
+        325+i*55
+      );
     });
 
-    $("startBtn").addEventListener("click", async () => {
-      showScreen("slides");
-      slideIndex = 0;
-      autoPlaying = true;
-      updatePauseButton();
-      renderSlide();
-      await playMusic();
-    });
+    ctx.fillStyle="#235471";
+    ctx.font="800 40px Montserrat,Arial";
 
-    function renderSlide() {
-      const padded = String(slideIndex + 1).padStart(2, "0");
-      const img = $("slideImg");
+    ctx.fillText(
+      "Chúc anh một ngày thật vui.",
+      540,490
+    );
 
-      img.onload = null;
-      img.onerror = null;
+    ctx.fillStyle="#4f6c7e";
+    ctx.font="500 27px Montserrat,Arial";
 
-      img.src = `./${padded}.jpg`;
-      img.alt = `Ảnh kỷ niệm số ${slideIndex + 1}`;
+    const lines=wrapText(
+      ctx,selectedWish,790
+    );
 
-      $("countBadge").textContent = `${padded} / 19`;
-      $("storyIndex").textContent = `LỜI TRI ÂN ${padded}`;
-      $("storyTitle").textContent = STORIES[slideIndex][0];
-      $("storyText").textContent = STORIES[slideIndex][1];
-      $("progressBar").style.width = `${((slideIndex + 1) / 19) * 100}%`;
+    let y=590;
 
-      $("prevBtn").disabled = slideIndex === 0;
-      $("nextBtn").textContent = slideIndex === 18 ? "Nhận thông điệp tiếp theo." : "Ảnh tiếp theo.";
-
-      clearTimeout(autoTimer);
-      if (autoPlaying) {
-        $("slideStatus").textContent = `Tự chuyển ảnh sau ${AUTO_SECONDS} giây.`;
-        autoTimer = setTimeout(() => {
-          if (slideIndex < 18) {
-            slideIndex += 1;
-            renderSlide();
-          } else {
-            showScreen("name");
-          }
-        }, AUTO_SECONDS * 1000);
-      } else {
-        $("slideStatus").textContent = "Đã tạm dừng tự chuyển ảnh.";
-      }
+    for(const line of lines) {
+      ctx.fillText(line,540,y);
+      y+=49;
     }
 
-    $("prevBtn").addEventListener("click", () => {
-      if (slideIndex > 0) {
-        slideIndex -= 1;
-        renderSlide();
-      }
-    });
+    ctx.fillStyle="#d8aa74";
+    ctx.font="bold 74px Arial";
+    ctx.fillText("♡",540,1045);
 
-    $("nextBtn").addEventListener("click", () => {
-      if (slideIndex < 18) {
-        slideIndex += 1;
-        renderSlide();
-      } else {
-        showScreen("name");
-      }
-    });
+    ctx.fillStyle="#70889a";
+    ctx.font="700 21px Montserrat,Arial";
 
-    function updatePauseButton() {
-      $("pauseBtn").textContent = autoPlaying ? "Tạm dừng." : "Tiếp tục.";
-    }
+    ctx.fillText(
+      "Với tất cả sự quý mến và trân trọng.",
+      540,1140
+    );
 
-    $("pauseBtn").addEventListener("click", () => {
-      autoPlaying = !autoPlaying;
-      updatePauseButton();
-      renderSlide();
-    });
+    ctx.font="600 18px Montserrat,Arial";
 
-    function normalizeName(str) {
-      return str.replace(/\s+/g, " ").trim();
-    }
+    ctx.fillText(
+      "Phúc Thiện · Phúc Thịnh · 3D Tech Vision",
+      540,1185
+    );
 
-    function hashName(str) {
-      const base = str
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/đ/g, "d")
-        .toLowerCase();
+    const link=document.createElement("a");
 
-      let hash = 0;
-      for (let i = 0; i < base.length; i++) {
-        hash = (hash * 31 + base.charCodeAt(i)) >>> 0;
-      }
-      return hash;
-    }
+    link.download =
+      "thiep-19-11-"+slugify(visitor)+".png";
 
-    function createHeartForName() {
-      const entered = normalizeName($("nameInput").value);
+    link.href=canvas.toDataURL("image/png");
+    link.click();
 
-      if (entered.length < 2) {
-        $("nameError").textContent = "Anh vui lòng nhập tên từ 2 ký tự trở lên.";
-        return;
-      }
+    toast("Đã tạo ảnh thiệp PNG.");
 
-      $("nameError").textContent = "";
-      currentName = entered;
-      currentWish = WISHES[hashName(entered) % WISHES.length];
-      $("heartRecipient").textContent = `Gửi đến Anh trai ${currentName}.`;
+  } catch(e) {
+    toast("Chưa thể lưu ảnh trên trình duyệt này.");
+  }
+};
 
-      renderHeartNames();
-      showScreen("heart");
-    }
+updateMusic();
 
-    $("createHeartBtn").addEventListener("click", createHeartForName);
-
-    $("nameInput").addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        createHeartForName();
-      }
-    });
-
-    $("editNameBtn").addEventListener("click", () => {
-      showScreen("name");
-    });
-
-    function createHeartSlots() {
-      return [
-        { y: 96, xs: [210, 430], width: 148 },
-        { y: 122, xs: [150, 320, 490], width: 138 },
-        { y: 148, xs: [122, 256, 384, 518], width: 128 },
-        { y: 174, xs: [112, 230, 410, 528], width: 120 },
-        { y: 200, xs: [104, 224, 416, 536], width: 118 },
-        { y: 226, xs: [102, 218, 422, 538], width: 118 },
-        { y: 252, xs: [110, 236, 404, 530], width: 122 },
-        { y: 278, xs: [136, 320, 504], width: 138 },
-        { y: 304, xs: [158, 320, 482], width: 144 },
-        { y: 330, xs: [202, 438], width: 160 },
-        { y: 356, xs: [210, 430], width: 154 },
-        { y: 382, xs: [320], width: 184 }
-      ];
-    }
-
-    function fitFontSize(ctx, text, maxWidth, startSize) {
-      let size = startSize;
-      while (size > 7) {
-        ctx.font = `700 ${size}px Montserrat`;
-        if (ctx.measureText(text).width <= maxWidth) {
-          break;
-        }
-        size -= 0.35;
-      }
-      return size;
-    }
-
-    function renderHeartNames() {
-      const svgGroup = $("heartNamesGroup");
-      svgGroup.innerHTML = "";
-
-      const svgNS = "http://www.w3.org/2000/svg";
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-
-      const slotsRaw = createHeartSlots();
-      const slots = [];
-
-      slotsRaw.forEach((row) => {
-        row.xs.forEach((x) => {
-          slots.push({ x, y: row.y, width: row.width });
-        });
-      });
-
-      TEAM_NAMES.forEach((name, index) => {
-        const slot = slots[index];
-        if (!slot) return;
-
-        const size = fitFontSize(ctx, name, slot.width, 13.4);
-
-        const textEl = document.createElementNS(svgNS, "text");
-        textEl.setAttribute("x", slot.x);
-        textEl.setAttribute("y", slot.y);
-        textEl.setAttribute("text-anchor", "middle");
-        textEl.setAttribute("fill", "var(--heart-name)");
-        textEl.setAttribute("font-size", size.toFixed(2));
-        textEl.setAttribute("font-weight", "700");
-        textEl.setAttribute("font-family", "Montserrat, Arial, sans-serif");
-        textEl.setAttribute("opacity", String(0.78 + (index % 3) * 0.08));
-        textEl.textContent = name;
-
-        svgGroup.appendChild(textEl);
-      });
-    }
-
-    function openWish() {
-      $("wishRecipient").textContent = `Gửi đến Anh trai ${currentName}.`;
-      $("wishMessage").textContent = currentWish;
-      showScreen("greeting");
-      createConfetti();
-    }
-
-    $("heartBtn").addEventListener("click", openWish);
-
-    $("backHeartBtn").addEventListener("click", () => {
-      showScreen("heart");
-    });
-
-    $("restartBtn").addEventListener("click", () => {
-      showScreen("intro");
-    });
-
-    function createConfetti() {
-      const colors = ["#8dc8f2", "#f1c86f", "#f6dce4", "#73b8ef", "#ffe6a5"];
-      for (let i = 0; i < 42; i++) {
-        const piece = document.createElement("i");
-        piece.className = "confetti";
-        piece.style.left = `${Math.random() * 100}vw`;
-        piece.style.background = colors[i % colors.length];
-        piece.style.animationDuration = `${1.7 + Math.random() * 1.4}s`;
-        piece.style.opacity = `${0.8 + Math.random() * 0.2}`;
-        document.body.appendChild(piece);
-
-        setTimeout(() => {
-          piece.remove();
-        }, 3600);
-      }
-    }
-
-    function wrapText(ctx, text, maxWidth) {
-      const words = text.split(" ");
-      const lines = [];
-      let line = "";
-
-      for (const word of words) {
-        const testLine = line ? `${line} ${word}` : word;
-        const width = ctx.measureText(testLine).width;
-        if (width > maxWidth && line) {
-          lines.push(line);
-          line = word;
-        } else {
-          line = testLine;
-        }
-      }
-
-      if (line) lines.push(line);
-      return lines;
-    }
-
-    $("saveBtn").addEventListener("click", async () => {
-      try {
-        if (document.fonts && document.fonts.ready) {
-          await document.fonts.ready;
-        }
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = 1080;
-        canvas.height = 1350;
-
-        const bg = ctx.createLinearGradient(0, 0, 1080, 1350);
-        bg.addColorStop(0, "#eff9ff");
-        bg.addColorStop(1, "#fff8ef");
-        ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = "#ffffff";
-        ctx.strokeStyle = "#ddebf5";
-        ctx.lineWidth = 3;
-
-        roundRect(ctx, 70, 85, 940, 1180, 32, true, true);
-
-        ctx.fillStyle = "#6aa8d8";
-        ctx.font = "800 24px Montserrat";
-        ctx.textAlign = "center";
-        ctx.fillText("19.11.2026", 540, 170);
-
-        ctx.fillStyle = "#285b8f";
-        ctx.font = "800 46px Montserrat";
-        ctx.fillText("Một lời chúc dành riêng cho anh.", 540, 250);
-
-        let recipient = `Gửi đến Anh trai ${currentName}.`;
-        let recipientSize = 34;
-        while (recipientSize > 22) {
-          ctx.font = `800 ${recipientSize}px Montserrat`;
-          if (ctx.measureText(recipient).width <= 760) break;
-          recipientSize -= 1;
-        }
-        ctx.fillStyle = "#2d7aa6";
-        ctx.font = `800 ${recipientSize}px Montserrat`;
-        ctx.fillText(recipient, 540, 340);
-
-        ctx.fillStyle = "#61778a";
-        ctx.font = "500 28px Montserrat";
-        const lines = wrapText(ctx, currentWish, 760);
-
-        let y = 440;
-        const lineHeight = 50;
-        lines.forEach((line) => {
-          ctx.fillText(line, 540, y);
-          y += lineHeight;
-        });
-
-        ctx.fillStyle = "#899ba8";
-        ctx.font = "700 20px Montserrat";
-        ctx.fillText("Với sự quý mến và trân trọng.", 540, 1135);
-
-        ctx.font = "600 18px Montserrat";
-        ctx.fillText("Đại gia đình Phúc Thiện. Phúc Thịnh. 3D Tech Vision.", 540, 1180);
-
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png");
-        link.download = `thiep-19-11-${slugify(currentName)}.png`;
-        link.click();
-
-        showToast("Đã tạo ảnh thiệp PNG.");
-      } catch (error) {
-        showToast("Chưa thể lưu ảnh trên trình duyệt này.");
-      }
-    });
-
-    function slugify(str) {
-      return str
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/đ/g, "d")
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-    }
-
-    function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-      if (typeof radius === "number") {
-        radius = { tl: radius, tr: radius, br: radius, bl: radius };
-      } else {
-        radius = Object.assign({ tl: 0, tr: 0, br: 0, bl: 0 }, radius);
-      }
-
-      ctx.beginPath();
-      ctx.moveTo(x + radius.tl, y);
-      ctx.lineTo(x + width - radius.tr, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-      ctx.lineTo(x + width, y + height - radius.br);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
-      ctx.lineTo(x + radius.bl, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-      ctx.lineTo(x, y + radius.tl);
-      ctx.quadraticCurveTo(x, y, x + radius.tl, y);
-      ctx.closePath();
-
-      if (fill) ctx.fill();
-      if (stroke) ctx.stroke();
-    }
-
-    updateMusicButton();
-  </script>
+</script>
 </body>
 </html>

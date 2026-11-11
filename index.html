@@ -5,500 +5,612 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#eaf6ff">
-<title>Có các anh, hành trình thêm đáng nhớ</title>
+
+<title>19/11 | HÔM NGÀY LÀ NGÀY ĐẶC BIỆT DÀNH CHO CÁC ANH </title>
+
+<meta name="description"
+content="Một món quà nhỏ nhân ngày Quốc tế Nam giới. Những khoảnh khắc đáng nhớ và lời chúc dành riêng cho mỗi người.">
+
+<meta property="og:type" content="website">
+<meta property="og:title"
+content="19/11 | Hôm nay là ngày dành cho các anh trai">
+<meta property="og:description"
+content="Một món quà nhỏ, những kỷ niệm thân quen và một điều bất ngờ dành riêng cho các anh, các chú.">
+<meta property="og:image"
+content="https://thiep-1qak.vercel.app/POSTER.jpg">
+<meta property="og:url"
+content="https://thiep-1qak.vercel.app/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --blue:#237dad;
-  --navy:#194f73;
-  --text:#385b73;
-  --muted:#72899a;
-  --gold:#d5a652;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Montserrat,Arial,sans-serif;
-  color:var(--text);
-  background:linear-gradient(145deg,#e9f6ff,#fffdf8);
-}
-button,input{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible{
-  outline:3px solid #e0b75e;
-  outline-offset:3px;
-}
-[hidden]{display:none!important}
-.screen{
-  display:none;
-  min-height:100svh;
-  padding:68px 14px 42px;
-  justify-content:center;
-  align-items:center;
-}
-.screen.active{
-  display:flex;
-  animation:appear .55s ease both;
-}
-@keyframes appear{
-  from{opacity:0;transform:translateY(14px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.panel{
-  width:min(100%,1000px);
-  padding:clamp(18px,3.5vw,38px);
-  border:1px solid #d9eaf5;
-  border-radius:26px;
-  background:#fffffff2;
-  box-shadow:0 18px 50px #255b7a1b;
-  text-align:center;
-}
-.eyebrow{
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.12em;
-  line-height:1.8;
-  color:#3c8db9;
-}
-h1,h2,h3,p{margin-top:0}
-h2{
-  margin:9px 0 14px;
-  color:var(--navy);
-  font-size:clamp(23px,4vw,35px);
-  line-height:1.35;
-}
-.desc{
-  max-width:720px;
-  margin:0 auto 22px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.9;
-}
-.actions{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:22px;
-}
-.btn{
-  border:0;
-  border-radius:999px;
-  padding:13px 22px;
-  min-height:46px;
-  background:#267eae;
-  color:white;
-  font-size:13px;
-  font-weight:800;
-  box-shadow:0 7px 20px #1c6b9628;
-  transition:transform .2s,background .2s;
-}
-.btn:hover{
-  transform:translateY(-2px);
-  background:#195e88;
-}
-.btn.alt{
-  background:#eaf3f9;
-  color:#2c617f;
-  box-shadow:none;
-}
-.btn:disabled{
-  opacity:.4;
-  cursor:not-allowed;
-}
-.music{
-  position:fixed;
-  z-index:90;
-  top:14px;
-  right:14px;
-  padding:11px 15px;
-  border:1px solid #d5e6f1;
-  border-radius:999px;
-  background:#fffffff0;
-  color:#275e7e;
-  font-size:12px;
-  font-weight:800;
-  box-shadow:0 6px 20px #2257761a;
+:root {
+  --navy: #194e70;
+  --blue: #267eaf;
+  --ink: #34566d;
+  --muted: #6b8497;
+  --gold: #dcaf59;
 }
 
-/* TRANG MỞ ĐẦU */
-.hero{
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
-  color:white;
-  background:#194563;
-}
-.hero-photo{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  z-index:-3;
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-2;
-  background:linear-gradient(
-    180deg,
-    #12354d35 0%,
-    #12354d75 46%,
-    #092a42ed 100%
-  );
-}
-.hero:after{
-  content:"";
-  position:absolute;
-  inset:-15%;
-  z-index:-1;
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Montserrat, Arial, sans-serif;
+  color: var(--ink);
   background:
-    radial-gradient(circle at 12% 25%,#ffdc9430,transparent 30%),
-    radial-gradient(circle at 85% 75%,#b6e7ff28,transparent 30%);
-  animation:ambient 8s ease-in-out infinite alternate;
-}
-@keyframes ambient{
-  from{opacity:.5;transform:scale(1)}
-  to{opacity:1;transform:scale(1.05)}
-}
-.hero-content{
-  width:min(100%,850px);
-  padding-top:min(28vh,250px);
-  text-align:center;
-}
-.hero .eyebrow{color:#ffe0a0}
-.hero h1{
-  margin:15px auto 19px;
-  font-size:clamp(30px,6vw,62px);
-  line-height:1.24;
-  letter-spacing:-.035em;
-  text-shadow:0 3px 15px #08273a8c;
-}
-.hero h1 span{color:#ffe3aa}
-.hero p{
-  max-width:660px;
-  margin:0 auto;
-  color:#f1f8fc;
-  font-size:clamp(13px,1.8vw,16px);
-  line-height:1.95;
-}
-.hero .btn{
-  background:white;
-  color:#245d7c;
-}
-.hero-foot{
-  margin-top:24px;
-  color:#e4f1f9;
-  font-size:11px;
+    radial-gradient(circle at 0 0, #ddf0ff, transparent 40%),
+    radial-gradient(circle at 100% 100%, #fff1d8, transparent 42%),
+    #f8fcff;
 }
 
-/* TRÌNH CHIẾU 19 ẢNH */
-.photo-stage{
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:100%;
-  height:clamp(370px,62vw,690px);
-  overflow:hidden;
-  border:1px solid #d6e7f1;
-  border-radius:19px;
-  background:#edf6fc;
-}
-.photo-stage img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center;
-}
-.photo-stage img.reveal{
-  animation:photoIn .7s ease both;
-}
-@keyframes photoIn{
-  from{opacity:0;transform:scale(.985)}
-  to{opacity:1;transform:scale(1)}
-}
-.photo-counter{
-  position:absolute;
-  top:12px;
-  right:12px;
-  padding:8px 12px;
-  border-radius:999px;
-  background:#1d506fd9;
-  color:white;
-  font-size:11px;
-  font-weight:800;
-}
-.photo-error{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  padding:25px;
-  background:#eaf4fa;
-  color:#6a8598;
-  font-size:13px;
-}
-.track{
-  height:5px;
-  margin:16px 0;
-  border-radius:999px;
-  overflow:hidden;
-  background:#e2eef5;
-}
-.fill{
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,#4ba9d3,#e4b66d);
-  transition:width .3s;
-}
-.story{
-  min-height:155px;
-  padding:24px 18px;
-  border:1px solid #dceaf3;
-  border-radius:17px;
-  background:linear-gradient(125deg,#edf8ff,#fffbf4);
-}
-.story h3{
-  margin:0 0 10px;
-  color:#246487;
-  font-size:clamp(18px,2.7vw,24px);
-}
-.story p{
-  max-width:760px;
-  margin:0 auto;
-  color:#557386;
-  font-size:clamp(13px,1.6vw,15px);
-  line-height:1.9;
-}
-.slide-status{
-  margin:13px 0 0;
-  color:#8093a1;
-  font-size:11px;
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
 }
 
-/* POSTER VÀ NHẬP TÊN */
-.name-panel{max-width:800px}
-.poster-frame{
-  width:min(100%,430px);
-  margin:0 auto 25px;
-  padding:7px;
-  border:1px solid #dbe9f2;
-  border-radius:18px;
-  background:white;
-  box-shadow:0 12px 28px #225e831a;
-}
-.poster-frame img{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:12px;
-}
-.name-input{
-  display:block;
-  width:min(100%,470px);
-  margin:23px auto 10px;
-  padding:16px 19px;
-  border:1.5px solid #bfddeb;
-  border-radius:14px;
-  background:white;
-  color:#245b7d;
-  text-align:center;
-  font-size:15px;
-}
-.name-error{
-  min-height:20px;
-  margin:0;
-  color:#a84556;
-  font-size:12px;
-  line-height:1.7;
+[hidden] { display: none !important; }
+
+.screen {
+  display: none;
+  min-height: 100svh;
+  padding: 66px 15px 42px;
+  align-items: center;
+  justify-content: center;
 }
 
-/* TRÁI TIM */
-.heart-panel{
-  width:min(100%,1100px);
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 5% 5%,#e7f5ff,transparent 40%),
-    radial-gradient(circle at 100% 95%,#fff3dd,transparent 38%),
-    #fff;
-}
-.heart-hint{
-  margin:0 auto 12px;
-  color:#71899a;
-  font-size:13px;
-  line-height:1.8;
-}
-.heart-scroll{
-  width:100%;
-  overflow-x:auto;
-  overflow-y:hidden;
-  scrollbar-width:thin;
-  scrollbar-color:#a7cddd transparent;
-}
-.heart-button{
-  display:block;
-  width:100%;
-  min-width:800px;
-  margin:0 auto;
-  padding:0;
-  border:0;
-  background:transparent;
-  filter:drop-shadow(0 13px 20px #2b719927);
-  transition:transform .2s;
-}
-.heart-button:hover{transform:scale(1.01)}
-.heart-button svg{
-  display:block;
-  width:100%;
-  height:auto;
-}
-.heart-name{
-  fill:#21678e;
-  font-family:Montserrat,Arial,sans-serif;
-  font-weight:800;
-}
-.heart-name.leader{
-  fill:#164c70;
-  font-weight:900;
-}
-.leader-plate{
-  fill:#fff8e8;
-  stroke:#dcb367;
-  stroke-width:2;
-}
-.sparkle{
-  fill:#dfb153;
-  transform-box:fill-box;
-  transform-origin:center;
-  animation:twinkle 3s ease-in-out infinite alternate;
-}
-@keyframes twinkle{
-  from{opacity:.35;transform:scale(.75)}
-  to{opacity:1;transform:scale(1.12)}
-}
-.heart-recipient{
-  display:inline-block;
-  max-width:100%;
-  margin:10px auto 0;
-  padding:12px 23px;
-  border:1px solid #c4deee;
-  border-radius:999px;
-  background:#f1f9ff;
-  color:#245d82;
-  font-size:clamp(13px,2vw,17px);
-  font-weight:800;
-  overflow-wrap:anywhere;
-}
-.heart-sub{
-  margin:14px 0 0;
-  color:#8194a4;
-  font-size:12px;
+.screen.active {
+  display: flex;
+  animation: rise .55s ease both;
 }
 
-/* THIỆP CÁ NHÂN */
-.wish-card{
-  position:relative;
-  overflow:hidden;
-  padding:clamp(28px,5vw,58px) clamp(18px,5vw,50px);
-  border:1px solid #dceaf3;
-  border-radius:22px;
-  background:
-    radial-gradient(circle at 100% 0,#fff0d7,transparent 40%),
-    radial-gradient(circle at 0 100%,#e0f3fd,transparent 40%),
-    white;
-}
-.wish-card:before{
-  content:"✦";
-  position:absolute;
-  top:25px;
-  left:30px;
-  color:#d9ac60;
-  font-size:25px;
-}
-.wish-card:after{
-  content:"✦";
-  position:absolute;
-  right:30px;
-  bottom:35px;
-  color:#d9ac60;
-  font-size:21px;
-}
-.recipient{
-  margin:25px auto 20px;
-  color:#2579a6;
-  font-size:clamp(19px,3vw,27px);
-  font-weight:800;
-  overflow-wrap:anywhere;
-}
-.wish-message{
-  max-width:660px;
-  margin:0 auto;
-  color:#4f6d80;
-  font-size:clamp(14px,1.9vw,16px);
-  line-height:2;
-  white-space:pre-line;
-}
-.sign{
-  margin-top:33px;
-  color:#73899a;
-  font-size:11px;
-  font-weight:700;
-  line-height:1.9;
-}
-.confetti{
-  position:fixed;
-  z-index:100;
-  top:-20px;
-  width:8px;
-  height:12px;
-  border-radius:2px;
-  pointer-events:none;
-  animation:fall var(--duration,2s) ease-out forwards;
-}
-@keyframes fall{
-  to{
-    transform:translateY(105vh) rotate(650deg);
-    opacity:0;
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-.toast{
-  position:fixed;
-  z-index:120;
-  left:50%;
-  bottom:22px;
-  transform:translateX(-50%);
-  max-width:90%;
-  padding:12px 18px;
-  border-radius:12px;
-  background:#255a79;
-  color:white;
-  font-size:12px;
-  text-align:center;
+
+.panel {
+  width: min(100%, 1000px);
+  border-radius: 26px;
+  background: #fffffff0;
+  border: 1px solid #daebf4;
+  box-shadow: 0 20px 55px #235a7e1e;
+  padding: clamp(20px, 4vw, 39px);
+  text-align: center;
 }
-@media(max-width:650px){
-  .screen{padding:66px 11px 32px}
-  .panel{padding:19px 12px}
-  .hero-content{padding-top:34vh}
-  .photo-stage{height:min(70svh,620px);min-height:350px}
-  .story{min-height:195px}
-  .heart-panel{padding:19px 9px}
-  .heart-button{min-width:800px}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1.85;
+  color: #458db4;
 }
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{
-    animation:none!important;
-    transition:none!important;
+
+h1, h2, h3, p { margin-top: 0; }
+
+h2 {
+  color: var(--navy);
+  font-size: clamp(23px, 4vw, 37px);
+  line-height: 1.36;
+  margin: 9px 0 13px;
+}
+
+.desc {
+  max-width: 715px;
+  margin: 0 auto 22px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  background: #287ead;
+  color: #fff;
+  min-height: 46px;
+  padding: 13px 21px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 8px 23px #195f8930;
+  transition: transform .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #1b658d;
+}
+
+.btn.alt {
+  background: #eaf4fa;
+  color: #285875;
+  box-shadow: none;
+}
+
+.btn:disabled {
+  opacity: .43;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.music {
+  position: fixed;
+  right: 14px;
+  top: 14px;
+  z-index: 80;
+  border: 1px solid #d8e8f2;
+  background: #fffffff0;
+  color: #265c7e;
+  border-radius: 999px;
+  padding: 11px 15px;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 7px 22px #20557223;
+}
+
+/* ================================
+   TRANG MỞ ĐẦU
+================================ */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #204c67;
+  color: #fff;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 43%;
+  z-index: -3;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    180deg,
+    #0d29482b 0%,
+    #0d2f4b73 44%,
+    #08253eea 100%
+  );
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: -15%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 25%, #ffdc9e26, transparent 28%),
+    radial-gradient(circle at 85% 78%, #b3eaff2a, transparent 31%);
+  animation: ambient 8s ease-in-out infinite alternate;
+}
+
+@keyframes ambient {
+  from {
+    opacity: .35;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.hero-content {
+  width: min(100%, 870px);
+  margin: auto;
+  padding-top: min(26vh, 245px);
+  text-align: center;
+}
+
+.hero .eyebrow { color: #ffe4ac; }
+
+.hero h1 {
+  font-size: clamp(29px, 5.8vw, 59px);
+  line-height: 1.24;
+  letter-spacing: -.03em;
+  margin: 14px auto 21px;
+  text-shadow: 0 4px 22px #0a2941a0;
+}
+
+.hero h1 span { color: #ffe1a3; }
+
+.hero p {
+  max-width: 700px;
+  color: #f1f8ff;
+  margin: auto;
+  font-size: clamp(13px, 1.65vw, 16px);
+  line-height: 1.95;
+}
+
+.hero .btn {
+  background: white;
+  color: #215877;
+}
+
+.hero-foot {
+  font-size: 11px;
+  color: #e5f0fa;
+  margin-top: 23px;
+}
+
+/* ================================
+   TRÌNH CHIẾU ẢNH
+================================ */
+
+.photo-stage {
+  position: relative;
+  height: clamp(350px, 62vw, 675px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f3fa;
+  border: 1px solid #d5e6f1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.photo-stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.photo-stage img.reveal {
+  animation: photoIn .68s ease both;
+}
+
+@keyframes photoIn {
+  from {
+    opacity: 0;
+    transform: scale(.987);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.photo-error {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  background: #eaf4fb;
+  color: #6a8497;
+  text-align: center;
+  font-size: 13px;
+}
+
+.track {
+  height: 5px;
+  border-radius: 100px;
+  margin: 16px 0;
+  overflow: hidden;
+  background: #e1edf5;
+}
+
+.fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #4ba9d0, #e7b867);
+  transition: width .4s;
+}
+
+.story {
+  min-height: 155px;
+  padding: 23px 21px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #eef7fe, #fffaf0);
+  border: 1px solid #dcebf3;
+}
+
+.story h3 {
+  color: #235f83;
+  font-size: clamp(18px, 2.7vw, 24px);
+  line-height: 1.45;
+  margin: 0 0 11px;
+}
+
+.story p {
+  max-width: 760px;
+  margin: auto;
+  color: #526e81;
+  font-size: clamp(13px, 1.6vw, 15px);
+  line-height: 1.88;
+}
+
+.slide-status {
+  margin: 14px 0 0;
+  color: #7d91a1;
+  font-size: 11px;
+}
+
+/* ================================
+   POSTER VÀ NHẬP TÊN
+================================ */
+
+.name-panel { max-width: 810px; }
+
+.poster-frame {
+  width: min(100%, 410px);
+  margin: 0 auto 25px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #dfecf5;
+  border-radius: 20px;
+  box-shadow: 0 11px 30px #205a8220;
+}
+
+.poster-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.name-input {
+  display: block;
+  width: min(100%, 450px);
+  margin: 21px auto 9px;
+  padding: 15px 19px;
+  border: 1.5px solid #c3dce9;
+  border-radius: 13px;
+  background: #fff;
+  color: #235b7a;
+  text-align: center;
+  font-size: 15px;
+}
+
+.name-error {
+  min-height: 20px;
+  margin: 0;
+  color: #ae4355;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ================================
+   TRÁI TIM
+================================ */
+
+.heart-panel {
+  width: min(100%, 1130px);
+  background:
+    radial-gradient(circle at 0 0, #e8f7ff, transparent 37%),
+    radial-gradient(circle at 100% 100%, #fff3df, transparent 40%),
+    white;
+}
+
+.heart-hint {
+  color: #74889a;
+  font-size: 13px;
+  line-height: 1.85;
+  margin: 0 auto 12px;
+}
+
+.heart-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #a9d0e3 transparent;
+}
+
+.heart-button {
+  display: block;
+  width: 100%;
+  min-width: 920px;
+  margin: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  filter: drop-shadow(0 14px 22px #327ca627);
+  transition: transform .2s;
+}
+
+.heart-button:hover {
+  transform: scale(1.008);
+}
+
+.heart-button svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.heart-name {
+  font-family: Montserrat, Arial, sans-serif;
+  fill: #226b93;
+  font-weight: 800;
+}
+
+.heart-name.leader {
+  fill: #174b6e;
+  font-weight: 900;
+}
+
+.leader-plate {
+  fill: #fff9ec;
+  stroke: #dfb46a;
+  stroke-width: 2;
+}
+
+.sparkle {
+  fill: #e2b85f;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 3.5s ease-in-out infinite alternate;
+}
+
+.sparkle:nth-child(2n) {
+  animation-delay: 1.2s;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: .28;
+    transform: scale(.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+.heart-recipient {
+  display: inline-flex;
+  justify-content: center;
+  max-width: 95%;
+  margin: 13px auto 0;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 1px solid #c2deee;
+  background: #f4faff;
+  color: #245e83;
+  font-weight: 800;
+  font-size: clamp(13px, 2vw, 17px);
+  overflow-wrap: anywhere;
+}
+
+.heart-sub {
+  font-size: 12px;
+  color: #8798a5;
+  margin: 11px 0 0;
+}
+
+/* ================================
+   THIỆP CÁ NHÂN
+================================ */
+
+.wish-card {
+  border-radius: 23px;
+  border: 1px solid #d9e9f4;
+  background:
+    radial-gradient(circle at 100% 0, #fff0d8, transparent 38%),
+    radial-gradient(circle at 0 100%, #e1f3fc, transparent 39%),
+    #fff;
+  padding: clamp(30px, 5vw, 62px) clamp(19px, 5vw, 50px);
+}
+
+.recipient {
+  font-size: clamp(19px, 3vw, 27px);
+  font-weight: 800;
+  color: #297da6;
+  margin: 25px auto 19px;
+  overflow-wrap: anywhere;
+}
+
+.wish-message {
+  white-space: pre-line;
+  max-width: 630px;
+  margin: 0 auto;
+  color: #506e81;
+  font-size: clamp(14px, 1.9vw, 16px);
+  line-height: 1.95;
+}
+
+.sign {
+  margin-top: 32px;
+  color: #72899b;
+  font-size: 11px;
+  line-height: 1.85;
+  font-weight: 700;
+}
+
+/* HIỆU ỨNG */
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 90;
+  pointer-events: none;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  animation: fall var(--duration, 2s) ease-out forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(650deg);
+    opacity: 0;
+  }
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 100;
+  max-width: 90%;
+  padding: 12px 17px;
+  background: #205574;
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media(max-width:650px) {
+  .screen { padding: 66px 12px 33px; }
+  .panel { padding: 19px 13px; }
+  .hero-content { padding-top: 36vh; }
+  .hero h1 { font-size: clamp(28px, 7.6vw, 41px); }
+  .photo-stage {
+    height: min(70svh, 610px);
+    min-height: 345px;
+  }
+  .story {
+    min-height: 185px;
+    padding: 20px 15px;
+  }
+  .heart-panel { padding: 20px 8px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *, *:before, *:after {
+    animation: none !important;
+    transition: none !important;
   }
 }
 </style>
@@ -507,30 +619,41 @@ h2{
 <body>
 
 <audio id="audio" src="./music.mp3" loop preload="none"></audio>
-<button id="musicBtn" class="music" type="button">Bật nhạc</button>
 
-<!-- 1. TRANG MỞ ĐẦU -->
+<button id="musicBtn" class="music" type="button">
+  Bật nhạc
+</button>
+
+<!-- ================================
+     TRANG 1. ẢNH TẬP THỂ
+================================ -->
+
 <section id="intro" class="screen hero active">
+
   <img
     class="hero-photo"
     src="./anh-chung-tap-the.jpg"
     alt="Ảnh tập thể công ty">
 
   <div class="hero-content">
+
     <div class="eyebrow">
-      19.11.2026 · HAPPY INTERNATIONAL MEN'S DAY
+      HAPPY INTERNATIONAL MEN'S DAY · 19/11
     </div>
 
     <h1>
-      Có các anh,
+      HÔM NAY, NIỀM VUI
       <br>
-      <span>hành trình thêm đáng nhớ.</span>
+      <span>DÀNH CHO CÁC ANH TRAI</span>
     </h1>
 
     <p>
-      Nhân ngày Quốc tế Nam giới, chúng mình muốn gửi đến các anh
-      một món quà nhỏ. Những khoảnh khắc thân quen,
-      vài lời cảm ơn chân thành và một bất ngờ dành riêng cho mỗi người.
+      Nhân ngày Quốc tế Nam giới, một món quà nhỏ
+      đã được chuẩn bị dành riêng cho các anh, các chú.
+      Có những khoảnh khắc thân quen, những kỷ niệm vui
+      và cả những lời cảm ơn chưa có dịp gửi trao.
+      Hãy cùng nhìn lại và khám phá điều bất ngờ
+      đang chờ phía sau.
     </p>
 
     <div class="actions">
@@ -542,24 +665,41 @@ h2{
     <div class="hero-foot">
       Phúc Thiện · Phúc Thịnh · 3D Tech Vision
     </div>
+
   </div>
 </section>
 
-<!-- 2. TRÌNH CHIẾU -->
+<!-- ================================
+     TRANG 2. HÌNH ẢNH KỶ NIỆM
+================================ -->
+
 <section id="slides" class="screen">
   <div class="panel">
-    <div class="eyebrow">NHỮNG KHOẢNH KHẮC ĐÁNG NHỚ</div>
+
+    <div class="eyebrow">
+      NHỮNG KHOẢNH KHẮC ĐÁNG NHỚ
+    </div>
+
     <h2>Mỗi bức ảnh, một lời cảm ơn.</h2>
 
     <p class="desc">
-      Có những điều thường ngày ít khi nói thành lời.
-      Hôm nay, chúng mình gửi đến các anh qua từng bức ảnh.
+      Có những khoảnh khắc khi nhìn lại vẫn khiến
+      chúng ta bất giác mỉm cười.
+      Cùng xem lại những kỷ niệm đẹp
+      và gửi lời cảm ơn vì đã luôn đồng hành,
+      sẻ chia trong các hoạt động chung.
     </p>
 
     <div id="photoStage" class="photo-stage">
-      <img id="slideImg" alt="Khoảnh khắc đáng nhớ">
-      <div id="photoError" class="photo-error" hidden></div>
-      <span id="photoCount" class="photo-counter">01 / 19</span>
+      <img
+        id="slideImg"
+        alt="Ảnh kỷ niệm của tập thể">
+
+      <div
+        id="photoError"
+        class="photo-error"
+        hidden>
+      </div>
     </div>
 
     <div class="track">
@@ -572,18 +712,30 @@ h2{
     </article>
 
     <p id="slideStatus" class="slide-status">
-      Tự chuyển ảnh sau 8 giây.
+      Ảnh tự chuyển sau 8 giây.
     </p>
 
     <div class="actions">
-      <button id="prevBtn" class="btn alt" type="button">Ảnh trước</button>
-      <button id="pauseBtn" class="btn alt" type="button">Tạm dừng</button>
-      <button id="nextBtn" class="btn" type="button">Ảnh tiếp theo</button>
+      <button id="prevBtn" class="btn alt" type="button">
+        Ảnh trước
+      </button>
+
+      <button id="pauseBtn" class="btn alt" type="button">
+        Tạm dừng
+      </button>
+
+      <button id="nextBtn" class="btn" type="button">
+        Ảnh tiếp theo
+      </button>
     </div>
+
   </div>
 </section>
 
-<!-- 3. POSTER VÀ NHẬP TÊN -->
+<!-- ================================
+     TRANG 3. POSTER VÀ NHẬP TÊN
+================================ -->
+
 <section id="name" class="screen">
   <div class="panel name-panel">
 
@@ -591,16 +743,22 @@ h2{
       <img
         id="posterImg"
         src="./POSTER.jpg"
-        alt="Poster Quốc tế Nam giới">
+        alt="Poster chào mừng ngày Quốc tế Nam giới">
     </div>
 
-    <div class="eyebrow">MỘT MÓN QUÀ RIÊNG DÀNH CHO ANH</div>
-    <h2>Đến lượt anh nhận thông điệp của mình.</h2>
+    <div class="eyebrow">
+      MỘT ĐIỀU NHO NHỎ DÀNH RIÊNG CHO CÁC ANH
+    </div>
+
+    <h2>
+      Vẫn còn một điều bất ngờ đang chờ.
+    </h2>
 
     <p class="desc">
-      Những lời cảm ơn là dành cho tất cả các anh.
-      Còn thông điệp tiếp theo sẽ mang chính tên của anh.
-      Anh nhập tên để nhận nhé.
+      Những khoảnh khắc vừa rồi đã khép lại,
+      nhưng món quà vẫn chưa dừng ở đó.
+      Một lời chúc đang chờ được gửi đến đúng người nhận.
+      Hãy nhập tên để khám phá nhé.
     </p>
 
     <input
@@ -609,144 +767,215 @@ h2{
       type="text"
       maxlength="60"
       autocomplete="name"
-      placeholder="Nhập tên của anh tại đây">
+      placeholder="Nhập tên của mình tại đây">
 
-    <p id="nameError" class="name-error" aria-live="polite"></p>
+    <p
+      id="nameError"
+      class="name-error"
+      aria-live="polite">
+    </p>
 
     <div class="actions">
       <button id="createHeartBtn" class="btn" type="button">
-        Nhận trái tim của anh
+        Khám phá điều bất ngờ
       </button>
     </div>
+
   </div>
 </section>
 
-<!-- 4. TRÁI TIM -->
+<!-- ================================
+     TRANG 4. TRÁI TIM
+================================ -->
+
 <section id="heart" class="screen">
   <div class="panel heart-panel">
 
-    <div class="eyebrow">THÔNG ĐIỆP DÀNH RIÊNG CHO ANH</div>
-    <h2>Một trái tim, một lời gửi gắm.</h2>
+    <div class="eyebrow">
+      MỘT LỜI NHẮN DÀNH RIÊNG
+    </div>
+
+    <h2>Mỗi cái tên, một điều đáng quý.</h2>
 
     <p class="heart-hint">
-      Chạm vào trái tim để nhận thông điệp.
+      Mỗi người một nét riêng,
+      cùng tạo nên một tập thể thật nhiều màu sắc.
     </p>
 
-    <div class="heart-scroll" id="heartScroll">
+    <div id="heartScroll" class="heart-scroll">
+
       <button
         id="heartBtn"
         class="heart-button"
         type="button"
-        aria-label="Mở lời chúc cá nhân">
+        aria-label="Mở lời chúc dành riêng">
 
         <svg
           id="heartSvg"
-          viewBox="0 0 1200 1000"
+          viewBox="0 0 1400 1000"
           role="img"
-          aria-label="Trái tim được tạo thành từ 33 họ tên">
+          aria-label="Trái tim được kết từ tên các đồng nghiệp">
 
           <defs>
-            <linearGradient id="heartGradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#eefaff"/>
-              <stop offset="55%" stop-color="#e0f3fc"/>
-              <stop offset="100%" stop-color="#c9e4f5"/>
+            <linearGradient
+              id="heartGradient"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1">
+
+              <stop
+                offset="0%"
+                stop-color="#f0fbff">
+              </stop>
+
+              <stop
+                offset="55%"
+                stop-color="#e0f3fb">
+              </stop>
+
+              <stop
+                offset="100%"
+                stop-color="#c9e6f6">
+              </stop>
             </linearGradient>
 
             <clipPath id="heartClip">
               <path d="
-                M600 954
-                C467 855 93 592 93 342
-                C93 105 387 85 600 289
-                C813 85 1107 105 1107 342
-                C1107 592 733 855 600 954 Z"/>
+                M700 955
+                C575 875 75 660 110 343
+                C110 104 453 85 700 289
+                C947 85 1290 104 1290 343
+                C1325 660 825 875 700 955 Z
+              "></path>
             </clipPath>
           </defs>
 
-          <path
-            class="sparkle"
-            d="M82 132 L90 154 L112 162 L90 170 L82 192 L74 170 L52 162 L74 154 Z"/>
+          <!-- NGÔI SAO TRANG TRÍ -->
 
-          <path
-            class="sparkle"
-            d="M1110 150 L1118 172 L1140 180 L1118 188 L1110 210 L1102 188 L1080 180 L1102 172 Z"/>
+          <g aria-hidden="true">
+            <path class="sparkle"
+              d="M95 150 L103 172 L125 180 L103 188 L95 210 L87 188 L65 180 L87 172 Z">
+            </path>
 
-          <path
-            class="sparkle"
-            d="M56 590 L63 610 L83 617 L63 624 L56 644 L49 624 L29 617 L49 610 Z"/>
+            <path class="sparkle"
+              d="M1302 175 L1310 195 L1330 202 L1310 209 L1302 229 L1294 209 L1274 202 L1294 195 Z">
+            </path>
 
-          <path
-            class="sparkle"
-            d="M1138 680 L1145 700 L1165 707 L1145 714 L1138 734 L1131 714 L1111 707 L1131 700 Z"/>
+            <path class="sparkle"
+              d="M70 625 L77 644 L96 651 L77 658 L70 677 L63 658 L44 651 L63 644 Z">
+            </path>
 
-          <path
-            class="sparkle"
-            d="M230 870 L236 887 L253 893 L236 899 L230 916 L224 899 L207 893 L224 887 Z"/>
+            <path class="sparkle"
+              d="M1340 670 L1347 690 L1367 697 L1347 704 L1340 724 L1333 704 L1313 697 L1333 690 Z">
+            </path>
+
+            <path class="sparkle"
+              d="M230 877 L237 896 L256 903 L237 910 L230 929 L223 910 L204 903 L223 896 Z">
+            </path>
+
+            <path class="sparkle"
+              d="M1130 855 L1137 873 L1155 880 L1137 887 L1130 905 L1123 887 L1105 880 L1123 873 Z">
+            </path>
+          </g>
+
+          <!-- HÌNH TRÁI TIM -->
 
           <path
             id="heartShape"
             d="
-              M600 954
-              C467 855 93 592 93 342
-              C93 105 387 85 600 289
-              C813 85 1107 105 1107 342
-              C1107 592 733 855 600 954 Z"
+              M700 955
+              C575 875 75 660 110 343
+              C110 104 453 85 700 289
+              C947 85 1290 104 1290 343
+              C1325 660 825 875 700 955 Z
+            "
             fill="url(#heartGradient)"
-            stroke="#6aafd6"
-            stroke-width="5"/>
+            stroke="#6eb5dc"
+            stroke-width="5">
+          </path>
+
+          <!-- ĐƯỜNG VIỀN NHẸ -->
 
           <path
             d="
-              M600 934
-              C471 834 113 579 113 343
-              C113 129 397 108 600 307
-              C803 108 1087 129 1087 343
-              C1087 579 729 834 600 934 Z"
+              M700 934
+              C580 853 100 642 130 344
+              C130 132 466 112 700 310
+              C934 112 1270 132 1270 344
+              C1300 642 820 853 700 934 Z
+            "
             fill="none"
-            stroke="#ffffff"
+            stroke="#fff"
             stroke-width="3"
-            opacity=".6"/>
+            opacity=".62">
+          </path>
 
-          <g id="heartNames" clip-path="url(#heartClip)"></g>
+          <!-- TÊN NHÂN SỰ -->
+
+          <g
+            id="heartNames"
+            clip-path="url(#heartClip)">
+          </g>
+
         </svg>
       </button>
+
     </div>
 
-    <div id="heartRecipient" class="heart-recipient">
-      Gửi đến Anh trai
+    <div
+      id="heartRecipient"
+      class="heart-recipient">
+      Gửi riêng đến anh
     </div>
 
     <p class="heart-sub">
-      Chạm vào trái tim để mở lời chúc.
+      Một lời chúc đang đợi được mở ra.
     </p>
 
     <div class="actions">
+      <button id="openWishBtn" class="btn" type="button">
+        Mở lời chúc dành riêng
+      </button>
+
       <button id="editNameBtn" class="btn alt" type="button">
         Đổi tên
       </button>
     </div>
+
   </div>
 </section>
 
-<!-- 5. THIỆP CHÚC MỪNG -->
+<!-- ================================
+     TRANG 5. LỜI CHÚC CÁ NHÂN
+================================ -->
+
 <section id="greeting" class="screen">
-  <div class="panel" style="max-width:800px">
+  <div class="panel" style="max-width:810px">
 
     <div id="wishCard" class="wish-card">
+
       <div class="eyebrow">
         HAPPY INTERNATIONAL MEN'S DAY · 19/11
       </div>
 
       <div id="recipient" class="recipient"></div>
 
-      <h2>Chúc anh một ngày thật vui.</h2>
+      <h2>
+        Chúc một ngày thật nhiều niềm vui.
+      </h2>
 
-      <p id="wishMessage" class="wish-message"></p>
+      <p
+        id="wishMessage"
+        class="wish-message">
+      </p>
 
       <div class="sign">
         Với tất cả sự quý mến và trân trọng.
         <br>
         Đại gia đình Phúc Thiện · Phúc Thịnh · 3D Tech Vision
       </div>
+
     </div>
 
     <div class="actions">
@@ -754,18 +983,19 @@ h2{
         Lưu thiệp PNG
       </button>
 
-      <button id="backHeartBtn" class="btn alt" type="button">
-        Xem lại trái tim
+      <button id="anotherWishBtn" class="btn alt" type="button">
+        Khám phá lời chúc khác
       </button>
 
-      <button id="anotherWishBtn" class="btn alt" type="button">
-        Nhận lời chúc khác
+      <button id="backHeartBtn" class="btn alt" type="button">
+        Xem lại trái tim
       </button>
 
       <button id="restartBtn" class="btn alt" type="button">
         Xem lại từ đầu
       </button>
     </div>
+
   </div>
 </section>
 
@@ -774,1151 +1004,1388 @@ h2{
 <script>
 "use strict";
 
-/* ============================================
-   DANH SÁCH 33 NHÂN SỰ
-============================================ */
+/* ================================
+   DANH SÁCH NHÂN SỰ
+================================ */
 
-const TEAM_NAMES=[
-"Nguyễn Ngọc Tuấn",
-"Nguyễn Văn Nghĩa",
-"Nguyễn Quốc Cường",
-"Trương Như Trường",
-"Nguyễn Ngọc Nam",
-"Nguyễn Hữu Trí",
-"Nguyễn Bá Tòng",
-"Hồ Anh Tuấn",
-"Đỗ Lộc Giang",
-"Nguyễn Khắc Duy",
-"Nguyễn Minh Trường",
-"Hoàng Trung Việt",
-"Nguyễn Nhật Trung",
-"Đỗ Ngọc Dũng",
-"Phạm Đình Hùng",
-"Trần Thái Dương",
-"Ngô Hoàng Sang",
-"Nguyễn Lam Trường",
-"Trần Khánh Duy",
-"Huỳnh Kiết Lê",
-"Nguyễn Dũng",
-"Trần Thanh",
-"Huỳnh Quốc Hào",
-"Phạm Minh Thông",
-"Lương Nguyễn Hà Bình",
-"Lê Minh Hòa",
-"Nguyễn Danh Hoài Bảo",
-"Trần Thắng",
-"Nguyễn Minh Quân",
-"Đỗ Hoàng Phúc",
-"Lê Tiến Duy",
-"Nguyễn Minh Quang",
-"Võ Minh Tân"
+const TEAM_NAMES = [
+  "Nguyễn Ngọc Tuấn",
+  "Nguyễn Văn Nghĩa",
+  "Nguyễn Quốc Cường",
+  "Trương Như Trường",
+  "Nguyễn Ngọc Nam",
+  "Nguyễn Hữu Trí",
+  "Nguyễn Bá Tòng",
+  "Hồ Anh Tuấn",
+  "Đỗ Lộc Giang",
+  "Nguyễn Khắc Duy",
+  "Nguyễn Minh Trường",
+  "Hoàng Trung Việt",
+  "Nguyễn Nhật Trung",
+  "Đỗ Ngọc Dũng",
+  "Phạm Đình Hùng",
+  "Trần Thái Dương",
+  "Ngô Hoàng Sang",
+  "Nguyễn Lam Trường",
+  "Trần Khánh Duy",
+  "Huỳnh Kiết Lê",
+  "Nguyễn Dũng",
+  "Trần Thanh",
+  "Huỳnh Quốc Hào",
+  "Phạm Minh Thông",
+  "Lương Nguyễn Hà Bình",
+  "Lê Minh Hòa",
+  "Nguyễn Danh Hoài Bảo",
+  "Trần Thắng",
+  "Nguyễn Minh Quân",
+  "Đỗ Hoàng Phúc",
+  "Lê Tiến Duy",
+  "Nguyễn Minh Quang",
+  "Võ Minh Tân"
 ];
 
-const LEADERS=[
-"Hoàng Trung Việt",
-"Nguyễn Minh Trường",
-"Võ Minh Tân"
+const LEADERS = [
+  "Hoàng Trung Việt",
+  "Nguyễn Minh Trường",
+  "Võ Minh Tân"
 ];
 
-const NORMAL_NAMES=TEAM_NAMES
-.filter(name=>!LEADERS.includes(name))
-.sort((a,b)=>a.localeCompare(b,"vi",{sensitivity:"base"}));
+const NORMAL_NAMES = TEAM_NAMES
+  .filter(n => !LEADERS.includes(n))
+  .sort((a, b) =>
+    a.localeCompare(b, "vi", { sensitivity: "base" })
+  );
 
-/* ============================================
-   19 CÂU CHIA SẺ THEO ẢNH
-============================================ */
+/* ================================
+   NỘI DUNG TỪNG ẢNH
+================================ */
 
-const STORIES=[
-["Cảm ơn vì luôn có mặt.",
-"Có những sự đồng hành không cần quá nhiều lời. Chỉ cần nhìn lại những khoảnh khắc này là đủ thấy các anh luôn là một phần đáng quý của tập thể."],
-
-["Mỗi người một dấu ấn riêng.",
-"Mỗi anh mang đến một màu sắc và một thế mạnh riêng. Chính những điều khác biệt ấy đã làm nên một tập thể gần gũi và đầy năng lượng."],
-
-["Sự tận tâm luôn đáng trân trọng.",
-"Đằng sau mỗi công việc hoàn thành là rất nhiều thời gian, sự tập trung và trách nhiệm. Cảm ơn các anh vì những nỗ lực bền bỉ mỗi ngày."],
-
-["Đồng hành để mọi thứ nhẹ nhàng hơn.",
-"Một lời hỏi thăm, một lần hỗ trợ đúng lúc hay một sự chủ động nhỏ cũng đủ làm cho ngày làm việc trở nên dễ chịu hơn."],
-
-["Tiếng cười cũng là một món quà.",
-"Không phải lúc nào chúng ta cũng nhớ hết những công việc đã làm, nhưng những tiếng cười và khoảnh khắc vui vẻ cùng nhau thường ở lại rất lâu."],
-
-["Cảm ơn những lần sẻ chia.",
-"Có những kinh nghiệm được truyền lại, những góp ý chân thành và những lần cùng nhau tìm cách giải quyết vấn đề. Tất cả đều đáng quý."],
-
-["Chung một hành trình.",
-"Dù ở vị trí nào, các anh vẫn đang cùng góp sức cho một chặng đường chung. Cảm ơn vì sự đồng lòng ấy."],
-
-["Sự vững vàng từ những điều giản dị.",
-"Giữ lời hứa, làm tốt phần việc của mình và luôn sẵn sàng khi đồng đội cần là những điều giản dị nhưng rất đáng trân trọng."],
-
-["Những điều nhỏ nhưng ấm áp.",
-"Một cử chỉ hỗ trợ, một lời động viên hay một nụ cười đúng lúc đều góp phần làm cho tập thể trở nên gắn bó hơn."],
-
-["Cùng nhau trưởng thành.",
-"Qua mỗi dự án và mỗi thử thách, chúng ta đều học thêm được điều gì đó. Thật vui vì hành trình ấy có sự đồng hành của các anh."],
-
-["Không chỉ là đồng nghiệp.",
-"Qua những lần gặp gỡ và những dịp quây quần, chúng ta hiểu nhau hơn một chút. Đó là điều làm cho những ngày đi làm có thêm nhiều ý nghĩa."],
-
-["Biết cổ vũ nhau là điều rất đẹp.",
-"Thành công của một người cũng có thể trở thành niềm vui của cả nhóm. Cảm ơn các anh vì tinh thần ghi nhận và cổ vũ nhau."],
-
-["Luôn sẵn sàng góp sức.",
-"Có những lúc công việc cần thêm một bàn tay, một ý tưởng hay một chút kiên nhẫn. Cảm ơn các anh vì đã luôn sẵn sàng chung tay."],
-
-["Giữ lại những khoảnh khắc đẹp.",
-"Mỗi tấm hình không chỉ lưu lại vài giây. Phía sau đó là những câu chuyện, những kỷ niệm và rất nhiều điều đáng nhớ."],
-
-["Cảm ơn sự kiên trì.",
-"Không phải ngày nào cũng thuận lợi, nhưng việc tiếp tục cố gắng và làm tốt hơn từng ngày là điều rất đáng ghi nhận."],
-
-["Niềm vui đến từ điều giản dị.",
-"Đôi khi chỉ là một buổi gặp mặt, một câu chuyện vui hay một lần cùng chụp ảnh. Những điều giản dị ấy lại tạo nên sự gắn kết."],
-
-["Mỗi đóng góp đều có ý nghĩa.",
-"Dù là một ý tưởng lớn hay một việc nhỏ được hoàn thành chu đáo, mọi đóng góp đều đang tạo nên kết quả chung."],
-
-["Thật vui vì được đồng hành.",
-"Một tập thể đáng nhớ không chỉ được tạo nên bởi công việc, mà còn bởi những con người đã cùng nhau đi qua nhiều dấu mốc."],
-
-["Và lời cảm ơn vẫn còn tiếp tục.",
-"Những bức ảnh không thể kể hết mọi điều đáng quý. Mong các anh luôn mạnh khỏe, vui vẻ và có thật nhiều điều tốt đẹp phía trước."]
+const STORIES = [
+  [
+    "Cảm ơn vì luôn ở đây.",
+    "Có những sự đồng hành không cần quá nhiều lời. Chỉ cần nhìn lại những khoảnh khắc này là đủ thấy các anh luôn là một phần đáng quý của tập thể."
+  ],
+  [
+    "Mỗi người một dấu ấn riêng.",
+    "Mỗi anh mang đến một màu sắc và một thế mạnh riêng. Chính những điều khác biệt ấy đã làm nên một tập thể gần gũi và đầy năng lượng."
+  ],
+  [
+    "Sự tận tâm luôn đáng trân trọng.",
+    "Đằng sau mỗi công việc hoàn thành là rất nhiều thời gian, sự tập trung và trách nhiệm. Cảm ơn các anh vì những nỗ lực bền bỉ mỗi ngày."
+  ],
+  [
+    "Đồng hành để mọi thứ nhẹ nhàng hơn.",
+    "Một lời hỏi thăm, một lần hỗ trợ đúng lúc hay một sự chủ động nhỏ cũng đủ làm cho ngày làm việc trở nên dễ chịu hơn."
+  ],
+  [
+    "Tiếng cười cũng là một món quà.",
+    "Không phải lúc nào chúng ta cũng nhớ hết những công việc đã làm, nhưng tiếng cười và khoảnh khắc vui vẻ cùng nhau thường ở lại rất lâu."
+  ],
+  [
+    "Cảm ơn những lần sẻ chia.",
+    "Có những kinh nghiệm được truyền lại, những góp ý chân thành và những lần cùng nhau tìm cách giải quyết vấn đề. Tất cả đều đáng quý."
+  ],
+  [
+    "Chung một hành trình.",
+    "Dù ở vị trí nào, các anh vẫn đang cùng góp sức cho một chặng đường chung. Cảm ơn vì sự đồng lòng ấy."
+  ],
+  [
+    "Sự vững vàng từ những điều giản dị.",
+    "Giữ lời hứa, làm tốt phần việc của mình và luôn sẵn sàng khi đồng đội cần là những điều giản dị nhưng rất đáng trân trọng."
+  ],
+  [
+    "Những điều nhỏ nhưng ấm áp.",
+    "Một cử chỉ hỗ trợ, một lời động viên hay một nụ cười đúng lúc đều góp phần làm cho tập thể trở nên gắn bó hơn."
+  ],
+  [
+    "Cùng nhau trưởng thành.",
+    "Qua mỗi dự án và mỗi thử thách, chúng ta đều học thêm được điều gì đó. Thật vui vì hành trình ấy có sự đồng hành của các anh."
+  ],
+  [
+    "Không chỉ là đồng nghiệp.",
+    "Qua những lần gặp gỡ và những dịp quây quần, chúng ta hiểu nhau hơn một chút. Đó là điều làm cho những ngày đi làm có thêm nhiều ý nghĩa."
+  ],
+  [
+    "Luôn cổ vũ, động viên nhau mỗi khi cần.",
+    "Thành công của một người cũng có thể trở thành niềm vui của cả nhóm. Cảm ơn các anh vì tinh thần ghi nhận và cổ vũ nhau."
+  ],
+  [
+    "Luôn sẵn sàng góp sức.",
+    "Có những lúc công việc cần thêm một bàn tay, một ý tưởng hay một chút kiên nhẫn. Cảm ơn các anh vì đã luôn sẵn sàng chung tay."
+  ],
+  [
+    "Lưu giữ lại những khoảnh khắc đẹp.",
+    "Mỗi tấm hình không chỉ lưu lại vài giây. Phía sau đó là những câu chuyện, những kỷ niệm và rất nhiều điều đáng nhớ."
+  ],
+  [
+    "Cảm ơn sự kiên trì.",
+    "Không phải ngày nào cũng thuận lợi, nhưng việc tiếp tục cố gắng và làm tốt hơn từng ngày là điều rất đáng ghi nhận."
+  ],
+  [
+    "Niềm vui đến từ điều giản dị.",
+    "Đôi khi chỉ là một buổi gặp mặt, một câu chuyện vui hay một lần cùng chụp ảnh. Những điều giản dị ấy lại tạo nên sự gắn kết."
+  ],
+  [
+    "Mỗi đóng góp đều có ý nghĩa.",
+    "Dù là một ý tưởng lớn hay một việc nhỏ được hoàn thành chu đáo, mọi đóng góp đều đang tạo nên kết quả chung."
+  ],
+  [
+    "Luôn đồng hành cùng nhau trên mọi hành trình.",
+    "Một tập thể đáng nhớ không chỉ được tạo nên bởi công việc, mà còn bởi những con người đã cùng nhau đi qua nhiều dấu mốc."
+  ],
+  [
+    "Và lời cảm ơn vẫn còn tiếp tục.",
+    "Những bức ảnh không thể kể hết mọi điều đáng quý. Mong các anh luôn mạnh khỏe, vui vẻ và có thật nhiều điều tốt đẹp phía trước."
+  ]
 ];
 
-/* ============================================
-   LỜI NHẮN RIÊNG CỦA TỪNG NGƯỜI
+/* ================================
+   BỘ LỜI CHÚC KHÁC NHAU
+================================ */
 
-   ĐÂY LÀ CÁC ĐIỂM NHẤN RIÊNG.
-   MỖI LẦN MỞ THIỆP, NỘI DUNG CHÍNH
-   SẼ LẤY TỪ BỘ LỜI CHÚC THAY ĐỔI BÊN DƯỚI.
-============================================ */
+const WISH_POOL = [
+  "Nhân ngày 19/11, chúc anh có thật nhiều sức khỏe và những ngày làm việc tràn đầy năng lượng. Mong các dự định sắp tới đều thuận lợi, những ngày nghỉ đủ thư thả và mỗi tuần đều có một niềm vui nhỏ để mong chờ.",
 
-const PERSONAL_NOTES={
-"Nguyễn Ngọc Tuấn":"Mong anh luôn giữ được sự nhiệt tình và tinh thần tích cực trong những điều mình theo đuổi.",
-"Nguyễn Văn Nghĩa":"Mong anh luôn vững vàng với những lựa chọn và dự định của mình.",
-"Nguyễn Quốc Cường":"Mong anh luôn tự tin, tràn đầy năng lượng và có thêm nhiều cơ hội tốt.",
-"Trương Như Trường":"Mong anh luôn giữ được sự lạc quan và những niềm vui giản dị mỗi ngày.",
-"Nguyễn Ngọc Nam":"Mong anh có thêm nhiều trải nghiệm thú vị và những kỷ niệm thật đáng nhớ.",
-"Nguyễn Hữu Trí":"Mong anh luôn có thêm những ý tưởng hay và niềm hứng khởi với điều mới.",
-"Nguyễn Bá Tòng":"Mong anh luôn mạnh khỏe, bình an và có thật nhiều thời gian cho gia đình.",
-"Hồ Anh Tuấn":"Mong anh luôn giữ được sự tự tin và tinh thần vui vẻ trong mọi hành trình.",
-"Đỗ Lộc Giang":"Mong anh luôn có những ngày làm việc thuận lợi và những ngày nghỉ thật thoải mái.",
-"Nguyễn Khắc Duy":"Mong anh luôn giữ được sự kiên trì và nhiệt huyết với những mục tiêu của mình.",
-"Nguyễn Minh Trường":"Chúc anh luôn dồi dào sức khỏe, vững vàng với những định hướng tâm huyết và có thêm nhiều thành công đáng quý.",
-"Hoàng Trung Việt":"Kính chúc Chú Việt luôn mạnh khỏe, bình an và có thêm nhiều niềm vui. Mong những dự định tâm huyết của Chú luôn thuận buồm xuôi gió.",
-"Nguyễn Nhật Trung":"Mong anh luôn giữ được tinh thần tích cực và sự tự tin trước những cơ hội mới.",
-"Đỗ Ngọc Dũng":"Mong anh luôn vững vàng, mạnh khỏe và có thêm những bước tiến tốt đẹp.",
-"Phạm Đình Hùng":"Mong anh luôn giữ được sự nhiệt huyết và có nhiều khoảnh khắc vui vẻ bên gia đình.",
-"Trần Thái Dương":"Mong anh luôn mang theo nguồn năng lượng tích cực và sự tự tin mỗi ngày.",
-"Ngô Hoàng Sang":"Mong anh luôn có những ngày thật vui và nhiều điều thú vị để mong chờ.",
-"Nguyễn Lam Trường":"Mong anh luôn giữ được sự nhiệt tình và niềm vui với những điều mình yêu thích.",
-"Trần Khánh Duy":"Mong anh luôn tự tin, năng động và có thêm nhiều trải nghiệm ý nghĩa.",
-"Huỳnh Kiết Lê":"Mong anh luôn mạnh khỏe, may mắn và có những ngày làm việc thật thuận lợi.",
-"Nguyễn Dũng":"Mong anh luôn kiên định, bình an và có nhiều niềm vui bên những người thân yêu.",
-"Trần Thanh":"Mong anh luôn giữ được tinh thần thoải mái và sự tự tin trên hành trình của mình.",
-"Huỳnh Quốc Hào":"Mong anh luôn tràn đầy năng lượng và có thêm nhiều cơ hội tốt đẹp.",
-"Phạm Minh Thông":"Mong anh có thêm nhiều cơ hội học hỏi, trải nghiệm và phát triển theo cách riêng của mình.",
-"Lương Nguyễn Hà Bình":"Mong anh luôn giữ được sự lạc quan và có thật nhiều khoảnh khắc bình yên, đáng nhớ.",
-"Lê Minh Hòa":"Mong anh luôn có những người đồng hành tuyệt vời và những ngày thật nhiều niềm vui.",
-"Nguyễn Danh Hoài Bảo":"Mong anh luôn tự tin theo đuổi những mục tiêu và dự định của mình.",
-"Trần Thắng":"Mong anh luôn vững vàng, mạnh khỏe và có thêm những trải nghiệm đáng quý.",
-"Nguyễn Minh Quân":"Mong anh luôn giữ được tinh thần ham học hỏi và sự tự tin trước những điều mới.",
-"Đỗ Hoàng Phúc":"Mong anh luôn giữ được sự bền bỉ, nhiệt tình và những niềm vui giản dị.",
-"Lê Tiến Duy":"Mong anh luôn có thêm nhiều cơ hội khám phá, học hỏi và phát triển.",
-"Nguyễn Minh Quang":"Mong anh luôn tràn đầy năng lượng tích cực và có những bước tiến đáng tự hào.",
-"Võ Minh Tân":"Chúc anh luôn mạnh khỏe, bình an, vững vàng với những kế hoạch và định hướng của mình."
+  "Chúc anh luôn giữ được nụ cười, sự tự tin và tinh thần lạc quan. Mong công việc có thêm nhiều cơ hội tốt, cuộc sống có những cuộc hẹn vui và những khoảnh khắc thật bình yên bên gia đình.",
+
+  "Một lời chúc dễ thương gửi đến anh trong ngày đặc biệt. Mong anh luôn khỏe mạnh, công việc suôn sẻ, có thêm nhiều điều thú vị để khám phá và những người bạn đồng hành thật đáng quý.",
+
+  "Chúc anh những buổi sáng nhiều hứng khởi, những ngày làm việc hiệu quả và những buổi tối thư thái. Mong các mục tiêu đều có những bước tiến tốt đẹp và niềm vui xuất hiện cả trong những ngày bình thường.",
+
+  "Nhân ngày Quốc tế Nam giới, chúc anh luôn vững vàng khi cần, thoải mái khi có thể và vui vẻ trong mỗi chặng đường. Mong những nỗ lực được ghi nhận và những dự định ấp ủ sớm trở thành hiện thực.",
+
+  "Hôm nay là dịp để gửi anh lời cảm ơn và một lời chúc thật vui. Mong anh luôn có đủ năng lượng theo đuổi điều mình yêu thích, đủ thời gian nghỉ ngơi và nhiều khoảnh khắc đáng nhớ bên người thân.",
+
+  "Chúc anh có thêm nhiều trải nghiệm mới, những cơ hội đáng mong đợi và niềm vui từ những điều giản dị. Mong mỗi chặng đường đều mang đến sự tự tin, may mắn và những kỷ niệm đẹp.",
+
+  "Ngày đặc biệt của các anh đã đến. Chúc anh luôn mạnh khỏe, giữ được tinh thần tích cực và có thật nhiều lý do để mỉm cười. Mong công việc thuận lợi và những giờ phút bên gia đình luôn ấm áp.",
+
+  "Chúc anh một năm có thêm nhiều bước tiến đáng tự hào và cả những khoảng thời gian dễ chịu để tận hưởng cuộc sống. Mong mỗi ngày đều có điều thú vị, dù chỉ là một cuộc trò chuyện vui cùng đồng nghiệp.",
+
+  "Gửi anh một lời chúc chân thành. Mong mọi kế hoạch đều tiến triển tốt, những cuộc gặp gỡ mang đến điều hay và mỗi dịp quây quần cùng người thân đều trở thành một kỷ niệm đáng quý.",
+
+  "Chúc anh luôn tự tin trước những thử thách mới, kiên trì với điều mình lựa chọn và biết dành thời gian cho bản thân. Mong công việc thuận lợi, cuộc sống cân bằng và có thêm thật nhiều tiếng cười.",
+
+  "Mong ngày 19/11 mang đến cho anh một chút bất ngờ thú vị. Chúc anh luôn bình an, vui vẻ, gặp nhiều may mắn và có những người đồng hành tốt trên mọi chặng đường.",
+
+  "Chúc anh giữ được sự hứng khởi trong công việc và niềm vui trong cuộc sống. Mong những nỗ lực nhỏ mỗi ngày góp thành kết quả lớn, còn những ngày nghỉ luôn đầy ắp những hoạt động yêu thích.",
+
+  "Nhân ngày Quốc tế Nam giới, chúc anh sức khỏe dồi dào, tinh thần thật thoải mái và những kế hoạch sắp tới nhiều thuận lợi. Mong mỗi tháng đều có thêm một kỷ niệm đẹp để nhớ về.",
+
+  "Chúc anh luôn có những đồng đội tốt, những trải nghiệm đáng giá và những khoảnh khắc giản dị nhưng đủ khiến mình hạnh phúc. Mong mọi điều anh đang cố gắng đều có những bước tiến tích cực.",
+
+  "Một ngày thật vui dành cho anh. Mong những điều tốt đẹp sẽ đến từ công việc, từ gia đình và cả những bất ngờ nho nhỏ. Chúc anh luôn mạnh khỏe, may mắn và có thêm nhiều cơ hội thực hiện điều mình mong muốn."
+];
+
+/* LỜI CHÚC DÀNH CHO LÃNH ĐẠO */
+
+const LEADER_WISHES = [
+  "Nhân ngày Quốc tế Nam giới, kính chúc anh luôn dồi dào sức khỏe, nhiều niềm vui và mọi điều thuận lợi. Mong những định hướng tâm huyết tiếp tục mang đến những kết quả tốt đẹp, đồng thời cuộc sống luôn có những khoảng thời gian thư thái bên gia đình.",
+
+  "Gửi đến anh lời chúc chân thành trong ngày 19/11. Mong anh luôn mạnh khỏe, vững vàng với những dự định của mình và có thêm nhiều khoảnh khắc vui vẻ, ý nghĩa cùng người thân và đồng nghiệp.",
+
+  "Chúc anh có một ngày Quốc tế Nam giới thật vui. Mong công việc hanh thông, các kế hoạch tiến triển thuận lợi và mỗi chặng đường đều có những người đồng hành đáng quý.",
+
+  "Nhân dịp đặc biệt này, kính chúc anh sức khỏe, bình an và nhiều may mắn. Mong mỗi ngày làm việc đều có thêm niềm hứng khởi và những dự định phía trước luôn gặp nhiều thuận lợi.",
+
+  "Chúc anh luôn giữ được tinh thần tích cực, sự vững vàng và nhiều niềm vui trong công việc. Mong những cố gắng được đền đáp bằng thành quả xứng đáng và cuộc sống có thêm nhiều kỷ niệm đẹp.",
+
+  "Kính chúc anh một ngày 19/11 ấm áp và thật nhiều niềm vui. Mong mọi kế hoạch đều thuận lợi, gia đình luôn bình an và những điều tốt đẹp tiếp tục đồng hành trên hành trình phía trước."
+];
+
+/* LỜI CHÚC DÀNH RIÊNG CHO CHÚ VIỆT */
+
+const UNCLE_WISHES = [
+  "Nhân ngày Quốc tế Nam giới, kính chúc Chú Việt luôn mạnh khỏe, vui vẻ và bình an. Mong những dự định tâm huyết của Chú luôn thuận lợi và có thêm nhiều khoảnh khắc ý nghĩa bên gia đình cùng tập thể.",
+
+  "Kính chúc Chú Việt một ngày 19/11 thật ấm áp. Mong Chú luôn dồi dào sức khỏe, tinh thần vui vẻ và có thật nhiều niềm vui giản dị trong cuộc sống hằng ngày.",
+
+  "Gửi đến Chú Việt lời chúc sức khỏe và sự quý mến chân thành. Mong những kế hoạch của Chú luôn gặp nhiều thuận lợi, công việc hanh thông và mỗi ngày đều có những điều đáng vui.",
+
+  "Nhân dịp đặc biệt này, kính chúc Chú Việt luôn bình an, mạnh khỏe và nhiều may mắn. Mong Chú có thêm những phút giây thư thái, những cuộc gặp gỡ vui vẻ và thật nhiều kỷ niệm đẹp.",
+
+  "Chúc Chú Việt có một ngày Quốc tế Nam giới trọn vẹn niềm vui. Mong Chú luôn giữ được sự lạc quan, có thêm nhiều trải nghiệm đáng nhớ và những điều tốt đẹp bên người thân yêu.",
+
+  "Kính chúc Chú Việt luôn khỏe mạnh, an vui và gặp nhiều thuận lợi. Mong mọi điều Chú dành tâm huyết tiếp tục phát triển tốt đẹp và cuộc sống luôn đầy ắp sự ấm áp."
+];
+
+/* ================================
+   LỜI NHẮN RIÊNG THEO TÊN
+================================ */
+
+const PERSONAL_NOTES = {
+  "Nguyễn Ngọc Tuấn": "Cảm ơn anh vì sự đồng hành và tinh thần nhiệt tình.",
+  "Nguyễn Văn Nghĩa": "Mong anh luôn vững vàng với những dự định của mình.",
+  "Nguyễn Quốc Cường": "Mong anh có thêm nhiều cơ hội để phát huy thế mạnh riêng.",
+  "Trương Như Trường": "Mong anh luôn giữ được sự lạc quan và nhiều niềm vui giản dị.",
+  "Nguyễn Ngọc Nam": "Mong anh có thêm nhiều trải nghiệm thú vị và kỷ niệm đáng nhớ.",
+  "Nguyễn Hữu Trí": "Mong anh luôn hứng khởi khi khám phá những điều mới.",
+  "Nguyễn Bá Tòng": "Mong anh có thật nhiều thời gian vui vẻ bên gia đình.",
+  "Hồ Anh Tuấn": "Mong anh luôn tự tin và có thêm nhiều ngày thật vui.",
+  "Đỗ Lộc Giang": "Mong anh có những ngày làm việc thuận lợi và nghỉ ngơi thoải mái.",
+  "Nguyễn Khắc Duy": "Mong anh luôn bền bỉ với những mục tiêu mình lựa chọn.",
+  "Nguyễn Minh Trường": "Cảm ơn anh vì sự đồng hành và những định hướng tâm huyết.",
+  "Hoàng Trung Việt": "Mong Chú luôn có những ngày an vui và nhiều điều đáng quý.",
+  "Nguyễn Nhật Trung": "Mong anh luôn tự tin đón nhận những cơ hội mới.",
+  "Đỗ Ngọc Dũng": "Mong anh luôn mạnh khỏe và vững vàng trên chặng đường tới.",
+  "Phạm Đình Hùng": "Mong anh có thật nhiều kỷ niệm vui bên gia đình.",
+  "Trần Thái Dương": "Mong anh luôn giữ được nguồn năng lượng tích cực.",
+  "Ngô Hoàng Sang": "Mong anh có nhiều điều thú vị để mong chờ mỗi ngày.",
+  "Nguyễn Lam Trường": "Mong anh luôn hứng khởi với điều mình yêu thích.",
+  "Trần Khánh Duy": "Mong anh có thêm những trải nghiệm ý nghĩa và đáng nhớ.",
+  "Huỳnh Kiết Lê": "Mong anh luôn mạnh khỏe và có những ngày thật thuận lợi.",
+  "Nguyễn Dũng": "Mong anh luôn bình an, kiên định và nhiều niềm vui.",
+  "Trần Thanh": "Mong anh luôn tự tin và có thật nhiều điều đáng mỉm cười.",
+  "Huỳnh Quốc Hào": "Mong anh có thêm nhiều cơ hội tốt và năng lượng tích cực.",
+  "Phạm Minh Thông": "Mong anh có thêm nhiều cơ hội học hỏi và phát triển.",
+  "Lương Nguyễn Hà Bình": "Mong anh có thêm những khoảnh khắc bình yên, vui vẻ.",
+  "Lê Minh Hòa": "Mong anh luôn có những người đồng hành đáng quý.",
+  "Nguyễn Danh Hoài Bảo": "Mong anh luôn tự tin theo đuổi mục tiêu của mình.",
+  "Trần Thắng": "Mong anh luôn vững vàng và có nhiều trải nghiệm đáng nhớ.",
+  "Nguyễn Minh Quân": "Mong anh luôn hào hứng với những thử thách mới.",
+  "Đỗ Hoàng Phúc": "Mong anh luôn giữ được sự bền bỉ và nhiệt tình.",
+  "Lê Tiến Duy": "Mong anh có thêm nhiều trải nghiệm và cơ hội khám phá.",
+  "Nguyễn Minh Quang": "Mong anh có những bước tiến khiến mình tự hào.",
+  "Võ Minh Tân": "Cảm ơn anh vì sự đồng hành và những định hướng đáng quý."
 };
 
-/* ============================================
-   18 LỜI CHÚC HOÀN TOÀN KHÁC NHAU
-
-   KHÔNG PHẢI CHỈ THAY MỞ ĐẦU.
-   MỖI LẦN MỞ LÀ MỘT NỘI DUNG KHÁC.
-============================================ */
-
-const WISH_POOL=[
-"Chúc anh có một ngày 19/11 thật vui và đáng nhớ. Mong công việc luôn thuận lợi, cuộc sống có thêm nhiều niềm vui và mỗi ngày đều có một điều nhỏ xinh khiến anh mỉm cười.",
-
-"Nhân ngày Quốc tế Nam giới, chúc anh luôn khỏe mạnh, vui vẻ và gặp nhiều may mắn. Mong anh có thêm nhiều cơ hội tốt, những người đồng hành tuyệt vời và thật nhiều thời gian cho những điều mình yêu thích.",
-
-"Hôm nay là một dịp đặc biệt để gửi đến anh lời cảm ơn chân thành. Chúc anh luôn tự tin, giữ được tinh thần tích cực và có thêm nhiều khoảnh khắc đáng nhớ bên gia đình, bạn bè và đồng nghiệp.",
-
-"Chúc anh một ngày thật nhẹ nhàng, công việc suôn sẻ và những kế hoạch sắp tới đều tiến triển tốt đẹp. Mong niềm vui không chỉ đến trong ngày 19/11 mà còn xuất hiện trong rất nhiều ngày bình thường khác.",
-
-"Nhân ngày của các anh, chúc anh luôn giữ được phong độ, sự nhiệt tình và một tinh thần thật thoải mái. Mong anh có đủ năng lượng để theo đuổi mục tiêu và đủ thời gian để tận hưởng những điều giản dị trong cuộc sống.",
-
-"Chúc anh luôn có những buổi sáng đầy hứng khởi, những ngày làm việc hiệu quả và những buổi tối thật bình yên. Mong mọi điều tốt đẹp sẽ đến theo cách tự nhiên và đáng nhớ nhất.",
-
-"Một lời chúc nhỏ gửi đến anh trong ngày đặc biệt. Mong anh luôn mạnh khỏe, tự tin, có nhiều điều để mong chờ và luôn tìm thấy niềm vui trong cả những khoảnh khắc rất đỗi bình thường.",
-
-"Chúc anh có thật nhiều sức khỏe để thực hiện những dự định còn đang ấp ủ. Mong công việc có thêm những bước tiến mới, cuộc sống nhiều trải nghiệm thú vị và mỗi chặng đường đều có người đồng hành đáng quý.",
-
-"Nhân ngày 19/11, chúc anh có thêm thật nhiều lý do để mỉm cười. Mong những cố gắng của anh được ghi nhận, những kế hoạch được thực hiện thuận lợi và những ngày nghỉ luôn đủ dài để nạp lại năng lượng.",
-
-"Chúc anh luôn vui vẻ, mạnh khỏe và giữ được sự hào hứng với những điều mình lựa chọn. Mong hành trình phía trước có nhiều cơ hội mới, nhiều kỷ niệm đẹp và cả những bất ngờ dễ thương.",
-
-"Ngày đặc biệt của các anh đã đến. Chúc anh luôn có một tinh thần thật tốt, những đồng đội đáng mến và một cuộc sống cân bằng. Mong những điều nhỏ bé mỗi ngày cũng đủ mang lại niềm vui.",
-
-"Chúc anh luôn vững vàng khi cần, thoải mái khi có thể và vui vẻ trong những khoảnh khắc đời thường. Mong mọi dự định đều có thêm những bước tiến tốt đẹp và những nỗ lực luôn mang đến kết quả xứng đáng.",
-
-"Nhân ngày Quốc tế Nam giới, gửi đến anh lời chúc thật nhiều sức khỏe và bình an. Mong anh có thêm những trải nghiệm đáng nhớ, những cuộc gặp gỡ thú vị và những niềm vui đến thật bất ngờ.",
-
-"Chúc anh luôn giữ được sự tự tin và tinh thần tích cực trong mỗi ngày làm việc. Mong những thử thách trở thành cơ hội học hỏi, những thành công trở thành động lực và cuộc sống luôn có nhiều điều đáng trân trọng.",
-
-"Mong ngày 19/11 của anh có nhiều tiếng cười, những lời chúc dễ thương và một chút bất ngờ thú vị. Chúc anh luôn mạnh khỏe, công việc thuận lợi và có thêm nhiều khoảnh khắc đẹp trong năm nay.",
-
-"Chúc anh một ngày thật trọn vẹn với những điều giản dị mà đáng quý. Mong anh luôn có sức khỏe, niềm vui, sự bình an và thật nhiều cơ hội để thực hiện những kế hoạch mình mong muốn.",
-
-"Nhân dịp đặc biệt này, chúc anh luôn gặp những điều thuận lợi và giữ được tinh thần lạc quan. Mong mỗi tuần đều có một niềm vui mới, mỗi tháng đều có một kỷ niệm đẹp và mỗi năm đều có những dấu mốc đáng tự hào.",
-
-"Chúc anh luôn có đủ sự kiên trì để theo đuổi mục tiêu, đủ sự thoải mái để tận hưởng cuộc sống và đủ niềm vui để mỗi ngày đều trở nên đáng nhớ. Cảm ơn anh vì đã đồng hành cùng tập thể."
-];
-
-/* ============================================
+/* ================================
    CẤU HÌNH CHUNG
-============================================ */
+================================ */
 
-const $=id=>document.getElementById(id);
+const $ = id => document.getElementById(id);
 
-const SCREENS=[
-"intro","slides","name","heart","greeting"
+const SCREENS = [
+  "intro",
+  "slides",
+  "name",
+  "heart",
+  "greeting"
 ];
 
-let slideIndex=0;
-let timer=null;
-let playing=true;
-let visitor="";
-let matchedEmployee="";
-let selectedWish="";
-let currentWishIndex=-1;
+let slideIndex = 0;
+let slideTimer = null;
+let isAuto = true;
 
-function show(id){
-  clearTimeout(timer);
-  SCREENS.forEach(s=>{
-    $(s).classList.toggle("active",s===id);
+let visitor = "";
+let employee = "";
+let currentWish = "";
+let lastGenericIndex = -1;
+
+let wishDecks = {};
+
+function show(id) {
+  clearTimeout(slideTimer);
+
+  SCREENS.forEach(s => {
+    $(s).classList.toggle("active", s === id);
   });
-  window.scrollTo(0,0);
+
+  window.scrollTo(0, 0);
 }
 
-function toast(message){
-  const el=$("toast");
-  el.textContent=message;
-  el.hidden=false;
-  clearTimeout(toast.timer);
-  toast.timer=setTimeout(()=>el.hidden=true,3000);
+function toast(message) {
+  const el = $("toast");
+
+  el.textContent = message;
+  el.hidden = false;
+
+  clearTimeout(toast.t);
+
+  toast.t = setTimeout(() => {
+    el.hidden = true;
+  }, 3200);
 }
 
-/* ============================================
-   NHẠC
-============================================ */
+/* ================================
+   NHẠC NỀN
+================================ */
 
-const audio=$("audio");
-audio.volume=.33;
+const audio = $("audio");
+audio.volume = .33;
 
-function updateMusic(){
-  $("musicBtn").textContent=audio.paused?"Bật nhạc":"Tắt nhạc";
+function musicState() {
+  $("musicBtn").textContent =
+    audio.paused ? "Bật nhạc" : "Tắt nhạc";
 }
 
-async function playMusic(){
-  try{
+async function playMusic() {
+  try {
     await audio.play();
-  }catch(e){}
-  updateMusic();
+  } catch (e) {}
+
+  musicState();
 }
 
-$("musicBtn").onclick=async()=>{
-  if(audio.paused){
+$("musicBtn").onclick = async () => {
+  if (audio.paused) {
     await playMusic();
-  }else{
+  } else {
     audio.pause();
-    updateMusic();
+    musicState();
   }
 };
 
-/* ============================================
-   TRÌNH CHIẾU
-============================================ */
+/* ================================
+   ĐƯỜNG DẪN DỰ PHÒNG CHO POSTER
+================================ */
 
-function renderSlide(){
-  const n=String(slideIndex+1).padStart(2,"0");
-  const img=$("slideImg");
+$("posterImg").addEventListener("error", function () {
+  if (!this.dataset.retry) {
+    this.dataset.retry = "1";
+    this.src = "./POSTER%20.jpg";
+  }
+});
+
+/* ================================
+   TRÌNH CHIẾU ẢNH
+================================ */
+
+function renderSlide() {
+  const n = String(slideIndex + 1).padStart(2, "0");
+  const img = $("slideImg");
 
   img.classList.remove("reveal");
-  img.hidden=false;
-  $("photoError").hidden=true;
+  img.hidden = false;
+  $("photoError").hidden = true;
 
-  img.onload=()=>{
-    img.hidden=false;
-    $("photoError").hidden=true;
+  img.onload = () => {
+    img.hidden = false;
+    $("photoError").hidden = true;
+
     void img.offsetWidth;
     img.classList.add("reveal");
   };
 
-  img.onerror=()=>{
-    img.hidden=true;
-    $("photoError").hidden=false;
-    $("photoError").textContent=
-      "Chưa tìm thấy ảnh "+n+".jpg.";
+  img.onerror = () => {
+    img.hidden = true;
+    $("photoError").hidden = false;
+    $("photoError").textContent =
+      "Không tìm thấy ảnh " + n +
+      ".jpg. Vui lòng kiểm tra tên file trên GitHub.";
   };
 
-  img.src="./"+n+".jpg";
+  img.src = "./" + n + ".jpg";
 
-  $("photoCount").textContent=n+" / 19";
-  $("storyTitle").textContent=STORIES[slideIndex][0];
-  $("storyText").textContent=STORIES[slideIndex][1];
-  $("progressFill").style.width=((slideIndex+1)/19*100)+"%";
+  $("storyTitle").textContent =
+    STORIES[slideIndex][0];
 
-  $("prevBtn").disabled=slideIndex===0;
+  $("storyText").textContent =
+    STORIES[slideIndex][1];
 
-  $("nextBtn").textContent=slideIndex===18
-    ?"Nhận thông điệp tiếp theo"
-    :"Ảnh tiếp theo";
+  $("progressFill").style.width =
+    ((slideIndex + 1) / STORIES.length * 100) + "%";
 
-  clearTimeout(timer);
+  $("prevBtn").disabled = slideIndex === 0;
 
-  if(playing){
-    timer=setTimeout(nextSlide,8000);
+  $("nextBtn").textContent =
+    slideIndex === STORIES.length - 1
+      ? "Xem điều bất ngờ"
+      : "Ảnh tiếp theo";
+
+  clearTimeout(slideTimer);
+
+  if (isAuto) {
+    slideTimer = setTimeout(nextSlide, 8000);
   }
 }
 
-function nextSlide(){
-  if(slideIndex<18){
+function nextSlide() {
+  if (slideIndex < STORIES.length - 1) {
     slideIndex++;
     renderSlide();
-  }else{
+  } else {
     show("name");
   }
 }
 
-function previousSlide(){
-  if(slideIndex>0){
+function prevSlide() {
+  if (slideIndex > 0) {
     slideIndex--;
     renderSlide();
   }
 }
 
-$("startBtn").onclick=()=>{
+function pauseState() {
+  $("pauseBtn").textContent =
+    isAuto ? "Tạm dừng" : "Tiếp tục";
+
+  $("slideStatus").textContent =
+    isAuto
+      ? "Ảnh tự chuyển sau 8 giây."
+      : "Đã tạm dừng tự chuyển ảnh.";
+}
+
+$("startBtn").onclick = () => {
   show("slides");
-  slideIndex=0;
-  playing=true;
-  updatePause();
+
+  slideIndex = 0;
+  isAuto = true;
+
+  pauseState();
   renderSlide();
   playMusic();
 };
 
-$("nextBtn").onclick=nextSlide;
-$("prevBtn").onclick=previousSlide;
+$("nextBtn").onclick = nextSlide;
+$("prevBtn").onclick = prevSlide;
 
-function updatePause(){
-  $("pauseBtn").textContent=playing?"Tạm dừng":"Tiếp tục";
-  $("slideStatus").textContent=playing
-    ?"Tự chuyển ảnh sau 8 giây."
-    :"Đã tạm dừng tự chuyển ảnh.";
-}
-
-$("pauseBtn").onclick=()=>{
-  playing=!playing;
-  updatePause();
+$("pauseBtn").onclick = () => {
+  isAuto = !isAuto;
+  pauseState();
   renderSlide();
 };
 
-let touchStart=null;
+/* VUỐT ẢNH TRÊN ĐIỆN THOẠI */
 
-$("photoStage").addEventListener("touchstart",e=>{
-  touchStart=e.changedTouches[0].screenX;
-},{passive:true});
+let touchStart = null;
 
-$("photoStage").addEventListener("touchend",e=>{
-  if(touchStart===null)return;
+$("photoStage").addEventListener(
+  "touchstart",
+  e => {
+    touchStart = e.changedTouches[0].screenX;
+  },
+  { passive: true }
+);
 
-  const dx=e.changedTouches[0].screenX-touchStart;
+$("photoStage").addEventListener(
+  "touchend",
+  e => {
+    if (touchStart === null) return;
 
-  if(dx < -55)nextSlide();
-  if(dx > 55)previousSlide();
+    const dx =
+      e.changedTouches[0].screenX - touchStart;
 
-  touchStart=null;
-},{passive:true});
+    if (dx < -55) nextSlide();
+    if (dx > 55) prevSlide();
 
-/* ============================================
-   TÌM TÊN NHÂN SỰ
-============================================ */
+    touchStart = null;
+  },
+  { passive: true }
+);
 
-function normalizeName(value){
-  return value.replace(/\s+/g," ").trim();
+/* ================================
+   NHẬN DIỆN TÊN NHÂN SỰ
+================================ */
+
+function norm(v) {
+  return v.replace(/\s+/g, " ").trim();
 }
 
-function searchKey(value){
-  return normalizeName(value)
+function key(v) {
+  return norm(v)
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .replace(/đ/gi,"d")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/gi, "d")
     .toLowerCase();
 }
 
-function findEmployee(input){
-  const key=searchKey(input);
+function findEmployee(input) {
+  const k = key(input);
 
-  if(!key)return {name:null,ambiguous:false};
-
-  const exact=TEAM_NAMES.filter(name=>
-    searchKey(name)===key
-  );
-
-  if(exact.length===1){
-    return {name:exact[0],ambiguous:false};
+  if (!k) {
+    return { name: null, ambiguous: false };
   }
 
-  const partial=TEAM_NAMES.filter(name=>{
-    const full=searchKey(name);
-    const words=full.split(" ");
+  const exact = TEAM_NAMES.filter(
+    n => key(n) === k
+  );
 
-    return full.endsWith(" "+key) ||
-      words.includes(key);
+  if (exact.length === 1) {
+    return {
+      name: exact[0],
+      ambiguous: false
+    };
+  }
+
+  const partial = TEAM_NAMES.filter(n => {
+    const name = key(n);
+    const words = name.split(" ");
+
+    return name.endsWith(" " + k) || words.includes(k);
   });
 
-  if(partial.length===1){
-    return {name:partial[0],ambiguous:false};
+  if (partial.length === 1) {
+    return {
+      name: partial[0],
+      ambiguous: false
+    };
   }
 
-  if(partial.length>1){
-    return {name:null,ambiguous:true};
-  }
-
-  return {name:null,ambiguous:false};
+  return {
+    name: null,
+    ambiguous: partial.length > 1
+  };
 }
 
-/* ============================================
-   TRÁI TIM 33 TÊN
+function recipientText() {
+  return employee === "Hoàng Trung Việt"
+    ? "Gửi đến Chú Việt"
+    : "Gửi đến Anh trai " + visitor;
+}
 
-   TĂNG CỠ CHỮ.
-   GIỮ KHOẢNG CÁCH VỚI VIỀN.
-   CHỮ KHÔNG CHỒNG NHAU.
-   BA LÃNH ĐẠO Ở TRUNG TÂM.
-============================================ */
+/* ================================
+   BỐ TRÍ TÊN TRONG TRÁI TIM
+================================ */
 
-const HEART_PATH=
-"M600 954 "+
-"C467 855 93 592 93 342 "+
-"C93 105 387 85 600 289 "+
-"C813 85 1107 105 1107 342 "+
-"C1107 592 733 855 600 954 Z";
+const HEART_PATH =
+  "M700 955 " +
+  "C575 875 75 660 110 343 " +
+  "C110 104 453 85 700 289 " +
+  "C947 85 1290 104 1290 343 " +
+  "C1325 660 825 875 700 955 Z";
 
-/*
-  30 TÊN THƯỜNG:
-  2 + 3 + 4 + 4 + 4 + 4 + 3 + 3 + 2 + 1 = 30
-
-  CÁC HÀNG TRÊN XUỐNG DƯỚI.
-  CHỪA HÀNG GIỮA CHO 3 LÃNH ĐẠO.
-*/
-
-const ROW_PLAN=[
-  {y:245,count:2},
-  {y:310,count:3},
-  {y:375,count:4},
-  {y:535,count:4},
-  {y:595,count:4},
-  {y:655,count:4},
-  {y:715,count:3},
-  {y:765,count:3},
-  {y:815,count:2},
-  {y:865,count:1}
+const ROW_YS = [
+  222,
+  290,
+  348,
+  410,
+  548,
+  606,
+  664,
+  720,
+  775,
+  832
 ];
 
-function makeSVG(tag){
-  return document.createElementNS(
-    "http://www.w3.org/2000/svg",tag
-  );
+const NS = "http://www.w3.org/2000/svg";
+
+function svgNode(tag) {
+  return document.createElementNS(NS, tag);
 }
 
-function measureText(ctx,text,size,weight=800){
-  ctx.font=weight+" "+size+"px Montserrat,Arial,sans-serif";
+function textWidth(ctx, text, size, leader = false) {
+  ctx.font =
+    (leader ? "900 " : "800 ") +
+    size + "px Montserrat,Arial,sans-serif";
+
   return ctx.measureText(text).width;
 }
 
-/*
-  TÌM PHẦN NẰM BÊN TRONG TRÁI TIM.
-  CHỪA KHOẢNG AN TOÀN CÁCH VIỀN.
-*/
+function safeSegments(ctx, path, y, size) {
+  let start = null;
+  const segments = [];
 
-function safeIntervals(ctx,path,y){
-  const segments=[];
-  let start=null;
+  for (let x = 0; x <= 1400; x += 2) {
+    const inside =
+      ctx.isPointInPath(path, x, y - size - 14) &&
+      ctx.isPointInPath(path, x, y + 17);
 
-  for(let x=0;x<=1200;x++){
-    const inside=
-      ctx.isPointInPath(path,x,y-27) &&
-      ctx.isPointInPath(path,x,y+14);
-
-    if(inside && start===null){
-      start=x;
+    if (inside && start === null) {
+      start = x;
     }
 
-    if(!inside && start!==null){
-      segments.push([start+36,x-36]);
-      start=null;
+    if (!inside && start !== null) {
+      segments.push([start + 38, x - 38]);
+      start = null;
     }
   }
 
-  if(start!==null){
-    segments.push([start+36,1164]);
+  if (start !== null) {
+    segments.push([start + 38, 1362]);
   }
 
-  return segments.filter(s=>s[1]>s[0]);
+  return segments.filter(s => s[1] > s[0]);
 }
 
-function makeHeartText(group,name,x,y,size,leader=false){
-  const text=makeSVG("text");
+function layoutRow(ctx, path, row, size) {
+  const segs = safeSegments(ctx, path, row.y, size);
 
-  text.setAttribute("x",x.toFixed(2));
-  text.setAttribute("y",y.toFixed(2));
-  text.setAttribute("text-anchor","middle");
-  text.setAttribute("font-size",size.toFixed(2));
-  text.setAttribute(
-    "class",
-    leader?"heart-name leader":"heart-name"
+  const widths = row.names.map(name =>
+    textWidth(ctx, name, size)
   );
 
-  text.textContent=name;
+  if (row.split) {
+    if (segs.length < 2) return null;
 
-  const title=makeSVG("title");
-  title.textContent=name;
-  text.appendChild(title);
-
-  group.appendChild(text);
-}
-
-/*
-  HAI TÊN Ở HÀNG ĐẦU NẰM TRÊN HAI NỬA TIM.
-  CÁC HÀNG KHÁC CĂN ĐỀU THEO CHIỀU NGANG.
-*/
-
-function getRowLayout(ctx,path,row,size){
-  const intervals=safeIntervals(ctx,path,row.y);
-  const widths=row.names.map(n=>measureText(ctx,n,size));
-
-  if(row.y===245){
-    if(intervals.length<2)return null;
-
-    const positions=[];
-
-    for(let i=0;i<2;i++){
-      const [a,b]=intervals[i];
-      if(widths[i]>b-a)return null;
-      positions.push((a+b)/2);
+    if (
+      widths.some((w, i) =>
+        !segs[i] || w > segs[i][1] - segs[i][0]
+      )
+    ) {
+      return null;
     }
 
-    return positions;
+    return row.names.map(
+      (_, i) => (segs[i][0] + segs[i][1]) / 2
+    );
   }
 
-  const segment=intervals
-    .sort((a,b)=>(b[1]-b[0])-(a[1]-a[0]))[0];
+  const segment = segs.sort(
+    (a, b) =>
+      (b[1] - b[0]) - (a[1] - a[0])
+  )[0];
 
-  if(!segment)return null;
+  if (!segment) return null;
 
-  const [left,right]=segment;
-  const total=widths.reduce((a,b)=>a+b,0);
+  const [a, b] = segment;
 
-  const minimumGap=19;
-  const required=total+(row.names.length-1)*minimumGap;
+  const sum = widths.reduce(
+    (x, y) => x + y,
+    0
+  );
 
-  if(required>right-left)return null;
+  const minGap = 21;
 
-  const gap=(right-left-total)/(row.names.length+1);
+  if (
+    sum + minGap * (widths.length - 1) > b - a
+  ) {
+    return null;
+  }
 
-  let x=left+gap;
-  const positions=[];
+  const gap =
+    (b - a - sum) / (widths.length + 1);
 
-  row.names.forEach((name,i)=>{
-    positions.push(x+widths[i]/2);
-    x+=widths[i]+gap;
+  let x = a + gap;
+
+  return widths.map(w => {
+    const result = x + w / 2;
+    x += w + gap;
+
+    return result;
   });
-
-  return positions;
 }
 
-function renderHeartNames(){
-  const group=$("heartNames");
+function appendText(
+  group,
+  name,
+  x,
+  y,
+  size,
+  leader = false
+) {
+  const t = svgNode("text");
+
+  t.setAttribute("x", x.toFixed(2));
+  t.setAttribute("y", y.toFixed(2));
+
+  t.setAttribute("text-anchor", "middle");
+  t.setAttribute("font-size", size.toFixed(2));
+
+  t.setAttribute(
+    "class",
+    leader
+      ? "heart-name leader"
+      : "heart-name"
+  );
+
+  t.textContent = name;
+
+  const title = svgNode("title");
+  title.textContent = name;
+
+  t.appendChild(title);
+  group.appendChild(t);
+}
+
+/* TỰ ĐIỀU CHỈNH KHOẢNG CÁCH VÀ CỠ CHỮ */
+
+function renderHeart() {
+  const group = $("heartNames");
   group.replaceChildren();
 
-  const ctx=document.createElement("canvas").getContext("2d");
-  const path=new Path2D(HEART_PATH);
+  const ctx = document
+    .createElement("canvas")
+    .getContext("2d");
 
-  let cursor=0;
+  const path = new Path2D(HEART_PATH);
 
-  const rows=ROW_PLAN.map(row=>{
-    const names=NORMAL_NAMES.slice(
-      cursor,cursor+row.count
-    );
+  function distribute(size) {
+    const memo = new Map();
 
-    cursor+=row.count;
+    function solve(rowIndex, nameIndex) {
+      if (rowIndex === ROW_YS.length) {
+        return nameIndex === NORMAL_NAMES.length
+          ? []
+          : null;
+      }
 
-    return {...row,names};
-  });
+      const id = rowIndex + "-" + nameIndex;
 
-  /*
-    CỠ CHỮ CHUNG, KHÔNG CÓ TÊN TO TÊN NHỎ.
-    TỰ TÌM CỠ CHỮ LỚN NHẤT VẪN VỪA.
-  */
+      if (memo.has(id)) {
+        return memo.get(id);
+      }
 
-  let normalSize=24;
-  let layouts=[];
+      const min = rowIndex < 2 ? 2 : 1;
+      const max = rowIndex < 2 ? 2 : 6;
 
-  while(normalSize>=13){
-    layouts=rows.map(row=>
-      getRowLayout(ctx,path,row,normalSize)
-    );
+      let best = null;
+      let bestCost = Infinity;
 
-    if(layouts.every(Boolean))break;
+      for (let count = min; count <= max; count++) {
+        if (
+          nameIndex + count > NORMAL_NAMES.length
+        ) {
+          continue;
+        }
 
-    normalSize-=.25;
+        const row = {
+          y: ROW_YS[rowIndex],
+          split: rowIndex < 2,
+          names: NORMAL_NAMES.slice(
+            nameIndex,
+            nameIndex + count
+          )
+        };
+
+        const positions = layoutRow(
+          ctx,
+          path,
+          row,
+          size
+        );
+
+        if (!positions) continue;
+
+        const tail = solve(
+          rowIndex + 1,
+          nameIndex + count
+        );
+
+        if (!tail) continue;
+
+        const ideal = [
+          2, 2, 4, 4, 4, 4, 3, 3, 2, 1
+        ][rowIndex];
+
+        const cost =
+          Math.pow(count - ideal, 2) +
+          tail.reduce(
+            (sum, r) => sum + r.cost,
+            0
+          );
+
+        if (cost < bestCost) {
+          bestCost = cost;
+
+          best = [
+            {
+              ...row,
+              positions,
+              cost: Math.pow(count - ideal, 2)
+            },
+            ...tail
+          ];
+        }
+      }
+
+      memo.set(id, best);
+      return best;
+    }
+
+    return solve(0, 0);
   }
 
-  rows.forEach((row,i)=>{
-    const positions=layouts[i];
+  let size = 28;
+  let rows = null;
 
-    if(!positions)return;
+  while (size >= 17) {
+    rows = distribute(size);
 
-    row.names.forEach((name,j)=>{
-      makeHeartText(
+    if (rows) break;
+
+    size -= .25;
+  }
+
+  if (!rows) {
+    console.warn(
+      "Không đủ không gian để vẽ các tên."
+    );
+    return;
+  }
+
+  rows.forEach(row => {
+    row.names.forEach((name, i) => {
+      appendText(
         group,
         name,
-        positions[j],
+        row.positions[i],
         row.y,
-        normalSize
+        size
       );
     });
   });
 
-  /*
-    BA LÃNH ĐẠO ĐƯỢC GIỮ Ở TRUNG TÂM.
-    DÙNG CÙNG MỘT CỠ CHỮ VỚI NHAU.
-  */
+  /* BA TÊN LÃNH ĐẠO Ở GIỮA */
 
-  const bossY=465;
-  const bossInterval=safeIntervals(ctx,path,bossY)
-    .sort((a,b)=>(b[1]-b[0])-(a[1]-a[0]))[0];
+  const bossY = 487;
 
-  if(!bossInterval)return;
+  let bossSize = Math.max(size + 3, 28);
+  let bossSeg = null;
+  let widths = [];
 
-  const [left,right]=bossInterval;
-  const available=right-left;
+  while (bossSize >= 20) {
+    bossSeg = safeSegments(
+      ctx,
+      path,
+      bossY,
+      bossSize
+    ).sort(
+      (a, b) =>
+        (b[1] - b[0]) - (a[1] - a[0])
+    )[0];
 
-  let bossSize=Math.max(normalSize+3,24);
-  let bossWidths=[];
-
-  while(bossSize>=17){
-    bossWidths=LEADERS.map(name=>
-      measureText(ctx,name,bossSize,900)+22
+    widths = LEADERS.map(name =>
+      textWidth(ctx, name, bossSize, true) + 30
     );
 
-    const total=bossWidths.reduce((a,b)=>a+b,0);
+    if (
+      bossSeg &&
+      widths.reduce((a, b) => a + b, 0) + 65 <=
+      bossSeg[1] - bossSeg[0]
+    ) {
+      break;
+    }
 
-    if(total+3*15<=available)break;
-    bossSize-=.25;
+    bossSize -= .25;
   }
 
-  const total=bossWidths.reduce((a,b)=>a+b,0);
-  const gap=(available-total)/4;
-
-  let currentX=left+gap;
-
-  LEADERS.forEach((name,i)=>{
-    const width=bossWidths[i];
-    const center=currentX+width/2;
-
-    const rect=makeSVG("rect");
-    rect.setAttribute("x",(center-width/2).toFixed(2));
-    rect.setAttribute("y",(bossY-bossSize-10).toFixed(2));
-    rect.setAttribute("width",width.toFixed(2));
-    rect.setAttribute("height",(bossSize+21).toFixed(2));
-    rect.setAttribute("rx","11");
-    rect.setAttribute("class","leader-plate");
-    group.appendChild(rect);
-
-    makeHeartText(
-      group,name,center,bossY,bossSize,true
+  if (bossSeg) {
+    const total = widths.reduce(
+      (a, b) => a + b,
+      0
     );
 
-    currentX+=width+gap;
-  });
-}
+    const gap =
+      (bossSeg[1] - bossSeg[0] - total) / 4;
 
-/* ============================================
-   LỜI CHÚC THAY ĐỔI THỰC SỰ
+    let x = bossSeg[0] + gap;
 
-   MỖI LẦN:
-   - ĐỔI TÊN.
-   - NHẤN TRÁI TIM.
-   - QUAY LẠI RỒI NHẤN TIẾP.
-   - NHẤN NHẬN LỜI CHÚC KHÁC.
+    LEADERS.forEach((name, i) => {
+      const center = x + widths[i] / 2;
 
-   ĐỀU SINH LỜI CHÚC MỚI.
-============================================ */
+      const plate = svgNode("rect");
 
-function storageKey(name){
-  return "mensday-wish-v3-"+searchKey(name);
-}
+      plate.setAttribute(
+        "x",
+        (center - widths[i] / 2).toFixed(2)
+      );
 
-/*
-  MỖI NHÂN SỰ CÓ THỨ TỰ LỜI CHÚC RIÊNG.
-  KHÔNG LẶP LẠI CHO ĐẾN KHI ĐI HẾT 18 CÂU.
-  LƯU TRÊN TRÌNH DUYỆT.
-*/
+      plate.setAttribute(
+        "y",
+        (bossY - bossSize - 11).toFixed(2)
+      );
 
-const memoryDecks={};
+      plate.setAttribute(
+        "width",
+        widths[i].toFixed(2)
+      );
 
-function shuffleArray(arr){
-  const copy=[...arr];
+      plate.setAttribute(
+        "height",
+        (bossSize + 23).toFixed(2)
+      );
 
-  for(let i=copy.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [copy[i],copy[j]]=[copy[j],copy[i]];
+      plate.setAttribute("rx", "12");
+      plate.setAttribute("class", "leader-plate");
+
+      group.appendChild(plate);
+
+      appendText(
+        group,
+        name,
+        center,
+        bossY,
+        bossSize,
+        true
+      );
+
+      x += widths[i] + gap;
+    });
   }
-
-  return copy;
 }
 
-function getDeck(name){
-  const key=storageKey(name);
+/* ================================
+   LỜI CHÚC THAY ĐỔI MỖI LẦN MỞ
+================================ */
 
-  if(memoryDecks[key]){
-    return memoryDecks[key];
-  }
+function shuffled(indices) {
+  const x = [...indices];
 
-  let saved=null;
-
-  try{
-    saved=JSON.parse(localStorage.getItem(key));
-  }catch(e){}
-
-  const valid=saved &&
-    Array.isArray(saved.remaining) &&
-    saved.remaining.every(i=>
-      Number.isInteger(i) &&
-      i>=0 &&
-      i<WISH_POOL.length
-    ) &&
-    saved.remaining.length<=WISH_POOL.length;
-
-  memoryDecks[key]=valid
-    ? saved
-    : {remaining:[],last:-1};
-
-  return memoryDecks[key];
-}
-
-function nextWishIndex(name){
-  const deck=getDeck(name);
-
-  if(deck.remaining.length===0){
-    deck.remaining=shuffleArray(
-      WISH_POOL.map((_,i)=>i)
+  for (let i = x.length - 1; i > 0; i--) {
+    const j = Math.floor(
+      Math.random() * (i + 1)
     );
 
-    /*
-      KHI BẮT ĐẦU VÒNG MỚI,
-      TRÁNH TRÙNG CÂU VỪA HIỂN THỊ.
-    */
+    [x[i], x[j]] = [x[j], x[i]];
+  }
 
-    if(
-      deck.remaining.length>1 &&
-      deck.remaining[0]===deck.last
-    ){
-      [deck.remaining[0],deck.remaining[1]]=
-      [deck.remaining[1],deck.remaining[0]];
+  return x;
+}
+
+function nextWish() {
+  const pool =
+    employee === "Hoàng Trung Việt"
+      ? UNCLE_WISHES
+      : LEADERS.includes(employee)
+        ? LEADER_WISHES
+        : WISH_POOL;
+
+  const storageKey =
+    "mensday-19-11-v5-" +
+    key(employee || visitor);
+
+  if (!wishDecks[storageKey]) {
+    try {
+      wishDecks[storageKey] =
+        JSON.parse(
+          localStorage.getItem(storageKey)
+        ) || null;
+    } catch (e) {}
+
+    if (
+      !wishDecks[storageKey] ||
+      !Array.isArray(
+        wishDecks[storageKey].remaining
+      )
+    ) {
+      wishDecks[storageKey] = {
+        remaining: [],
+        last: -1
+      };
     }
   }
 
-  const index=deck.remaining.shift();
-  deck.last=index;
+  const deck = wishDecks[storageKey];
 
-  try{
+  deck.remaining = deck.remaining.filter(
+    i =>
+      Number.isInteger(i) &&
+      i >= 0 &&
+      i < pool.length
+  );
+
+  if (!deck.remaining.length) {
+    deck.remaining = shuffled(
+      pool.map((_, i) => i)
+    );
+
+    if (
+      deck.remaining.length > 1 &&
+      deck.remaining[0] === deck.last
+    ) {
+      [
+        deck.remaining[0],
+        deck.remaining[1]
+      ] = [
+        deck.remaining[1],
+        deck.remaining[0]
+      ];
+    }
+  }
+
+  if (
+    pool === WISH_POOL &&
+    deck.remaining.length > 1 &&
+    deck.remaining[0] === lastGenericIndex
+  ) {
+    const candidate =
+      deck.remaining.findIndex(
+        i => i !== lastGenericIndex
+      );
+
+    if (candidate > 0) {
+      [
+        deck.remaining[0],
+        deck.remaining[candidate]
+      ] = [
+        deck.remaining[candidate],
+        deck.remaining[0]
+      ];
+    }
+  }
+
+  const index = deck.remaining.shift();
+  deck.last = index;
+
+  if (pool === WISH_POOL) {
+    lastGenericIndex = index;
+  }
+
+  try {
     localStorage.setItem(
-      storageKey(name),
+      storageKey,
       JSON.stringify(deck)
     );
-  }catch(e){}
+  } catch (e) {}
 
-  return index;
+  const note = PERSONAL_NOTES[employee];
+
+  currentWish =
+    pool[index] +
+    (note ? "\n\n" + note : "");
+
+  return currentWish;
 }
 
-function composeWish(name){
-  const index=nextWishIndex(name);
-  currentWishIndex=index;
+/* ================================
+   XỬ LÝ TÊN NGƯỜI NHẬP
+================================ */
 
-  const main=WISH_POOL[index];
-  const note=PERSONAL_NOTES[name];
+async function submitName() {
+  const input = norm(
+    $("nameInput").value
+  );
 
-  /*
-    CHÚ VIỆT DÙNG XƯNG HÔ RIÊNG.
-    CÁC LÃNH ĐẠO CÓ CÂU CHÚC TRANG TRỌNG.
-  */
-
-  if(name==="Hoàng Trung Việt"){
-    const respectful=[
-      "Nhân ngày Quốc tế Nam giới, chúng con kính chúc Chú luôn dồi dào sức khỏe, bình an và nhiều niềm vui. Mong Chú luôn có những ngày thật ý nghĩa bên gia đình và tập thể.",
-      "Kính chúc Chú một ngày 19/11 thật vui và ấm áp. Mong mọi kế hoạch tâm huyết của Chú đều thuận lợi, cuộc sống có thêm nhiều khoảnh khắc đáng quý.",
-      "Nhân dịp đặc biệt này, kính chúc Chú luôn mạnh khỏe, vui vẻ và vạn sự như ý. Mong những điều tốt đẹp sẽ luôn đồng hành cùng Chú trong công việc và cuộc sống.",
-      "Gửi đến Chú lời chúc sức khỏe và sự trân trọng chân thành. Mong Chú luôn giữ được niềm vui, sự an nhiên và có thêm nhiều thành công trong những dự định phía trước.",
-      "Chúc Chú có một ngày Quốc tế Nam giới thật nhiều niềm vui. Mong công việc luôn thuận buồm xuôi gió, gia đình bình an và mỗi ngày đều có những điều đáng quý."
-    ];
-
-    return respectful[index%respectful.length]+
-      "\n\n"+note;
-  }
-
-  if(LEADERS.includes(name)){
-    const respectful=[
-      "Nhân ngày Quốc tế Nam giới, kính chúc anh luôn mạnh khỏe, nhiều niềm vui và gặp thật nhiều thuận lợi. Mong những kế hoạch tâm huyết tiếp tục mang đến những kết quả tốt đẹp.",
-      "Kính chúc anh một ngày 19/11 thật ý nghĩa. Mong anh luôn giữ được sự vững vàng, tinh thần tích cực và có thêm nhiều thành công trong công việc cũng như cuộc sống.",
-      "Nhân dịp đặc biệt này, chúc anh luôn dồi dào sức khỏe, bình an và nhiều may mắn. Mong những dự định phía trước luôn diễn ra thuận lợi và mang đến nhiều niềm vui.",
-      "Chúc anh có một ngày Quốc tế Nam giới thật vui và đáng nhớ. Mong mỗi chặng đường đều có những người đồng hành đáng quý và những thành quả đáng tự hào.",
-      "Gửi đến anh lời chúc chân thành nhân ngày 19/11. Mong anh luôn mạnh khỏe, công việc hanh thông, cuộc sống nhiều niềm vui và những điều tốt đẹp."
-    ];
-
-    return respectful[index%respectful.length]+
-      "\n\n"+note;
-  }
-
-  /*
-    MỖI LẦN NỘI DUNG CHÍNH KHÁC NHAU.
-    CÂU RIÊNG ĐƯỢC ĐẶT SAU ĐỂ TẠO DẤU ẤN.
-  */
-
-  return main+(note?"\n\n"+note:"");
-}
-
-/* ============================================
-   NHẬP TÊN
-============================================ */
-
-async function submitName(){
-  const entered=normalizeName($("nameInput").value);
-
-  if(entered.length<2){
-    $("nameError").textContent=
-      "Anh vui lòng nhập tên từ 2 ký tự trở lên.";
+  if (input.length < 2) {
+    $("nameError").textContent =
+      "Vui lòng nhập tên từ hai ký tự trở lên.";
     return;
   }
 
-  const result=findEmployee(entered);
+  const found = findEmployee(input);
 
-  if(result.ambiguous){
-    $("nameError").textContent=
-      "Tên này trùng với nhiều anh. Anh nhập thêm họ hoặc tên đệm nhé.";
+  if (found.ambiguous) {
+    $("nameError").textContent =
+      "Tên này trùng với nhiều người. Vui lòng nhập thêm họ hoặc tên đệm.";
     return;
   }
 
-  $("nameError").textContent="";
+  $("nameError").textContent = "";
 
-  matchedEmployee=result.name||entered;
-  visitor=result.name||entered;
+  employee = found.name || input;
+  visitor = found.name || input;
 
-  if(document.fonts && document.fonts.ready){
+  if (
+    document.fonts &&
+    document.fonts.ready
+  ) {
     await document.fonts.ready;
   }
 
-  renderHeartNames();
+  renderHeart();
 
-  $("heartRecipient").textContent=
-    "Gửi đến Anh trai "+visitor;
-
-  /*
-    CHUẨN BỊ LỜI CHÚC MỚI KHI ĐỔI TÊN.
-    MỖI LẦN CHẠM TRÁI TIM LẠI ĐỔI TIẾP.
-  */
-
-  selectedWish=composeWish(matchedEmployee);
+  $("heartRecipient").textContent =
+    recipientText();
 
   show("heart");
 
-  /*
-    ĐIỆN THOẠI: ĐẶT THANH CUỘN Ở GIỮA
-    ĐỂ DỄ QUAN SÁT TRÁI TIM.
-  */
-
-  const scroll=$("heartScroll");
-
-  requestAnimationFrame(()=>{
-    scroll.scrollLeft=
-      (scroll.scrollWidth-scroll.clientWidth)/2;
+  requestAnimationFrame(() => {
+    $("heartScroll").scrollLeft =
+      (
+        $("heartScroll").scrollWidth -
+        $("heartScroll").clientWidth
+      ) / 2;
   });
 }
 
-$("createHeartBtn").onclick=submitName;
+$("createHeartBtn").onclick = submitName;
 
-$("nameInput").addEventListener("keydown",e=>{
-  if(e.key==="Enter")submitName();
-});
+$("nameInput").addEventListener(
+  "keydown",
+  e => {
+    if (e.key === "Enter") {
+      submitName();
+    }
+  }
+);
 
-$("editNameBtn").onclick=()=>show("name");
-
-/* ============================================
-   MỞ THIỆP VÀ ĐỔI LỜI CHÚC
-============================================ */
-
-function displayWish(){
-  const recipientName=matchedEmployee==="Hoàng Trung Việt"
-    ?"Gửi đến Chú Việt"
-    :"Gửi đến Anh trai "+visitor;
-
-  $("recipient").textContent=recipientName;
-  $("wishMessage").textContent=selectedWish;
-
-  show("greeting");
-}
-
-function openNewWish(){
-  /*
-    LUÔN SINH MỘT LỜI CHÚC MỚI
-    KHI CHẠM TRÁI TIM.
-  */
-
-  selectedWish=composeWish(matchedEmployee);
-
-  displayWish();
-  confetti();
-}
-
-$("heartBtn").onclick=openNewWish;
-
-$("backHeartBtn").onclick=()=>{
-  show("heart");
+$("editNameBtn").onclick = () => {
+  show("name");
 };
 
-$("anotherWishBtn").onclick=()=>{
-  selectedWish=composeWish(matchedEmployee);
-  $("wishMessage").textContent=selectedWish;
-  confetti();
-};
-
-$("restartBtn").onclick=()=>show("intro");
-
-/* ============================================
+/* ================================
    HIỆU ỨNG CHÚC MỪNG
-============================================ */
+================================ */
 
-function confetti(){
-  if(
+function confetti() {
+  if (
     window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches
-  )return;
+  ) {
+    return;
+  }
 
-  const colors=[
-    "#e2b45f",
-    "#8cc4e2",
-    "#b5e1f2",
-    "#f3dfae"
+  const colors = [
+    "#e5b967",
+    "#86c3e5",
+    "#d5ecfa",
+    "#f0dfad"
   ];
 
-  for(let i=0;i<35;i++){
-    const el=document.createElement("i");
-    el.className="confetti";
+  for (let i = 0; i < 36; i++) {
+    const part =
+      document.createElement("i");
 
-    el.style.left=Math.random()*100+"vw";
-    el.style.background=colors[i%colors.length];
+    part.className = "confetti";
 
-    el.style.setProperty(
+    part.style.left =
+      Math.random() * 100 + "vw";
+
+    part.style.background =
+      colors[i % colors.length];
+
+    part.style.setProperty(
       "--duration",
-      (1.5+Math.random()*1.6)+"s"
+      (1.5 + Math.random() * 1.4) + "s"
     );
 
-    document.body.appendChild(el);
+    document.body.appendChild(part);
 
-    setTimeout(()=>el.remove(),3500);
+    setTimeout(() => {
+      part.remove();
+    }, 3300);
   }
 }
 
-/* ============================================
+/* ================================
+   MỞ LỜI CHÚC
+================================ */
+
+function openWish() {
+  nextWish();
+
+  $("recipient").textContent =
+    recipientText();
+
+  $("wishMessage").textContent =
+    currentWish;
+
+  show("greeting");
+  confetti();
+}
+
+$("heartBtn").onclick = openWish;
+$("openWishBtn").onclick = openWish;
+
+$("anotherWishBtn").onclick = () => {
+  nextWish();
+
+  $("wishMessage").textContent =
+    currentWish;
+
+  confetti();
+};
+
+$("backHeartBtn").onclick = () => {
+  show("heart");
+};
+
+$("restartBtn").onclick = () => {
+  show("intro");
+};
+
+/* ================================
    LƯU THIỆP PNG
-============================================ */
+================================ */
 
-function wrapText(ctx,text,maxWidth){
-  const lines=[];
-  let line="";
+function wrapLines(ctx, text, maxWidth) {
+  const out = [];
+  let line = "";
 
-  for(const word of text.split(/\s+/)){
-    const test=line?line+" "+word:word;
+  for (const word of text.split(/\s+/)) {
+    const test =
+      line ? line + " " + word : word;
 
-    if(ctx.measureText(test).width>maxWidth && line){
-      lines.push(line);
-      line=word;
-    }else{
-      line=test;
+    if (
+      ctx.measureText(test).width > maxWidth &&
+      line
+    ) {
+      out.push(line);
+      line = word;
+    } else {
+      line = test;
     }
   }
 
-  if(line)lines.push(line);
+  if (line) out.push(line);
 
-  return lines;
+  return out;
 }
 
-function slug(name){
-  return searchKey(name)
-    .replace(/[^a-z0-9]+/g,"-")
-    .replace(/^-+|-+$/g,"");
+function filename(v) {
+  return key(v)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
-$("saveBtn").onclick=async()=>{
-  try{
-    if(document.fonts && document.fonts.ready){
+$("saveBtn").onclick = async () => {
+  try {
+    if (
+      document.fonts &&
+      document.fonts.ready
+    ) {
       await document.fonts.ready;
     }
 
-    const canvas=document.createElement("canvas");
-    canvas.width=1080;
-    canvas.height=1350;
+    const canvas =
+      document.createElement("canvas");
 
-    const ctx=canvas.getContext("2d");
+    canvas.width = 1080;
+    canvas.height = 1350;
 
-    const bg=ctx.createLinearGradient(
-      0,0,1080,1350
+    const c = canvas.getContext("2d");
+
+    const bg = c.createLinearGradient(
+      0,
+      0,
+      1080,
+      1350
     );
 
-    bg.addColorStop(0,"#e3f3fd");
-    bg.addColorStop(1,"#fff1dd");
+    bg.addColorStop(0, "#e5f4fd");
+    bg.addColorStop(1, "#fff0dc");
 
-    ctx.fillStyle=bg;
-    ctx.fillRect(0,0,1080,1350);
+    c.fillStyle = bg;
+    c.fillRect(0, 0, 1080, 1350);
 
-    ctx.fillStyle="white";
-    ctx.beginPath();
-    ctx.roundRect(65,80,950,1190,34);
-    ctx.fill();
+    c.fillStyle = "#fff";
+    c.beginPath();
+    c.roundRect(65, 80, 950, 1190, 34);
+    c.fill();
 
-    ctx.textAlign="center";
+    c.textAlign = "center";
 
-    ctx.fillStyle="#347da7";
-    ctx.font="800 24px Montserrat,Arial";
+    c.fillStyle = "#347da7";
+    c.font =
+      "800 24px Montserrat,Arial";
 
-    ctx.fillText(
+    c.fillText(
       "HAPPY INTERNATIONAL MEN'S DAY",
-      540,185
+      540,
+      187
     );
 
-    ctx.fillText("19/11",540,230);
+    c.fillText("19/11", 540, 230);
 
-    const displayName=
-      matchedEmployee==="Hoàng Trung Việt"
-      ?"Gửi đến Chú Việt"
-      :"Gửi đến Anh trai "+visitor;
+    const to = recipientText();
 
-    let nameSize=43;
-    let nameLines=[];
+    let titleSize = 42;
+    let titleLines = [];
 
-    do{
-      ctx.font=`800 ${nameSize}px Montserrat,Arial`;
+    do {
+      c.font =
+        `800 ${titleSize}px Montserrat,Arial`;
 
-      nameLines=wrapText(
-        ctx,displayName,790
+      titleLines = wrapLines(
+        c,
+        to,
+        790
       );
 
-      if(nameLines.length<=2)break;
+      if (titleLines.length <= 2) {
+        break;
+      }
 
-      nameSize-=2;
-    }while(nameSize>23);
+      titleSize -= 2;
 
-    ctx.fillStyle="#286b94";
+    } while (titleSize > 22);
 
-    nameLines.forEach((line,i)=>{
-      ctx.fillText(line,540,315+i*55);
+    c.fillStyle = "#286b94";
+
+    titleLines.forEach((line, i) => {
+      c.fillText(
+        line,
+        540,
+        325 + i * 54
+      );
     });
 
-    ctx.fillStyle="#235471";
-    ctx.font="800 38px Montserrat,Arial";
+    c.fillStyle = "#235471";
+    c.font =
+      "800 36px Montserrat,Arial";
 
-    ctx.fillText(
-      "Chúc anh một ngày thật vui.",
-      540,480
+    c.fillText(
+      "Một lời chúc thật nhiều niềm vui.",
+      540,
+      474
     );
 
-    const paragraphs=selectedWish
+    const paragraphs = currentWish
       .split(/\n+/)
       .filter(Boolean);
 
-    let bodySize=26;
-    let bodyLines=[];
+    let bodySize = 26;
+    let bodyLines = [];
 
-    while(bodySize>=17){
-      ctx.font=`500 ${bodySize}px Montserrat,Arial`;
-      bodyLines=[];
+    while (bodySize >= 17) {
+      c.font =
+        `500 ${bodySize}px Montserrat,Arial`;
 
-      paragraphs.forEach((paragraph,i)=>{
+      bodyLines = [];
+
+      paragraphs.forEach((paragraph, i) => {
         bodyLines.push(
-          ...wrapText(ctx,paragraph,790)
+          ...wrapLines(c, paragraph, 790)
         );
 
-        if(i<paragraphs.length-1){
+        if (
+          i < paragraphs.length - 1
+        ) {
           bodyLines.push("");
         }
       });
 
-      if(bodyLines.length*bodySize*1.65<=480){
+      if (
+        bodyLines.length * bodySize * 1.65 <= 475
+      ) {
         break;
       }
 
-      bodySize-=1;
+      bodySize -= 1;
     }
 
-    ctx.fillStyle="#4e6c7f";
-    ctx.font=`500 ${bodySize}px Montserrat,Arial`;
+    c.fillStyle = "#506c7e";
+    c.font =
+      `500 ${bodySize}px Montserrat,Arial`;
 
-    let y=570;
-    const lineHeight=bodySize*1.65;
+    let y = 570;
 
-    bodyLines.forEach(line=>{
-      if(line){
-        ctx.fillText(line,540,y);
+    bodyLines.forEach(line => {
+      if (line) {
+        c.fillText(line, 540, y);
       }
 
-      y+=lineHeight;
+      y += bodySize * 1.65;
     });
 
-    ctx.fillStyle="#d7aa64";
-    ctx.font="bold 72px Arial";
-    ctx.fillText("♡",540,1050);
+    c.fillStyle = "#d8ad68";
+    c.font = "bold 71px Arial";
 
-    ctx.fillStyle="#71899b";
-    ctx.font="700 21px Montserrat,Arial";
+    c.fillText("♡", 540, 1050);
 
-    ctx.fillText(
+    c.fillStyle = "#71889a";
+    c.font =
+      "700 21px Montserrat,Arial";
+
+    c.fillText(
       "Với tất cả sự quý mến và trân trọng.",
-      540,1140
+      540,
+      1140
     );
 
-    ctx.font="600 18px Montserrat,Arial";
+    c.font =
+      "600 18px Montserrat,Arial";
 
-    ctx.fillText(
+    c.fillText(
       "Phúc Thiện · Phúc Thịnh · 3D Tech Vision",
-      540,1185
+      540,
+      1185
     );
 
-    const link=document.createElement("a");
+    const a =
+      document.createElement("a");
 
-    link.download=
-      "thiep-19-11-"+slug(visitor)+".png";
+    a.download =
+      "thiep-19-11-" +
+      filename(visitor) +
+      ".png";
 
-    link.href=canvas.toDataURL("image/png");
-    link.click();
+    a.href = canvas.toDataURL("image/png");
+
+    a.click();
 
     toast("Đã tạo ảnh thiệp PNG.");
-  }catch(e){
-    toast("Chưa thể lưu ảnh trên trình duyệt này.");
+
+  } catch (e) {
+    toast(
+      "Chưa thể lưu ảnh trên trình duyệt này."
+    );
   }
 };
 
-/* ============================================
-   KIỂM TRA TÀI NGUYÊN
-============================================ */
-
-$("posterImg").addEventListener("error",()=>{
-  toast("Chưa tìm thấy POSTER.jpg. Vui lòng kiểm tra tên file.");
-});
-
-updateMusic();
+musicState();
 
 </script>
 </body>
